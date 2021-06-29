@@ -103,7 +103,7 @@ button :hover {
     transition: all 0.3s;
   }
   .nav__navbar.active {
-    height: 350px;
+    height: 430px;
   }
   .nav__navbar .home .logo {
     display: none;

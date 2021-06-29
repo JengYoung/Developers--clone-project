@@ -3,5 +3,5 @@ window.addEventListener('DOMContentLoaded', () => {
         const $navBar: HTMLElement = document.querySelector('.nav__navbar');
         $navBar.classList.toggle('active');
     }
-    document.querySelector('.nav__btn').addEventListener('click', openBar)
+    document.querySelector('.nav__btn').addEventListener('click', openBar);
 })

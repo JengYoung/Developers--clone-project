@@ -90,7 +90,7 @@ button {
         height: 3rem;
         transition: all 0.3s;
         &.active {
-            height: 350px;
+            height: 430px;
         }
         .home {
             .logo {
@@ -106,7 +106,6 @@ button {
             margin-top: 1rem;
             flex-direction: column;
             width: 100%;
-            // display: none;
             .menu-links,
             .auth-links {
                 padding: 0;
