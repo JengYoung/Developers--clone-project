@@ -13,13 +13,13 @@
 </head>
 <body>
     <nav class="nav__navbar">
-        <a href="#" class="home">
-            <img src="https://images.velog.io/images/young_pallete/post/5c499e3c-bb34-444c-b954-64dfefc53364/developer_logo.png" class="logo" alt="로고">
-            <img src="https://images.velog.io/images/young_pallete/post/c5ed2d9b-90f3-4eb4-8c58-822d01528f58/mobile_logo.png" class="mobile-logo" alt="모바일 로고">
+        <a href="#" class="nav__home">
+            <img src="https://images.velog.io/images/young_pallete/post/5c499e3c-bb34-444c-b954-64dfefc53364/developer_logo.png" class="nav__logo" alt="로고">
+            <img src="https://images.velog.io/images/young_pallete/post/c5ed2d9b-90f3-4eb4-8c58-822d01528f58/mobile_logo.png" class="nav__mobile-logo" alt="모바일 로고">
         </a>
         <section class="nav__links">
             <!-- 주요 메뉴 관련 링크 태그 -->
-            <ul class="menu-links">
+            <ul class="nav__menu-links">
                 <li class="menu-links__item">
                     <a href="https://programmers.co.kr/top_programmers/introduce">탑프로그래머스</a> 
                 </li>
@@ -32,7 +32,7 @@
                 <li class="menu-links__item">
                     <a href="https://programmers.co.kr/posts">테크 피드</a>
                 </li>
-                <li class="seperator"></li>
+                <li class="nav__separator"></li>
                 <li class="menu-links__item">
                     <a href="https://programmers.co.kr/learn/challenges">코딩테스트 연습</a>
                 </li>
@@ -41,7 +41,7 @@
                 </li>
             </ul>
             <!-- 인증 관련 링크 태그 -->
-            <ul class="auth-links">
+            <ul class="nav__auth-links">
                 <li class="auth-links__item">
                     <a href="https://programmers.co.kr/users/signup">계정 만들기</a>
                 </li>
@@ -55,6 +55,10 @@
         </section>
         <button class="nav__btn">
             <i class="fas fa-bars"></i>
+        </button>
+        <button class="nav__close-btn">
+            <div class="nav__upper-bar"></div>
+            <div class="nav__lower-bar"></div>
         </button>
     </nav>
     <Header class="header"></Header>

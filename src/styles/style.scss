@@ -1,4 +1,4 @@
-@import "./mediaQuery.scss";
+@import "./_mediaQuery.scss";
 @import "./_size.scss";
 @import "./_color.scss";
 
@@ -7,13 +7,16 @@ body {
     margin: 0;
     font-family: 'Noto Sans KR', sans-serif;
 }
+
 a {
     text-decoration: none;
 }
+
 ul, li {
     list-style: none;
     margin: 0;
 }
+
 button {
     border: none;
     outline: none;
@@ -31,13 +34,13 @@ button {
     // height: 3rem;
     padding: 0.125rem 1rem;
     overflow: hidden;
-    .home {
-        .logo {
+    .nav__home {
+        .nav__logo {
             // aspect-ratio: 5 / 1;
             height: 2rem;
             padding-top: 5px;
         }
-        .mobile-logo {
+        .nav__mobile-logo {
             display: none;
         }
     }
@@ -47,13 +50,13 @@ button {
         align-items: center;
         // justify-content: center;
     }
-    .menu-links,
-    .auth-links {
+    .nav__menu-links,
+    .nav__auth-links {
         display: flex;
         list-style: none;
         flex-direction: row;
         flex-wrap: wrap;
-        .seperator {
+        .nav__separator {
             width: 1px;
             height: 0.8rem;
             background-color: $separator-color;
@@ -92,11 +95,11 @@ button {
         &.active {
             height: 430px;
         }
-        .home {
-            .logo {
+        .nav__home {
+            .nav__logo {
                 display: none;
             }
-            .mobile-logo {
+            .nav__mobile-logo {
                 display: block;
                 aspect-ratio: 1 / 1;
                 height: 24px;
@@ -106,22 +109,22 @@ button {
             margin-top: 1rem;
             flex-direction: column;
             width: 100%;
-            .menu-links,
-            .auth-links {
+            .nav__menu-links,
+            .nav__auth-links {
                 padding: 0;
                 align-items: flex-start;
                 flex-direction: column;
                 width: 100%;
-                .seperator {
+                .nav__separator {
                     display: none;
                 }
-                .menu-links__item,
-                .auth-links__item {
+                .nav__menu-links__item,
+                .nav__auth-links__item {
                     padding: 0.25rem 0;
                     font-size: $font-s;
                 }
             }
-            .auth-links {
+            .nav__auth-links {
                 margin-top: 2rem;
                 border-top: 1px solid $separator-color;
             }

@@ -44,11 +44,11 @@ button :hover {
   padding: 0.125rem 1rem;
   overflow: hidden;
 }
-.nav__navbar .home .logo {
+.nav__navbar .nav__home .nav__logo {
   height: 2rem;
   padding-top: 5px;
 }
-.nav__navbar .home .mobile-logo {
+.nav__navbar .nav__home .nav__mobile-logo {
   display: none;
 }
 .nav__navbar .nav__links {
@@ -56,15 +56,15 @@ button :hover {
   flex-direction: row;
   align-items: center;
 }
-.nav__navbar .menu-links,
-.nav__navbar .auth-links {
+.nav__navbar .nav__menu-links,
+.nav__navbar .nav__auth-links {
   display: flex;
   list-style: none;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.nav__navbar .menu-links .seperator,
-.nav__navbar .auth-links .seperator {
+.nav__navbar .nav__menu-links .nav__separator,
+.nav__navbar .nav__auth-links .nav__separator {
   width: 1px;
   height: 0.8rem;
   background-color: #44576C;
@@ -105,10 +105,10 @@ button :hover {
   .nav__navbar.active {
     height: 430px;
   }
-  .nav__navbar .home .logo {
+  .nav__navbar .nav__home .nav__logo {
     display: none;
   }
-  .nav__navbar .home .mobile-logo {
+  .nav__navbar .nav__home .nav__mobile-logo {
     display: block;
     aspect-ratio: 1/1;
     height: 24px;
@@ -118,25 +118,25 @@ button :hover {
     flex-direction: column;
     width: 100%;
   }
-  .nav__navbar .nav__links .menu-links,
-.nav__navbar .nav__links .auth-links {
+  .nav__navbar .nav__links .nav__menu-links,
+.nav__navbar .nav__links .nav__auth-links {
     padding: 0;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
   }
-  .nav__navbar .nav__links .menu-links .seperator,
-.nav__navbar .nav__links .auth-links .seperator {
+  .nav__navbar .nav__links .nav__menu-links .nav__separator,
+.nav__navbar .nav__links .nav__auth-links .nav__separator {
     display: none;
   }
-  .nav__navbar .nav__links .menu-links .menu-links__item,
-.nav__navbar .nav__links .menu-links .auth-links__item,
-.nav__navbar .nav__links .auth-links .menu-links__item,
-.nav__navbar .nav__links .auth-links .auth-links__item {
+  .nav__navbar .nav__links .nav__menu-links .nav__menu-links__item,
+.nav__navbar .nav__links .nav__menu-links .nav__auth-links__item,
+.nav__navbar .nav__links .nav__auth-links .nav__menu-links__item,
+.nav__navbar .nav__links .nav__auth-links .nav__auth-links__item {
     padding: 0.25rem 0;
     font-size: 14px;
   }
-  .nav__navbar .nav__links .auth-links {
+  .nav__navbar .nav__links .nav__auth-links {
     margin-top: 2rem;
     border-top: 1px solid #44576C;
   }
