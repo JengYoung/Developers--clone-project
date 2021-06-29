@@ -5,9 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Developers | 프로그래머스 Clone site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/style.scss">
+    <script src="https://kit.fontawesome.com/e38bc06b3c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="nav__navbar"></nav>
+    <nav class="nav__navbar">
+        <a href="#" class="home">
+            <img src="https://images.velog.io/images/young_pallete/post/5c499e3c-bb34-444c-b954-64dfefc53364/developer_logo.png" class="logo" alt="로고">
+            <img src="https://images.velog.io/images/young_pallete/post/c5ed2d9b-90f3-4eb4-8c58-822d01528f58/mobile_logo.png" class="mobile-logo" alt="모바일 로고">
+        </a>
+        <section class="nav__links">
+            <!-- 주요 메뉴 관련 링크 태그 -->
+            <ul class="menu-links">
+                <li class="menu-links__item">
+                    <a href="https://programmers.co.kr/top_programmers/introduce">탑프로그래머스</a> 
+                </li>
+                <li class="menu-links__item">
+                    <a href="https://programmers.co.kr/skill_check_assignments">실력 체크</a>
+                </li>
+                <li class="menu-links__item">
+                    <a href="https://programmers.co.kr/job">개발자 채용</a>
+                </li>
+                <li class="menu-links__item">
+                    <a href="https://programmers.co.kr/posts">테크 피드</a>
+                </li>
+                <li class="seperator"></li>
+                <li class="menu-links__item">
+                    <a href="https://programmers.co.kr/learn/challenges">코딩테스트 연습</a>
+                </li>
+                <li class="menu-links__item">
+                    <a href="https://programmers.co.kr/learn">프로그래밍 강의</a>
+                </li>
+            </ul>
+            <!-- 인증 관련 링크 태그 -->
+            <ul class="auth-links">
+                <li class="auth-links__item">
+                    <a href="https://programmers.co.kr/users/signup">계정 만들기</a>
+                </li>
+                <li class="auth-links__item">
+                    <a href="https://programmers.co.kr/users/login">로그인</a>
+                </li>
+                <li class="auth-links__item">
+                    <a href="https://business.programmers.co.kr/">기업 회원</a>
+                </li>
+            </ul>
+        </section>
+        <button class="nav__btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
     <Header class="header"></Header>
     <section class="section__programs"></section>
     <section class="section__job"></section>

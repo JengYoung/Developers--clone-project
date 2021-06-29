@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/*
+    프로그래머스의 주사용자는 코딩테스트를 위한 사람들이기 때문에
+    모바일 퍼스트가 아닌, 데스크탑 위주로 작업하고자 하였습니다.
+    따라서, breakpoint를 max-width로 하고, 
+    기타 device를 mobile로 통일했습니다.
+*/
+/********************************************************
+    ! font
+    * font-size에 관한 변수명 설정
+********************************************************/
+/*
+    font-weight
+*/
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+button :hover {
+  cursor: pointer;
+}
+
+.nav__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  padding: 0.125rem 1rem;
+  overflow: hidden;
+}
+.nav__navbar .home .logo {
+  height: 2rem;
+  padding-top: 5px;
+}
+.nav__navbar .home .mobile-logo {
+  display: none;
+}
+.nav__navbar .nav__links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav__navbar .menu-links,
+.nav__navbar .auth-links {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.nav__navbar .menu-links .seperator,
+.nav__navbar .auth-links .seperator {
+  width: 1px;
+  height: 0.8rem;
+  background-color: #44576C;
+  margin: 0.5rem 0.5rem;
+}
+.nav__navbar .menu-links__item,
+.nav__navbar .auth-links__item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+.nav__navbar .menu-links__item a,
+.nav__navbar .auth-links__item a {
+  letter-spacing: -0.2px;
+  color: #B2C0CC;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+}
+.nav__navbar .nav__btn {
+  display: none;
+}
+.nav__navbar .nav__btn .fa-bars {
+  font-size: 1.5rem;
+  color: white;
+}
+@media screen and (max-width: 991px) {
+  .nav__navbar {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-top: 0.75rem;
+    height: 3rem;
+    transition: all 0.3s;
+  }
+  .nav__navbar.active {
+    height: 350px;
+  }
+  .nav__navbar .home .logo {
+    display: none;
+  }
+  .nav__navbar .home .mobile-logo {
+    display: block;
+    aspect-ratio: 1/1;
+    height: 24px;
+  }
+  .nav__navbar .nav__links {
+    margin-top: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav__navbar .nav__links .menu-links,
+.nav__navbar .nav__links .auth-links {
+    padding: 0;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav__navbar .nav__links .menu-links .seperator,
+.nav__navbar .nav__links .auth-links .seperator {
+    display: none;
+  }
+  .nav__navbar .nav__links .menu-links .menu-links__item,
+.nav__navbar .nav__links .menu-links .auth-links__item,
+.nav__navbar .nav__links .auth-links .menu-links__item,
+.nav__navbar .nav__links .auth-links .auth-links__item {
+    padding: 0.25rem 0;
+    font-size: 14px;
+  }
+  .nav__navbar .nav__links .auth-links {
+    margin-top: 2rem;
+    border-top: 1px solid #44576C;
+  }
+  .nav__navbar .nav__btn {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 0.75rem;
+  }
+  .nav__navbar .nav__btn .fa-bars {
+    font-size: 1.5rem;
+    color: white;
+  }
+}
+
+/*# sourceMappingURL=/style.14a63342.css.map */
