@@ -2,7 +2,10 @@
     프로그래머스의 주사용자는 코딩테스트를 위한 사람들이기 때문에
     모바일 퍼스트가 아닌, 데스크탑 위주로 작업하고자 하였습니다.
     따라서, breakpoint를 max-width로 하고, 
-    기타 device를 mobile로 통일했습니다.
+
+    ! tablet: 768px ~ 991px 
+    ! mobile-and-tablet: 576 ~ 767px 
+    ! 기타 device를 mobile로 통일했습니다.
 */ 
 
 $mobile: 575px;
