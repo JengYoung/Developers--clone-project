@@ -124,7 +124,12 @@ window.addEventListener('DOMContentLoaded', function () {
     $navBar.classList.toggle('active');
   }
 
+  function openSignUpPage(e) {
+    window.location.href = 'https://programmers.co.kr/users/signup';
+  }
+
   document.querySelector('.nav__btn').addEventListener('click', openBar);
+  document.querySelector('.header__sign-up-btn').addEventListener('click', openSignUpPage);
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -154,7 +159,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55695" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57534" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
