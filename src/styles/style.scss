@@ -1,6 +1,7 @@
 @import "./_mediaQuery.scss";
 @import "./_size.scss";
 @import "./_color.scss";
+@import "./_mixin.scss";
 
 body {
     padding: 0;
@@ -47,6 +48,7 @@ button {
     .nav__links {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
         align-items: center;
         // justify-content: center;
     }
@@ -83,7 +85,7 @@ button {
             color: white;
         }
     }
-    @include customMedia("mobile") {
+    @include customMedia("tablet") {
         position: relative;
         flex-direction: column;
         align-items: flex-start;
@@ -139,5 +141,99 @@ button {
                 color: white;
             }
         }
+    }
+}
+
+.header {
+    display: flex;
+    background: black;
+    justify-content: center;
+    padding: 3.5rem 1rem 2.5rem 1rem;
+    .header__copies {
+        width: 600px;
+        color: white;
+        .header__main-copy,
+        .header__sub-copy,
+        .header__platform-info {
+            margin: 0;
+        }
+        .header__platform-info {
+            color: $blue-color;
+            font-size: $font-s;
+            font-weight: 400;
+            padding-bottom: 1rem;
+        }
+        .header__main-copy {
+            font-weight: 500;
+            font-size: 2.5rem;
+            padding-bottom: 2.5rem;
+            line-height: 1.4;
+        }
+        .header__sub-copy {
+            font-size: $font-xl;
+            font-weight: 400;
+            padding-bottom: 2rem;
+            line-height: 1.65;
+            color: $sub-white-color;
+        }
+        .header__main-copy > span,
+        .header__sub-copy > span {
+            display: block;
+        }
+    }
+    .header__image {
+        width: auto;
+        max-height: 350px;
+        max-width: 540px;
+    }
+    .header__sign-up-btn {
+        @include _button($isBanner: false);
+    }
+    // ~991px;
+    @include customMedia("tablet") {
+        flex-direction: column;
+        .header__copies {
+            width: 100%;
+            text-align: center;
+            .header__main-copy > span {
+                display: inline;
+            }
+        }
+        .header__sign-up-btn {
+            margin-bottom: 2rem;
+        }
+        .header__image-box {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .header__image {
+            width: 100%;
+        }
+    }
+    // 767px;
+    @include customMedia("mobile-and-tablet") {
+        padding : 2.5rem 1rem 2.5rem 1rem; 
+        .header__copies {
+            .header__main-copy > span {
+                font-size: 2.375rem;
+                display: block;
+            }
+            .header__sub-copy > span {
+                font-size: $font-l;
+            }
+        }
+    }
+    // 575px;
+    @include customMedia("mobile") {
+        .header__copies {
+            box-sizing: border-box;
+            .header__main-copy {
+                padding-bottom: 2rem;
+                span {
+                    font-size: 2.125rem;
+                }
+            }
+        }        
     }
 }

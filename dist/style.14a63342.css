@@ -12,6 +12,17 @@
 /*
     font-weight
 */
+/********************************************************
+    ! font
+    * font-size에 관한 변수명 설정
+********************************************************/
+/*
+    font-weight
+*/
+/*
+    ! component를 위한 mixin
+    ! component의 경우 차별화를 위해 _를 앞에 붙이기로 했습니다.
+*/
 body {
   padding: 0;
   margin: 0;
@@ -54,6 +65,7 @@ button :hover {
 .nav__navbar .nav__links {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
 }
 .nav__navbar .nav__menu-links,
@@ -149,6 +161,107 @@ button :hover {
   .nav__navbar .nav__btn .fa-bars {
     font-size: 1.5rem;
     color: white;
+  }
+}
+
+.header {
+  display: flex;
+  background: black;
+  justify-content: center;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+}
+.header .header__copies {
+  width: 600px;
+  color: white;
+}
+.header .header__copies .header__main-copy,
+.header .header__copies .header__sub-copy,
+.header .header__copies .header__platform-info {
+  margin: 0;
+}
+.header .header__copies .header__platform-info {
+  color: #0078FF;
+  font-size: 14px;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+.header .header__copies .header__main-copy {
+  font-weight: 500;
+  font-size: 2.5rem;
+  padding-bottom: 2.5rem;
+  line-height: 1.4;
+}
+.header .header__copies .header__sub-copy {
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 2rem;
+  line-height: 1.65;
+  color: #E9ECF3;
+}
+.header .header__copies .header__main-copy > span,
+.header .header__copies .header__sub-copy > span {
+  display: block;
+}
+.header .header__image {
+  width: auto;
+  max-height: 350px;
+  max-width: 540px;
+}
+.header .header__sign-up-btn {
+  color: white;
+  background: #0078FF;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  width: 13.25rem;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+@media screen and (max-width: 991px) {
+  .header {
+    flex-direction: column;
+  }
+  .header .header__copies {
+    width: 100%;
+    text-align: center;
+  }
+  .header .header__copies .header__main-copy > span {
+    display: inline;
+  }
+  .header .header__sign-up-btn {
+    margin-bottom: 2rem;
+  }
+  .header .header__image-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .header .header__image {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 2.5rem 1rem 2.5rem 1rem;
+  }
+  .header .header__copies .header__main-copy > span {
+    font-size: 2.375rem;
+    display: block;
+  }
+  .header .header__copies .header__sub-copy > span {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .header .header__copies {
+    box-sizing: border-box;
+  }
+  .header .header__copies .header__main-copy {
+    padding-bottom: 2rem;
+  }
+  .header .header__copies .header__main-copy span {
+    font-size: 2.125rem;
   }
 }
 

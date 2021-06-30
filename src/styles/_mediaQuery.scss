@@ -4,11 +4,24 @@
     따라서, breakpoint를 max-width로 하고, 
     기타 device를 mobile로 통일했습니다.
 */ 
-$mobile: 991px;
+
+$mobile: 575px;
+$mobile-and-tablet: 767px;
+$tablet: 991px;
 
 @mixin customMedia($device){
     @if $device == "mobile" {
         @media screen and (max-width: $mobile) {
+            @content;
+        }
+    }
+    @if $device == "mobile-and-tablet" {
+        @media screen and (max-width: $mobile-and-tablet) {
+            @content;
+        }
+    }
+    @if $device == "tablet" {
+        @media screen and (max-width: $tablet) {
             @content;
         }
     }

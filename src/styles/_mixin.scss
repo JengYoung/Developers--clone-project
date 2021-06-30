@@ -1,0 +1,20 @@
+@import "./_color.scss";
+@import "./_size.scss";
+/*
+    ! component를 위한 mixin
+    ! component의 경우 차별화를 위해 _를 앞에 붙이기로 했습니다.
+*/ 
+
+@mixin _button($isBanner) {
+    color: white;
+    background: $blue-color;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    @if $isBanner == false {
+        width: 13.25rem;
+        border-radius: 5px;
+        font-size: $font-l;
+        font-weight: 600;
+    }
+}
