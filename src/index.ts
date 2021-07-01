@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // 받아들여온 데이터는 수정 불가하도록 readonly로 작성
         constructor(private readonly datas: Array<DataFormat>) {
             this.renderCard()
+            this.renderPageBtn()
         }
         private makeLinkElement(parent:HTMLElement, data: DataFormat): void {
                 // 링크주소를 포함함
@@ -81,12 +82,23 @@ window.addEventListener('DOMContentLoaded', () => {
             $programTimes.appendChild($programLanguage);
 
             parent.appendChild($programInfo);
-        }
+        };
+
         private makeLabelElement(parent:HTMLElement, data:DataFormat): void {
             const label:HTMLElement = document.createElement('div');
             label.className = "programs__label";
             parent.appendChild(label);
-        }
+        };
+
+        public renderPageBtn() {
+            const $pageBtns:HTMLElement = document.querySelector('.programs__page-btns');
+            console.log($pageBtns)
+            for (let i:number = 0; i < this.datas.length; i++) {
+                const $pageBtn:HTMLElement = document.createElement('li');
+                $pageBtn.className = 'programs__page-btn'
+                $pageBtns.appendChild($pageBtn);
+            };
+        };
 
         public renderCard() {
 

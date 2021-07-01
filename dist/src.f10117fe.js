@@ -221,6 +221,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
       this.datas = datas;
       this.renderCard();
+      this.renderPageBtn();
     }
 
     _createClass(Program, [{
@@ -273,6 +274,20 @@ window.addEventListener('DOMContentLoaded', function () {
         var label = document.createElement('div');
         label.className = "programs__label";
         parent.appendChild(label);
+      }
+    }, {
+      key: "renderPageBtn",
+      value: function renderPageBtn() {
+        var $pageBtns = document.querySelector('.programs__page-btns');
+        console.log($pageBtns);
+
+        for (var i = 0; i < this.datas.length; i++) {
+          var $pageBtn = document.createElement('li');
+          $pageBtn.className = 'programs__page-btn';
+          $pageBtns.appendChild($pageBtn);
+        }
+
+        ;
       }
     }, {
       key: "renderCard",

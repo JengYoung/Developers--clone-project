@@ -278,7 +278,7 @@ button:hover {
 .programs .programs__container {
   position: relative;
   width: 100%;
-  max-width: 1200px !important;
+  max-width: 1200px;
   padding: 0 1rem;
   margin-left: auto;
   margin-right: auto;
@@ -396,8 +396,6 @@ button:hover {
   height: 100%;
   overflow: hidden;
   padding: 0.5rem 0 0 0.5rem;
-  box-sizing: border-box;
-  box-sizing: border-box;
   /*
       ! JSON으로 받아오는 데이터
   */
@@ -455,6 +453,19 @@ button:hover {
   color: white;
   padding: 0.25rem 1rem;
   border-radius: 1rem;
+}
+.programs .programs__page-btns {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+.programs .programs__page-btns li {
+  margin: 0 0.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: #D7E2EB;
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */
