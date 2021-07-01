@@ -226,6 +226,7 @@ window.addEventListener('DOMContentLoaded', function () {
       this.renderPageBtn();
       this.HandleEvents();
       this.initialize();
+      this.HandleResize();
     }
 
     _createClass(Program, [{
@@ -354,10 +355,26 @@ window.addEventListener('DOMContentLoaded', function () {
         });
       }
     }, {
+      key: "HandleResize",
+      value: function HandleResize(e) {
+        var _this2 = this;
+
+        var windowWidth = window.innerWidth;
+        var $cardItems = document.querySelectorAll('.programs__card-items');
+        $cardItems.forEach(function (cardItem) {
+          if (windowWidth > 1192) cardItem.style.width = '1160px';else {
+            cardItem.style.width = "".concat(windowWidth - 32, "px");
+            var __programCards = "programs__program-cards";
+            var $programCards = document.querySelector(".".concat(__programCards));
+            $programCards.style.transform = "translate(".concat(-(windowWidth - 16) * _this2.num, "px, 0)");
+          }
+        });
+      }
+    }, {
       key: "HandleEvents",
       value: function HandleEvents() {
         function HandlePageBtn(e) {
-          var _this2 = this;
+          var _this3 = this;
 
           var __pageBtn = 'programs__page-btn';
           var __programCards = "programs__program-cards";
@@ -367,7 +384,7 @@ window.addEventListener('DOMContentLoaded', function () {
           var cardsWidth = document.querySelector('.programs__program-card').clientWidth;
           if (!target.classList.contains(__pageBtn)) return;
           pageBtns.forEach(function (pageBtn, idx) {
-            if (target === pageBtn) _this2.num = idx;
+            if (target === pageBtn) _this3.num = idx;
             pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === target);
           });
           $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
@@ -375,7 +392,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
 
         function HandleMoveBtn(e) {
-          var _this3 = this;
+          var _this4 = this;
 
           var __leftBtn = 'programs__move-left';
           var __rightBtn = 'programs__move-right';
@@ -388,13 +405,14 @@ window.addEventListener('DOMContentLoaded', function () {
           if (this.num && target.classList.contains(__leftBtn)) this.num--;else if (this.num !== this.dataLength - 1 && target.classList.contains(__rightBtn)) this.num++;else return;
           $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
           $pageBtns.forEach(function (pageBtn) {
-            pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === $pageBtns[_this3.num]);
+            pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === $pageBtns[_this4.num]);
           });
           this.checkDisable();
         }
 
         document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
         document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
+        window.addEventListener('resize', this.HandleResize.bind(this));
       }
     }]);
 

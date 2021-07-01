@@ -413,7 +413,6 @@ button:hover {
   overflow: hidden;
   border: 1px solid #D7E2EB;
   border-radius: 10px;
-  width: 1160px;
 }
 .programs .programs__container .programs__program-cards .programs__program-card .programs__link {
   display: block;

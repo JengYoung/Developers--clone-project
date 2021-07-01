@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
             this.renderPageBtn()
             this.HandleEvents()
             this.initialize()
+            this.HandleResize();
         }
         private checkDisable(): void {
             const __leftBtn:string = 'programs__move-left';
@@ -156,7 +157,19 @@ window.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('.programs__program-cards').appendChild($programCard)
             })
         }
-
+        private HandleResize(e?:MouseEvent): void {
+            const windowWidth = window.innerWidth;
+            const $cardItems: NodeListOf<HTMLElement> = document.querySelectorAll('.programs__card-items');
+            $cardItems.forEach((cardItem: HTMLElement) => {
+                if (windowWidth > 1192) cardItem.style.width = '1160px';
+                else {
+                    cardItem.style.width = `${windowWidth - 32}px`;
+                    const __programCards:string = "programs__program-cards";
+                    const $programCards:HTMLElement = document.querySelector(`.${__programCards}`);
+                    $programCards.style.transform = `translate(${-(windowWidth - 16) * this.num}px, 0)`;
+                }
+            })
+        };
         private HandleEvents(): void {
             function HandlePageBtn(e:MouseEvent): void {
                 const __pageBtn: string = 'programs__page-btn';
@@ -202,6 +215,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
             document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
+            window.addEventListener('resize', this.HandleResize.bind(this));
         }
     }
 
