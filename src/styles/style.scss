@@ -399,12 +399,15 @@ button {
                     .programs__program-language {
                         display: flex;
                         padding-top: 1rem;
-                        li {
+                        .programs__language-item {
                             background: rgb(46, 46, 46);
                             margin-right: 1rem;
                             color: white;
                             padding: 0.25rem 1rem;
                             border-radius: 1rem;
+                        }
+                        .programs__more-language {
+                            font-size: $font-xl;
                         }
                     }
                 }

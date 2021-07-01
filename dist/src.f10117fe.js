@@ -226,10 +226,28 @@ window.addEventListener('DOMContentLoaded', function () {
       this.renderPageBtn();
       this.HandleEvents();
       this.initialize();
-      console.log("여기", this.num);
     }
 
     _createClass(Program, [{
+      key: "checkDisable",
+      value: function checkDisable() {
+        var __leftBtn = 'programs__move-left';
+        var __rightBtn = 'programs__move-right';
+        document.querySelector(".".concat(__leftBtn)).classList.toggle("".concat(__leftBtn, "--disable"), !this.num);
+        document.querySelector(".".concat(__rightBtn)).classList.toggle("".concat(__rightBtn, "--disable"), this.num === this.dataLength - 1);
+      }
+    }, {
+      key: "initialize",
+      value: function initialize() {
+        var __programCard = 'programs__program-card';
+        var __pageBtn = 'programs__page-btn';
+        var $programCard = document.querySelectorAll('.programs__program-card');
+        var $pageBtn = document.querySelectorAll(".".concat(__pageBtn));
+        $programCard[0].classList.add("".concat(__programCard, "--active"));
+        $pageBtn[0].classList.add("".concat(__pageBtn, "--active"));
+        this.checkDisable();
+      }
+    }, {
       key: "makeLinkElement",
       value: function makeLinkElement(parent, data) {
         var $programLink = document.createElement('a');
@@ -262,12 +280,33 @@ window.addEventListener('DOMContentLoaded', function () {
         $programPeriodTest.textContent = "\uD14C\uC2A4\uD2B8: ".concat(data.test);
         var $programLanguage = document.createElement('ul');
         $programLanguage.className = "programs__program-language";
-        data.language.forEach(function (each) {
-          var $languageItem = document.createElement('li');
-          $languageItem.textContent = each;
-          $languageItem.className = "programs__language-item";
-          $programLanguage.appendChild($languageItem);
-        });
+
+        if (data.language.length > 8) {
+          var $moreLanguage = document.createElement('li');
+          var moreLanguageArr = [];
+          $moreLanguage.className = 'programs__more-language';
+          data.language.forEach(function (each, idx) {
+            if (idx <= 7) {
+              var $languageItem = document.createElement('li');
+              $languageItem.textContent = each;
+              $languageItem.className = "programs__language-item";
+              $programLanguage.appendChild($languageItem);
+            } else {
+              moreLanguageArr.push(each);
+            }
+          });
+          $moreLanguage.textContent = "+".concat(moreLanguageArr.length);
+          $moreLanguage.dataset.language = moreLanguageArr.join(', ');
+          $programLanguage.appendChild($moreLanguage);
+        } else {
+          data.language.forEach(function (each) {
+            var $languageItem = document.createElement('li');
+            $languageItem.textContent = each;
+            $languageItem.className = "programs__language-item";
+            $programLanguage.appendChild($languageItem);
+          });
+        }
+
         $programTimes.appendChild($programPeriodReceipt);
         $programTimes.appendChild($programPeriodTest);
         $programTimes.appendChild($programLanguage);
@@ -356,25 +395,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
         document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
-      }
-    }, {
-      key: "initialize",
-      value: function initialize() {
-        var __programCard = 'programs__program-card';
-        var __pageBtn = 'programs__page-btn';
-        var $programCard = document.querySelectorAll('.programs__program-card');
-        var $pageBtn = document.querySelectorAll(".".concat(__pageBtn));
-        $programCard[0].classList.add("".concat(__programCard, "--active"));
-        $pageBtn[0].classList.add("".concat(__pageBtn, "--active"));
-        this.checkDisable();
-      }
-    }, {
-      key: "checkDisable",
-      value: function checkDisable() {
-        var __leftBtn = 'programs__move-left';
-        var __rightBtn = 'programs__move-right';
-        document.querySelector(".".concat(__leftBtn)).classList.toggle("".concat(__leftBtn, "--disable"), !this.num);
-        document.querySelector(".".concat(__rightBtn)).classList.toggle("".concat(__rightBtn, "--disable"), this.num === this.dataLength - 1);
       }
     }]);
 

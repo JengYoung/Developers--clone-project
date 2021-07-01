@@ -32,7 +32,24 @@ window.addEventListener('DOMContentLoaded', () => {
             this.renderPageBtn()
             this.HandleEvents()
             this.initialize()
-            console.log("여기", this.num)
+        }
+        private checkDisable(): void {
+            const __leftBtn:string = 'programs__move-left';
+            const __rightBtn:string = 'programs__move-right';
+
+            document.querySelector(`.${ __leftBtn}`).classList.toggle(`${ __leftBtn}--disable`, !this.num);
+            document.querySelector(`.${ __rightBtn}`).classList.toggle(`${ __rightBtn}--disable`, this.num === this.dataLength - 1);
+        }
+        private initialize(): void {
+            const __programCard:string = 'programs__program-card';
+            const __pageBtn:string = 'programs__page-btn';
+
+            const $programCard: NodeListOf<Element> = document.querySelectorAll('.programs__program-card');
+            const $pageBtn = document.querySelectorAll(`.${__pageBtn}`);
+
+            $programCard[0].classList.add(`${__programCard}--active`);
+            $pageBtn[0].classList.add(`${__pageBtn}--active`);
+            this.checkDisable();
         }
         private makeLinkElement(parent:HTMLElement, data: DataFormat): void {
                 // 링크주소를 포함함
@@ -76,12 +93,31 @@ window.addEventListener('DOMContentLoaded', () => {
             
             const $programLanguage:HTMLElement = document.createElement('ul');
             $programLanguage.className = "programs__program-language"
-            data.language.forEach((each: string) => {
-                const $languageItem:HTMLElement = document.createElement('li');
-                $languageItem.textContent = each;
-                $languageItem.className = "programs__language-item"
-                $programLanguage.appendChild($languageItem);
-            })
+            if (data.language.length > 8) {
+                const $moreLanguage: HTMLElement = document.createElement('li');
+                const moreLanguageArr: string[] = [];
+                $moreLanguage.className = 'programs__more-language'
+                data.language.forEach((each:string, idx: number) => {
+                    if (idx <= 7) {
+                        const $languageItem:HTMLElement = document.createElement('li');
+                        $languageItem.textContent = each;
+                        $languageItem.className = "programs__language-item"
+                        $programLanguage.appendChild($languageItem);
+                    } else {
+                        moreLanguageArr.push(each);
+                    }
+                })
+                $moreLanguage.textContent = `+${moreLanguageArr.length}`
+                $moreLanguage.dataset.language = moreLanguageArr.join(', ')
+                $programLanguage.appendChild($moreLanguage);
+            } else {
+                data.language.forEach((each: string) => {
+                    const $languageItem:HTMLElement = document.createElement('li');
+                    $languageItem.textContent = each;
+                    $languageItem.className = "programs__language-item"
+                    $programLanguage.appendChild($languageItem);
+                })
+            }
             
             // programTimes에 Receipt, Test를 넣어줌.
             $programTimes.appendChild($programPeriodReceipt);
@@ -96,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
             label.className = "programs__label";
             parent.appendChild(label);
         };
-        private renderPageBtn() {
+        private renderPageBtn(): void {
             const $pageBtns:HTMLElement = document.querySelector('.programs__page-btns');
             for (let i:number = 0; i < this.datas.length; i++) {
                 const $pageBtn:HTMLElement = document.createElement('li');
@@ -104,7 +140,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 $pageBtns.appendChild($pageBtn);
             };
         };
-        private renderCard() {
+        private renderCard(): void {
 
             // forEach가 map보다 메모리를 저장하지 않기에 빠르므로 forEach로 처리.
             this.datas.forEach((data: DataFormat): void => {
@@ -141,7 +177,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
                 this.checkDisable()
             }
-
             function HandleMoveBtn(e:MouseEvent): void {
                 const __leftBtn:string = 'programs__move-left';
                 const __rightBtn:string = 'programs__move-right';
@@ -167,24 +202,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
             document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
-        }
-
-        private initialize(): void {
-            const __programCard:string = 'programs__program-card';
-            const __pageBtn:string = 'programs__page-btn';
-
-            const $programCard: NodeListOf<Element> = document.querySelectorAll('.programs__program-card');
-            const $pageBtn = document.querySelectorAll(`.${__pageBtn}`);
-
-            $programCard[0].classList.add(`${__programCard}--active`);
-            $pageBtn[0].classList.add(`${__pageBtn}--active`);
-            this.checkDisable();
-        }
-        private checkDisable(): void {
-            const __leftBtn:string = 'programs__move-left';
-            const __rightBtn:string = 'programs__move-right';
-            document.querySelector(`.${ __leftBtn}`).classList.toggle(`${ __leftBtn}--disable`, !this.num);
-            document.querySelector(`.${ __rightBtn}`).classList.toggle(`${ __rightBtn}--disable`, this.num === this.dataLength - 1);
         }
     }
 

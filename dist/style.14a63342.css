@@ -450,12 +450,15 @@ button:hover {
   display: flex;
   padding-top: 1rem;
 }
-.programs .programs__container .programs__program-cards .programs__program-card .programs__program-info .programs__program-language li {
+.programs .programs__container .programs__program-cards .programs__program-card .programs__program-info .programs__program-language .programs__language-item {
   background: #2e2e2e;
   margin-right: 1rem;
   color: white;
   padding: 0.25rem 1rem;
   border-radius: 1rem;
+}
+.programs .programs__container .programs__program-cards .programs__program-card .programs__program-info .programs__program-language .programs__more-language {
+  font-size: 20px;
 }
 .programs .programs__page-btns {
   display: flex;
