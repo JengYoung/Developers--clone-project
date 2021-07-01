@@ -296,6 +296,11 @@ button {
                         color: $program-gray-color;
                     }
                 }
+                .programs__move-left--disable,
+                .programs__move-right--disable {
+                    opacity: 0.5;
+                    cursor: auto;
+                }
             }
         }
         .programs__card-box {

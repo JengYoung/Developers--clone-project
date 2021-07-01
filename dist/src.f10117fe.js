@@ -332,6 +332,7 @@ window.addEventListener('DOMContentLoaded', function () {
             pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === target);
           });
           $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
+          this.checkDisable();
         }
 
         function HandleMoveBtn(e) {
@@ -345,21 +346,12 @@ window.addEventListener('DOMContentLoaded', function () {
           var $pageBtns = document.querySelectorAll(".".concat(__pageBtn));
           var cardsWidth = document.querySelector('.programs__program-card').clientWidth;
           var target = e.target;
-
-          if (target.classList.contains(__leftBtn)) {
-            if (!this.num) return;
-            this.num--;
-          } else if (target.classList.contains(__rightBtn)) {
-            if (this.num === this.dataLength - 1) return;
-            this.num++;
-          } else {
-            return;
-          }
-
+          if (this.num && target.classList.contains(__leftBtn)) this.num--;else if (this.num !== this.dataLength - 1 && target.classList.contains(__rightBtn)) this.num++;else return;
           $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
           $pageBtns.forEach(function (pageBtn) {
             pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === $pageBtns[_this3.num]);
           });
+          this.checkDisable();
         }
 
         document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
@@ -374,6 +366,15 @@ window.addEventListener('DOMContentLoaded', function () {
         var $pageBtn = document.querySelectorAll(".".concat(__pageBtn));
         $programCard[0].classList.add("".concat(__programCard, "--active"));
         $pageBtn[0].classList.add("".concat(__pageBtn, "--active"));
+        this.checkDisable();
+      }
+    }, {
+      key: "checkDisable",
+      value: function checkDisable() {
+        var __leftBtn = 'programs__move-left';
+        var __rightBtn = 'programs__move-right';
+        document.querySelector(".".concat(__leftBtn)).classList.toggle("".concat(__leftBtn, "--disable"), !this.num);
+        document.querySelector(".".concat(__rightBtn)).classList.toggle("".concat(__rightBtn, "--disable"), this.num === this.dataLength - 1);
       }
     }]);
 

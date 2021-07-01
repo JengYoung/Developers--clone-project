@@ -350,6 +350,11 @@ button:hover {
 .programs .programs__container .programs__header .programs__move-btn .programs__move-right .fa-chevron-right {
   color: #5F7F90;
 }
+.programs .programs__container .programs__header .programs__move-btn .programs__move-left--disable,
+.programs .programs__container .programs__header .programs__move-btn .programs__move-right--disable {
+  opacity: 0.5;
+  cursor: auto;
+}
 .programs .programs__container .programs__card-box {
   position: static;
   width: 100%;

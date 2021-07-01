@@ -132,13 +132,14 @@ window.addEventListener('DOMContentLoaded', () => {
                 const cardsWidth:number = document.querySelector('.programs__program-card').clientWidth;
 
                 if (!target.classList.contains(__pageBtn)) return;
+
                 pageBtns.forEach((pageBtn: HTMLElement, idx) => {
                     if (target === pageBtn) this.num = idx;
                     pageBtn.classList.toggle(`${__pageBtn}--active`, pageBtn === target);
                 })
+
                 $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
-
-
+                this.checkDisable()
             }
 
             function HandleMoveBtn(e:MouseEvent): void {
@@ -153,19 +154,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 const cardsWidth:number = document.querySelector('.programs__program-card').clientWidth;
 
                 const target = e.target as HTMLElement;
-                if (target.classList.contains(__leftBtn)) {
-                    if (!this.num) return;
-                    this.num--; 
-                } else if (target.classList.contains(__rightBtn)) {
-                    if (this.num ===  this.dataLength - 1) return;
-                    this.num++; 
-                } else {
-                    return;
-                }
+
+                if (this.num && target.classList.contains(__leftBtn)) this.num--; 
+                else if (this.num !==  this.dataLength - 1 && target.classList.contains(__rightBtn)) this.num++ 
+                else return;
+
                 $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
                 $pageBtns.forEach((pageBtn) => {
                     pageBtn.classList.toggle(`${__pageBtn}--active`, pageBtn === $pageBtns[this.num])
                 })
+                this.checkDisable()
             }
             document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
             document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
@@ -174,12 +172,19 @@ window.addEventListener('DOMContentLoaded', () => {
         private initialize(): void {
             const __programCard:string = 'programs__program-card';
             const __pageBtn:string = 'programs__page-btn';
-            
+
             const $programCard: NodeListOf<Element> = document.querySelectorAll('.programs__program-card');
             const $pageBtn = document.querySelectorAll(`.${__pageBtn}`);
 
             $programCard[0].classList.add(`${__programCard}--active`);
             $pageBtn[0].classList.add(`${__pageBtn}--active`);
+            this.checkDisable();
+        }
+        private checkDisable(): void {
+            const __leftBtn:string = 'programs__move-left';
+            const __rightBtn:string = 'programs__move-right';
+            document.querySelector(`.${ __leftBtn}`).classList.toggle(`${ __leftBtn}--disable`, !this.num);
+            document.querySelector(`.${ __rightBtn}`).classList.toggle(`${ __rightBtn}--disable`, this.num === this.dataLength - 1);
         }
     }
 
