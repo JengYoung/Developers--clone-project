@@ -22,10 +22,17 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     class Program {
+        private num: number;
+        private dataLength: number;
         // 받아들여온 데이터는 수정 불가하도록 readonly로 작성
         constructor(private readonly datas: Array<DataFormat>) {
+            this.num = 0;
+            this.dataLength = this.datas.length;
             this.renderCard()
             this.renderPageBtn()
+            this.HandleEvents()
+            this.initialize()
+            console.log("여기", this.num)
         }
         private makeLinkElement(parent:HTMLElement, data: DataFormat): void {
                 // 링크주소를 포함함
@@ -89,18 +96,15 @@ window.addEventListener('DOMContentLoaded', () => {
             label.className = "programs__label";
             parent.appendChild(label);
         };
-
-        public renderPageBtn() {
+        private renderPageBtn() {
             const $pageBtns:HTMLElement = document.querySelector('.programs__page-btns');
-            console.log($pageBtns)
             for (let i:number = 0; i < this.datas.length; i++) {
                 const $pageBtn:HTMLElement = document.createElement('li');
                 $pageBtn.className = 'programs__page-btn'
                 $pageBtns.appendChild($pageBtn);
             };
         };
-
-        public renderCard() {
+        private renderCard() {
 
             // forEach가 map보다 메모리를 저장하지 않기에 빠르므로 forEach로 처리.
             this.datas.forEach((data: DataFormat): void => {
@@ -115,6 +119,67 @@ window.addEventListener('DOMContentLoaded', () => {
                 $programCard.appendChild($cardItem);
                 document.querySelector('.programs__program-cards').appendChild($programCard)
             })
+        }
+
+        private HandleEvents(): void {
+            function HandlePageBtn(e:MouseEvent): void {
+                const __pageBtn: string = 'programs__page-btn';
+                const __programCards:string = "programs__program-cards";
+
+                const target = e.target as HTMLElement;
+                const pageBtns:NodeListOf<HTMLElement> = document.querySelectorAll(`.${__pageBtn}`);
+                const $programCards:HTMLElement = document.querySelector(`.${__programCards}`);
+                const cardsWidth:number = document.querySelector('.programs__program-card').clientWidth;
+
+                if (!target.classList.contains(__pageBtn)) return;
+                pageBtns.forEach((pageBtn: HTMLElement, idx) => {
+                    if (target === pageBtn) this.num = idx;
+                    pageBtn.classList.toggle(`${__pageBtn}--active`, pageBtn === target);
+                })
+                $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
+
+
+            }
+
+            function HandleMoveBtn(e:MouseEvent): void {
+                const __leftBtn:string = 'programs__move-left';
+                const __rightBtn:string = 'programs__move-right';
+                const __programCards:string = "programs__program-cards";
+                const __pageBtn:string = 'programs__page-btn';
+
+                const $programCards:HTMLElement = document.querySelector(`.${__programCards}`);
+                const $pageBtns:NodeListOf<HTMLElement> = document.querySelectorAll(`.${__pageBtn}`);
+                
+                const cardsWidth:number = document.querySelector('.programs__program-card').clientWidth;
+
+                const target = e.target as HTMLElement;
+                if (target.classList.contains(__leftBtn)) {
+                    if (!this.num) return;
+                    this.num--; 
+                } else if (target.classList.contains(__rightBtn)) {
+                    if (this.num ===  this.dataLength - 1) return;
+                    this.num++; 
+                } else {
+                    return;
+                }
+                $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
+                $pageBtns.forEach((pageBtn) => {
+                    pageBtn.classList.toggle(`${__pageBtn}--active`, pageBtn === $pageBtns[this.num])
+                })
+            }
+            document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
+            document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
+        }
+
+        private initialize(): void {
+            const __programCard:string = 'programs__program-card';
+            const __pageBtn:string = 'programs__page-btn';
+            
+            const $programCard: NodeListOf<Element> = document.querySelectorAll('.programs__program-card');
+            const $pageBtn = document.querySelectorAll(`.${__pageBtn}`);
+
+            $programCard[0].classList.add(`${__programCard}--active`);
+            $pageBtn[0].classList.add(`${__pageBtn}--active`);
         }
     }
 

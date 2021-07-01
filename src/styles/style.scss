@@ -243,7 +243,7 @@ button {
     padding: 5rem 0 3.5rem 0; // 윤곽 패딩해주고!
     .programs__container {
         position: relative;
-        width: 100%;
+        // width: 100%;
         max-width: 1200px;
         padding: 0 1rem;
         margin-left: auto;
@@ -301,6 +301,8 @@ button {
         .programs__card-box {
             position: static;
             width: 100%;
+            padding-right: 0.5rem;
+            overflow: hidden;
             .programs__label {
                 position: absolute;
                 left: -2.75rem;
@@ -340,10 +342,11 @@ button {
         .programs__program-cards {
             display: flex;
             position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            transition: all 0.3s;
+
+            // 라벨이 숨겨지지 않도록 패딩 지정!
             padding: 0.5rem 0 0 0.5rem;
+
             /*
                 ! JSON으로 받아오는 데이터
             */ 
@@ -352,10 +355,10 @@ button {
                 position: relative;
                 margin-right: 1rem;
                 .programs__card-items {
+                    //여기서 너비가 수정되어야 이미지가 중앙 정렬이 된다!
                     overflow: hidden;
                     border: 1px solid $border-gray-color;
                     border-radius: 10px;
-                    width: 100%;
                     width: 1160px;
                 }         
                 .programs__link {
@@ -414,6 +417,11 @@ button {
             border-radius: 0.75rem;
             cursor: pointer;
             background: $border-gray-color;
+            transition: all 0.3s;
+            &.programs__page-btn--active {
+                background: $blue-color;
+                width: 3rem;
+            }
         }
     }
 }

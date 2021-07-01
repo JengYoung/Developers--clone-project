@@ -220,8 +220,13 @@ window.addEventListener('DOMContentLoaded', function () {
       _classCallCheck(this, Program);
 
       this.datas = datas;
+      this.num = 0;
+      this.dataLength = this.datas.length;
       this.renderCard();
       this.renderPageBtn();
+      this.HandleEvents();
+      this.initialize();
+      console.log("여기", this.num);
     }
 
     _createClass(Program, [{
@@ -279,7 +284,6 @@ window.addEventListener('DOMContentLoaded', function () {
       key: "renderPageBtn",
       value: function renderPageBtn() {
         var $pageBtns = document.querySelector('.programs__page-btns');
-        console.log($pageBtns);
 
         for (var i = 0; i < this.datas.length; i++) {
           var $pageBtn = document.createElement('li');
@@ -309,6 +313,67 @@ window.addEventListener('DOMContentLoaded', function () {
           $programCard.appendChild($cardItem);
           document.querySelector('.programs__program-cards').appendChild($programCard);
         });
+      }
+    }, {
+      key: "HandleEvents",
+      value: function HandleEvents() {
+        function HandlePageBtn(e) {
+          var _this2 = this;
+
+          var __pageBtn = 'programs__page-btn';
+          var __programCards = "programs__program-cards";
+          var target = e.target;
+          var pageBtns = document.querySelectorAll(".".concat(__pageBtn));
+          var $programCards = document.querySelector(".".concat(__programCards));
+          var cardsWidth = document.querySelector('.programs__program-card').clientWidth;
+          if (!target.classList.contains(__pageBtn)) return;
+          pageBtns.forEach(function (pageBtn, idx) {
+            if (target === pageBtn) _this2.num = idx;
+            pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === target);
+          });
+          $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
+        }
+
+        function HandleMoveBtn(e) {
+          var _this3 = this;
+
+          var __leftBtn = 'programs__move-left';
+          var __rightBtn = 'programs__move-right';
+          var __programCards = "programs__program-cards";
+          var __pageBtn = 'programs__page-btn';
+          var $programCards = document.querySelector(".".concat(__programCards));
+          var $pageBtns = document.querySelectorAll(".".concat(__pageBtn));
+          var cardsWidth = document.querySelector('.programs__program-card').clientWidth;
+          var target = e.target;
+
+          if (target.classList.contains(__leftBtn)) {
+            if (!this.num) return;
+            this.num--;
+          } else if (target.classList.contains(__rightBtn)) {
+            if (this.num === this.dataLength - 1) return;
+            this.num++;
+          } else {
+            return;
+          }
+
+          $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
+          $pageBtns.forEach(function (pageBtn) {
+            pageBtn.classList.toggle("".concat(__pageBtn, "--active"), pageBtn === $pageBtns[_this3.num]);
+          });
+        }
+
+        document.querySelector('.programs__move-btn').addEventListener('click', HandleMoveBtn.bind(this));
+        document.querySelector('.programs__page-btns').addEventListener('click', HandlePageBtn.bind(this));
+      }
+    }, {
+      key: "initialize",
+      value: function initialize() {
+        var __programCard = 'programs__program-card';
+        var __pageBtn = 'programs__page-btn';
+        var $programCard = document.querySelectorAll('.programs__program-card');
+        var $pageBtn = document.querySelectorAll(".".concat(__pageBtn));
+        $programCard[0].classList.add("".concat(__programCard, "--active"));
+        $pageBtn[0].classList.add("".concat(__pageBtn, "--active"));
       }
     }]);
 
