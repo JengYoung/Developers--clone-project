@@ -117,7 +117,91 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/index.ts":[function(require,module,exports) {
+})({"src/datas/program-data.json":[function(require,module,exports) {
+module.exports = [{
+  "name": "2021 네이버웹툰 개발 챌린지",
+  "url": "https://programmers.co.kr/competitions/1472?slug=2021-naver-webtoon-challenge",
+  "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/competition/131456/61a9e886-377f-4016-8384-fcc2530c365d.png",
+  "receipt": "21년 06월 21일 10:00 - 07월 02일 23:59",
+  "test": "21년 07월 04일 14:00 - 07월 04일 16:00",
+  "language": ["Java", "JavaScript", "Python3", "Kotlin", "Swift"]
+}, {
+  "name": "2021 Dev-Matching: 앱 개발자(상반기)",
+  "url": "https://programmers.co.kr/competitions/1307?slug=2021-app-first",
+  "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/competition/129363/219b99de-0978-46e6-b89c-7eaaa903d6b2.png",
+  "receipt": "21년 05월 31일 11:00 - 06월 18일 17:00",
+  "test": "21년 06월 19일 13:00 - 06월 19일 17:00",
+  "language": []
+}, {
+  "name": "2021 Dev-Matching: 머신러닝 개발자",
+  "url": "https://programmers.co.kr/competitions/1109?slug=2021-machinelearning",
+  "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/competition-imgs/2021/dm_ml_01/2021_dev_matching_ml_01-prgm-img_Banner.png",
+  "receipt": "21년 05월 03일 11:00 - 05월 21일 17:00",
+  "test": "21년 05월 23일 10:00 - 05월 23일 18:00",
+  "language": []
+}, {
+  "name": "프로그래머스 월간 코드 챌린지 시즌2",
+  "url": "https://programmers.co.kr/competitions/1078?slug=monthly-code-challenge-s2",
+  "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/competition/113186/61c52c76-9f26-4455-b387-293ed4e64604.png",
+  "receipt": "21년 03월 25일 11:00 - 05월 13일 18:00",
+  "test": "21년 04월 15일 19:30 - 05월 13일 22:30",
+  "language": ["C++", "C#", "Java", "JavaScript", "Kotlin", "Python3"]
+}, {
+  "name": "2021 Summer Coding - 여름방학 스타트업 인턴 프로그램",
+  "url": "https://programmers.co.kr/competitions/1043?slug=2021-summer-coding",
+  "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/competition-imgs/2021/summer/2021-summer_coding__prgm__img-banner.png",
+  "receipt": "21년 04월 12일 11:00 - 05월 07일 17:00",
+  "test": "21년 05월 09일 13:00 - 05월 09일 15:00",
+  "language": ["C", "C++", "C#", "Go", "Java", "JavaScript", "Kotlin", "Python3", "Ruby", "Swift", "MySQL", "Oracle"]
+}, {
+  "name": "2021 카카오 채용연계형 인턴십 for Tech Developers",
+  "url": "https://programmers.co.kr/competitions/1142?slug=2021-kakao-internship",
+  "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/competition-imgs/2021_kakao_Internship_banner.png",
+  "receipt": "21년 04월 15일 11:00 - 05월 03일 17:00",
+  "test": "21년 05월 08일 14:00 - 05월 08일 18:00",
+  "language": ["C#", "Java", "JavaScript", "Kotlin", "Python2", "Python3", "Swift"]
+}, {
+  "name": "2021 카카오커머스 개발자 공개채용",
+  "url": "https://programmers.co.kr/competitions/1010?slug=2021-kakaocommerce-developers",
+  "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/competition-imgs/2021_kakaocommerce_programmers_image_revised_0317.gif",
+  "receipt": "21년 03월 22일 09:00 - 04월 02일 17:00",
+  "test": "21년 04월 03일 13:00 - 04월 10일 17:00",
+  "language": ["Java", "MySQL", "Kotlin", "JavaScript", "Swift", "Python3"]
+}, {
+  "name": "2021 Dev-Matching: 웹 백엔드 개발자(상반기)",
+  "url": "https://programmers.co.kr/competitions/977?slug=2021-web-be-first",
+  "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/competition/109596/7b87afd1-5fab-4d45-a8e5-0a9aede3a0d6.png",
+  "receipt": "21년 03월 08일 11:00 - 04월 02일 17:00",
+  "test": "21년 04월 03일 16:00 - 04월 03일 18:00",
+  "language": ["C#", "Go", "Java", "JavaScript", "Kotlin", "Python3", "Ruby", "Swift", "MySQL", "Oracle"]
+}, {
+  "name": "2021 Dev-Matching: 웹 프론트엔드 개발자(상반기)",
+  "url": "https://programmers.co.kr/competitions/812?slug=2021-web-fe-first",
+  "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/competition-imgs/2021/dm_fe1/2021-dm-fe__prgm__img-banner.png",
+  "receipt": "21년 02월 15일 11:00 - 03월 05일 17:00",
+  "test": "21년 03월 06일 13:00 - 03월 06일 16:00",
+  "language": []
+}, {
+  "name": "카카오커머스 개발자 영입 - 프론트엔드 개발 챌린지",
+  "url": "https://programmers.co.kr/competitions/779?slug=2021-kakaocommerce-fe-recruitment",
+  "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/banner/100394/1f23bd6e-a423-42fc-9e9b-9a8173c36797.jpg",
+  "receipt": "21년 01월 04일 11:00 - 01월 22일 17:00",
+  "test": "21년 01월 23일 14:00 - 01월 30일 17:10",
+  "language": ["JavaScript"]
+}];
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+var _programData = _interopRequireDefault(require("./datas/program-data.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 window.addEventListener('DOMContentLoaded', function () {
   function openBar(e) {
     var $navBar = document.querySelector('.nav__navbar');
@@ -130,8 +214,95 @@ window.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector('.nav__btn').addEventListener('click', openBar);
   document.querySelector('.header__sign-up-btn').addEventListener('click', openSignUpPage);
+
+  var Program = /*#__PURE__*/function () {
+    function Program(datas) {
+      _classCallCheck(this, Program);
+
+      this.datas = datas;
+      this.renderCard();
+    }
+
+    _createClass(Program, [{
+      key: "makeLinkElement",
+      value: function makeLinkElement(parent, data) {
+        var $programLink = document.createElement('a');
+        $programLink.className = "programs__link";
+        $programLink.setAttribute("href", data.url);
+        var $programImage = document.createElement('img');
+        $programImage.className = "programs__image";
+        $programImage.setAttribute('src', data.image);
+        $programImage.setAttribute('alt', "채용 프로그램 이미지");
+        $programLink.appendChild($programImage);
+        parent.appendChild($programLink);
+      }
+    }, {
+      key: "makeInfoElement",
+      value: function makeInfoElement(parent, data) {
+        var $programInfo = document.createElement("section");
+        $programInfo.className = "programs__program-info";
+        var $programTitle = document.createElement("h3");
+        $programTitle.className = "programs__program-title";
+        $programTitle.textContent = data.name;
+        var $programTimes = document.createElement("h4");
+        $programTimes.className = "programs__program-times";
+        $programInfo.appendChild($programTitle);
+        $programInfo.appendChild($programTimes);
+        var $programPeriodReceipt = document.createElement("span");
+        $programPeriodReceipt.className = "programs__period-receipt";
+        $programPeriodReceipt.textContent = "\uC811\uC218: ".concat(data.receipt);
+        var $programPeriodTest = document.createElement("span");
+        $programPeriodTest.className = "programs__period-test";
+        $programPeriodTest.textContent = "\uD14C\uC2A4\uD2B8: ".concat(data.test);
+        var $programLanguage = document.createElement('ul');
+        $programLanguage.className = "programs__program-language";
+        data.language.forEach(function (each) {
+          var $languageItem = document.createElement('li');
+          $languageItem.textContent = each;
+          $languageItem.className = "programs__language-item";
+          $programLanguage.appendChild($languageItem);
+        });
+        $programTimes.appendChild($programPeriodReceipt);
+        $programTimes.appendChild($programPeriodTest);
+        $programTimes.appendChild($programLanguage);
+        parent.appendChild($programInfo);
+      }
+    }, {
+      key: "makeLabelElement",
+      value: function makeLabelElement(parent, data) {
+        var label = document.createElement('div');
+        label.className = "programs__label";
+        parent.appendChild(label);
+      }
+    }, {
+      key: "renderCard",
+      value: function renderCard() {
+        var _this = this;
+
+        this.datas.forEach(function (data) {
+          var $programCard = document.createElement('li');
+          $programCard.className = "programs__program-card";
+          var $cardItem = document.createElement('div');
+          $cardItem.classList.add("programs__card-items");
+
+          _this.makeLabelElement($programCard, data);
+
+          _this.makeLinkElement($cardItem, data);
+
+          _this.makeInfoElement($cardItem, data);
+
+          $programCard.appendChild($cardItem);
+          document.querySelector('.programs__program-cards').appendChild($programCard);
+        });
+      }
+    }]);
+
+    return Program;
+  }();
+
+  new Program(_programData.default);
 });
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -159,7 +330,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51324" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61677" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

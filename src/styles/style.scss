@@ -16,6 +16,7 @@ a {
 ul, li {
     list-style: none;
     margin: 0;
+    padding: 0;
 }
 
 button {
@@ -235,5 +236,173 @@ button {
                 }
             }
         }        
+    }
+}
+
+.programs {
+    padding: 5rem 0 3.5rem 0; // 윤곽 패딩해주고!
+    .programs__container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px !important;
+        padding: 0 1rem;
+        margin-left: auto;
+        margin-right: auto; 
+        box-sizing: border-box;
+        .programs__header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-bottom: 1.5rem;
+            .programs__head {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .programs__title {
+                    font-size: $font-xl;
+                    margin: 0;
+                }
+                .programs__info-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: $font-l;
+                }
+                .programs__more-btn {
+                    @include _button(true);
+                    color: $blue-color;
+                    padding: 0.375rem 0.875rem;
+                    margin-left: 1.5rem;
+                    border: 1px solid $blue-color;
+                    background: transparent;
+                }
+            }
+            .programs__move-btn {
+                display: flex;
+                .programs__move-right {
+                    margin-left: 0.5rem;
+                }
+                .programs__move-left,
+                .programs__move-right {
+                    @include _button(true);
+                    background: transparent;
+                    border: 1px solid;
+                    border-color: $border-gray-color;
+                    color: $border-gray-color;
+                    width: 3.5rem;
+                    height: 2.25rem;
+                    .fa-chevron-left,
+                    .fa-chevron-right {
+                        color: $program-gray-color;
+                    }
+                }
+            }
+        }
+        .programs__card-box {
+            position: static;
+            width: 100%;
+            .programs__label {
+                position: absolute;
+                left: -2.75rem;
+                top: 0.75rem;
+                z-index: 10;
+                width: 4.5rem;
+                height: 0;
+                border-right: 2.5rem solid transparent;
+                border-bottom: 2.5rem solid #142029;
+                border-left: 2.5rem solid transparent;
+                transform: rotate(-45deg);
+                color: white;
+                text-align: center;
+                line-height: 2.5;
+                &::before,
+                &::after {
+                    position: absolute;
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    content: "";
+                }
+                &::before {
+                    border-left: 0.625rem solid gray;
+                    border-bottom: 0.625rem solid transparent;
+                    left: -2.5rem;
+                    top: 2.5rem;
+                }
+                &::after {
+                    border-right: 0.625rem solid gray;
+                    border-bottom: 0.625rem solid transparent;
+                    right: -2.5rem;
+                    bottom: -3.125rem;  
+                }
+            }
+        }
+        .programs__program-cards {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            padding: 0.5rem 0 0 0.5rem;
+            box-sizing: border-box;
+            box-sizing: border-box;
+            /*
+                ! JSON으로 받아오는 데이터
+            */ 
+            .programs__program-card {
+                display: flex;
+                position: relative;
+                margin-right: 1rem;
+                .programs__card-items {
+                    overflow: hidden;
+                    border: 1px solid $border-gray-color;
+                    border-radius: 10px;
+                    width: 100%;
+                    width: 1160px;
+                }         
+                .programs__link {
+                    display: block;
+                    position: relative;
+                    height: 17.5rem;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    .programs__image {
+                        position: absolute;
+                        height: 100%;
+                        left: 50%;
+                        top: 50%;
+                        border-radius: 10px 10px 0 0;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                .programs__program-info {
+                    display: block;
+                    position: relative;
+                    padding: 1rem;
+                    .programs__program-times {
+                        display: flex;
+                        flex-direction: column;
+                        font-weight: 400;
+                        .programs__period-receipt,
+                        .programs__period-test {
+                            color: $program-gray-color;
+                            font-size: $font-s;
+                            line-height: 1.75;
+                        }
+                    }
+                    .programs__program-language {
+                        display: flex;
+                        padding-top: 1rem;
+                        li {
+                            background: rgb(46, 46, 46);
+                            margin-right: 1rem;
+                            color: white;
+                            padding: 0.25rem 1rem;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
