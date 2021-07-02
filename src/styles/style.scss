@@ -148,7 +148,7 @@ button {
 .header {
     display: flex;
     background: black;
-    justify-content: center;
+    // justify-content: center;
     padding: 3.5rem 1rem 2.5rem 1rem;
     .header__copies {
         width: 600px;
@@ -194,14 +194,17 @@ button {
     @include customMedia("tablet") {
         flex-direction: column;
         .header__copies {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
             text-align: center;
             .header__main-copy > span {
                 display: inline;
             }
-        }
-        .header__sign-up-btn {
-            margin-bottom: 2rem;
+            .header__sign-up-btn {
+                margin-bottom: 2rem;
+            }
         }
         .header__image-box {
             display: flex;
@@ -258,6 +261,9 @@ button {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                .programs__title-and-info {
+                    display: flex;
+                }
                 .programs__title {
                     font-size: $font-xl;
                     margin: 0;
@@ -306,7 +312,6 @@ button {
         .programs__card-box {
             position: static;
             width: 100%;
-            padding-right: 0.5rem;
             overflow: hidden;
             .programs__label {
                 position: absolute;
@@ -345,7 +350,7 @@ button {
             }
         }
         .programs__program-cards {
-            display: flex;
+            display: inline-flex;
             position: relative;
             transition: all 0.3s;
 
@@ -395,10 +400,12 @@ button {
                             font-size: $font-s;
                             line-height: 1.75;
                         }
+                        .programs__period-test {
+                            margin-top: 0.25rem;
+                        }
                     }
                     .programs__program-language {
                         display: flex;
-                        padding-top: 1rem;
                         .programs__language-item {
                             background: rgb(46, 46, 46);
                             margin-right: 1rem;
@@ -429,6 +436,60 @@ button {
             &.programs__page-btn--active {
                 background: $blue-color;
                 width: 3rem;
+            }
+        }
+    }
+
+    @include customMedia("tablet") {
+        padding-top: 2.5rem;
+        .programs__container {
+            .programs__card-box {
+                .programs__program-cards {
+                    .programs__program-card {
+                        margin-right: 2rem;
+                        .programs__card-items {
+                            .programs__link {
+                                height: 12.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include customMedia("mobile-and-tablet") {
+        .programs__container {
+            .programs__card-box {
+                .programs__program-cards {
+                    .programs__program-card {
+                        .programs__card-items {
+                            .programs__link {
+                            }
+                        }
+                    }
+                }
+            }
+            .programs__page-btns {
+                .programs__page-btn {
+                    // 991px 이하 너비로는 
+                    &:nth-child(2n) {
+                        // display: none;
+                    }
+                }
+            }
+        }
+    }
+    @include customMedia("mobile") {
+        .programs__container {
+            .programs__header {
+                .programs__head {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                }
+                .programs__move-btn {
+                    // display: none;
+                }
             }
         }
     }

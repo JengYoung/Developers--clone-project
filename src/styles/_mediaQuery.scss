@@ -8,8 +8,8 @@
     ! 기타 device를 mobile로 통일했습니다.
 */ 
 
-$mobile: 575px;
-$mobile-and-tablet: 767px;
+$mobile: 574px;
+$mobile-and-tablet: 766px;
 $tablet: 991px;
 
 @mixin customMedia($device){

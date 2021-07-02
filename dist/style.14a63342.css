@@ -171,7 +171,6 @@ button:hover {
 .header {
   display: flex;
   background: black;
-  justify-content: center;
   padding: 3.5rem 1rem 2.5rem 1rem;
 }
 .header .header__copies {
@@ -230,13 +229,16 @@ button:hover {
     flex-direction: column;
   }
   .header .header__copies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     text-align: center;
   }
   .header .header__copies .header__main-copy > span {
     display: inline;
   }
-  .header .header__sign-up-btn {
+  .header .header__copies .header__sign-up-btn {
     margin-bottom: 2rem;
   }
   .header .header__image-box {
@@ -248,7 +250,7 @@ button:hover {
     width: 100%;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 766px) {
   .header {
     padding: 2.5rem 1rem 2.5rem 1rem;
   }
@@ -260,7 +262,7 @@ button:hover {
     font-size: 18px;
   }
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 574px) {
   .header .header__copies {
     box-sizing: border-box;
   }
@@ -293,6 +295,9 @@ button:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.programs .programs__container .programs__header .programs__head .programs__title-and-info {
+  display: flex;
 }
 .programs .programs__container .programs__header .programs__head .programs__title {
   font-size: 20px;
@@ -358,7 +363,6 @@ button:hover {
 .programs .programs__container .programs__card-box {
   position: static;
   width: 100%;
-  padding-right: 0.5rem;
   overflow: hidden;
 }
 .programs .programs__container .programs__card-box .programs__label {
@@ -396,7 +400,7 @@ button:hover {
   bottom: -3.125rem;
 }
 .programs .programs__container .programs__program-cards {
-  display: flex;
+  display: inline-flex;
   position: relative;
   transition: all 0.3s;
   padding: 0.5rem 0 0 0.5rem;
@@ -445,9 +449,11 @@ button:hover {
   font-size: 14px;
   line-height: 1.75;
 }
+.programs .programs__container .programs__program-cards .programs__program-card .programs__program-info .programs__program-times .programs__period-test {
+  margin-top: 0.25rem;
+}
 .programs .programs__container .programs__program-cards .programs__program-card .programs__program-info .programs__program-language {
   display: flex;
-  padding-top: 1rem;
 }
 .programs .programs__container .programs__program-cards .programs__program-card .programs__program-info .programs__program-language .programs__language-item {
   background: #2e2e2e;
@@ -476,6 +482,24 @@ button:hover {
 .programs .programs__page-btns li.programs__page-btn--active {
   background: #0078FF;
   width: 3rem;
+}
+@media screen and (max-width: 991px) {
+  .programs {
+    padding-top: 2.5rem;
+  }
+  .programs .programs__container .programs__card-box .programs__program-cards .programs__program-card {
+    margin-right: 2rem;
+  }
+  .programs .programs__container .programs__card-box .programs__program-cards .programs__program-card .programs__card-items .programs__link {
+    height: 12.5rem;
+  }
+}
+@media screen and (max-width: 574px) {
+  .programs .programs__container .programs__header .programs__head {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */
