@@ -443,6 +443,7 @@ button {
     @include customMedia("tablet") {
         padding-top: 2.5rem;
         .programs__container {
+            padding: 0 2.75rem;
             .programs__card-box {
                 .programs__program-cards {
                     .programs__program-card {
@@ -459,24 +460,7 @@ button {
     }
     @include customMedia("mobile-and-tablet") {
         .programs__container {
-            .programs__card-box {
-                .programs__program-cards {
-                    .programs__program-card {
-                        .programs__card-items {
-                            .programs__link {
-                            }
-                        }
-                    }
-                }
-            }
-            .programs__page-btns {
-                .programs__page-btn {
-                    // 991px 이하 너비로는 
-                    &:nth-child(2n) {
-                        // display: none;
-                    }
-                }
-            }
+            padding: 0 1rem;
         }
     }
     @include customMedia("mobile") {
@@ -488,7 +472,7 @@ button {
                     justify-content: space-between;
                 }
                 .programs__move-btn {
-                    // display: none;
+                    display: none;
                 }
             }
         }

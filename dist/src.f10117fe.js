@@ -203,7 +203,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -281,9 +281,10 @@ window.addEventListener('DOMContentLoaded', function () {
         cardItems: "programs__card-items"
       };
       this.num = 0;
-      this.dataLength;
+      this.windowWidth;
       this.nowWidth;
       this.moveWidth;
+      this.dataLength;
       this.initialize();
       this.render();
       this.HandleEvents();
@@ -294,12 +295,13 @@ window.addEventListener('DOMContentLoaded', function () {
     _createClass(Program, [{
       key: "initialize",
       value: function initialize() {
-        var windowWidth = window.innerWidth;
-        this.nowWidth = this.setWidth(windowWidth);
-        this.moveWidth = this.setMoveWidth(windowWidth);
-        this.dataLength = this.setDataLength(windowWidth);
-        this.num = this.setNum(windowWidth);
+        this.windowWidth = window.innerWidth;
+        this.num = this.setNum(this.windowWidth);
+        this.nowWidth = this.setWidth(this.windowWidth);
+        this.moveWidth = this.setMoveWidth(this.windowWidth);
+        this.dataLength = this.setDataLength(this.windowWidth);
         this.reRenderPageBtn();
+        console.log(this.nowWidth, this.moveWidth);
       }
     }, {
       key: "renderCard",
@@ -431,7 +433,13 @@ window.addEventListener('DOMContentLoaded', function () {
     }, {
       key: "setWidth",
       value: function setWidth(windowWidth) {
-        if (574 < windowWidth && windowWidth < 767) {
+        if (1200 < windowWidth) {
+          return 1160;
+        }
+
+        if (767 <= windowWidth && windowWidth <= 991) {
+          return windowWidth - 124;
+        } else if (574 < windowWidth && windowWidth < 767) {
           return windowWidth / 2 - 48;
         } else {
           return windowWidth - 64;
@@ -440,10 +448,14 @@ window.addEventListener('DOMContentLoaded', function () {
     }, {
       key: "setMoveWidth",
       value: function setMoveWidth(windowWidth) {
-        if (574 < windowWidth && windowWidth < 767) {
-          return (this.nowWidth + 16) * this.num;
+        if (1200 < windowWidth) {
+          return this.nowWidth + 18;
+        } else if (574 < windowWidth && windowWidth < 767) {
+          console.log(this.nowWidth * 2 + 32);
+          return this.nowWidth * 2 + 68;
         } else {
-          return (this.nowWidth + 32) * this.num;
+          console.log(windowWidth + 16);
+          return this.nowWidth + 34;
         }
       }
     }, {
@@ -490,9 +502,10 @@ window.addEventListener('DOMContentLoaded', function () {
         var $cardItems = document.querySelectorAll(".".concat(this.names.cardItems));
         $cardItems.forEach(function (cardItem) {
           cardItem.style.width = "".concat(_this5.nowWidth, "px");
+          console.log(_this5.nowWidth);
         });
         var $programCards = document.querySelector(".".concat(this.names.programCards));
-        $programCards.style.transform = "-".concat(this.moveWidth, "px");
+        $programCards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
       }
     }, {
       key: "HandleEvents",
@@ -500,16 +513,15 @@ window.addEventListener('DOMContentLoaded', function () {
         function HandlePageBtn(e) {
           var target = e.target;
           var $programCards = document.querySelector(".".concat(this.names.programCards));
-          var cardsWidth = document.querySelector(".".concat(this.names.programCards)).clientWidth;
           if (!target.classList.contains(this.names.pageBtn)) return;
           this.checkActive(this.names.pageBtn);
-          $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
+          $programCards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
           this.checkDisable();
+          console.log('clicked', -this.moveWidth * this.num);
         }
 
         function HandleMoveBtn(e) {
           var $programCards = document.querySelector(".".concat(this.names.programCards));
-          var cardsWidth = document.querySelector(".".concat(this.names.programCard)).clientWidth;
           var target = e.target;
 
           if (this.num && target.classList.contains(this.names.leftBtn)) {
@@ -518,7 +530,7 @@ window.addEventListener('DOMContentLoaded', function () {
             this.num++;
           } else return;
 
-          $programCards.style.transform = "translate(".concat(-(cardsWidth + 16) * this.num, "px, 0)");
+          $programCards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
           this.checkActive(this.names.pageBtn);
           this.checkActive(this.names.programCard);
           this.checkDisable();
@@ -541,7 +553,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   new Program(_programData.default);
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./Throttle.ts":"src/Throttle.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./Throttle.ts":"src/Throttle.ts"}],"C:/Users/황재영/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -569,7 +581,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60951" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57731" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -745,5 +757,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
+},{}]},{},["C:/Users/황재영/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
 //# sourceMappingURL=/src.f10117fe.js.map

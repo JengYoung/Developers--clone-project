@@ -487,6 +487,9 @@ button:hover {
   .programs {
     padding-top: 2.5rem;
   }
+  .programs .programs__container {
+    padding: 0 2.75rem;
+  }
   .programs .programs__container .programs__card-box .programs__program-cards .programs__program-card {
     margin-right: 2rem;
   }
@@ -494,11 +497,19 @@ button:hover {
     height: 12.5rem;
   }
 }
+@media screen and (max-width: 766px) {
+  .programs .programs__container {
+    padding: 0 1rem;
+  }
+}
 @media screen and (max-width: 574px) {
   .programs .programs__container .programs__header .programs__head {
     display: flex;
     width: 100%;
     justify-content: space-between;
+  }
+  .programs .programs__container .programs__header .programs__move-btn {
+    display: none;
   }
 }
 

@@ -27,8 +27,10 @@ window.addEventListener('DOMContentLoaded', () => {
         private readonly names: Names;
         private num: number;
         private dataLength: number;
-        private  nowWidth: number;
-        private  moveWidth: number;
+        private nowWidth: number;
+        private moveWidth: number;
+        private windowWidth: number;
+        private cardWidth: number;
         // 받아들여온 데이터는 수정 불가하도록 readonly로 작성
         constructor(private readonly datas: Array<DataFormat>) {
             this.names = {
@@ -52,9 +54,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 cardItems: "programs__card-items"
             }; // 클래스명을 관리함.
             this.num = 0; // 현재 페이지 number
-            this.dataLength; // 데이터 길이 -> HandleResize에서 조정도 할 예정.
-            this.nowWidth; // 초기 길이 -> HandleResize에서 받아옴
+            this.windowWidth; // 초기 윈도우 너비 -> HandleResize에서 받아옴
+            this.nowWidth; // 카드 너비 -> initialize
             this.moveWidth; // 한 번 움직일 때마다의 값 -> HandleResize에서 받아옴
+            this.dataLength; // 데이터 길이 -> HandleResize에서 조정도 할 예정.
             this.initialize()
 
             this.render(); // 카드와 pagination 버튼 생성
@@ -64,12 +67,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         private initialize(): void {
-            const windowWidth = window.innerWidth;
-            this.nowWidth = this.setWidth(windowWidth);
-            this.moveWidth = this.setMoveWidth(windowWidth);
-            this.dataLength = this.setDataLength(windowWidth);
-            this.num = this.setNum(windowWidth);
+            this.windowWidth = window.innerWidth;
+            this.num = this.setNum(this.windowWidth);
+            this.nowWidth = this.setWidth(this.windowWidth);
+            this.moveWidth = this.setMoveWidth(this.windowWidth);
+            this.dataLength = this.setDataLength(this.windowWidth);
             this.reRenderPageBtn();
+            console.log(this.nowWidth, this.moveWidth)
         }
         private renderCard(): void {
             function makeLinkElement(parent:HTMLElement, data: DataFormat): void {
@@ -212,7 +216,13 @@ window.addEventListener('DOMContentLoaded', () => {
             /**
              * mobile-and-tablet에서만 조정수치가 달라짐.
              */
-            if (574 < windowWidth && windowWidth < 767) {
+            if (1200 < windowWidth) {
+                return 1160;
+            }
+            if (767 <= windowWidth && windowWidth <= 991) {
+                return (windowWidth - 124);
+            }
+            else if (574 < windowWidth && windowWidth < 767) {
                 return (windowWidth) / 2 - 48
             } else {
                 return windowWidth - 64;
@@ -224,10 +234,18 @@ window.addEventListener('DOMContentLoaded', () => {
             /**
              * mobile-and-tablet에서만 조정수치가 달라짐.
              */
-            if (574 < windowWidth && windowWidth < 767) {
-                return (this.nowWidth + 16) * this.num;
+            if (1200 < windowWidth) {
+                return (this.nowWidth + 18);
+            }
+            // if (767 <= windowWidth && windowWidth <= 991) {
+            //     return (this.nowWidth + );
+            // }
+            else if (574 < windowWidth && windowWidth < 767) {
+                console.log((this.nowWidth * 2 + 32))
+                return (this.nowWidth * 2 + 68);
             } else {
-                return (this.nowWidth + 32) * this.num;
+                console.log((windowWidth + 16))
+                return (this.nowWidth + 34);
             }
         }
 
@@ -269,9 +287,10 @@ window.addEventListener('DOMContentLoaded', () => {
             const $cardItems: NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.cardItems}`);
             $cardItems.forEach((cardItem: HTMLElement) => {
                 cardItem.style.width = `${this.nowWidth}px`;
+                console.log(this.nowWidth);
             })
             const $programCards:HTMLElement = document.querySelector(`.${this.names.programCards}`);
-            $programCards.style.transform = `-${this.moveWidth}px`;
+            $programCards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
         };
 
         private HandleEvents(): void {
@@ -280,22 +299,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 const target = e.target as HTMLElement;
                 // const pageBtns:NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.pageBtn}`);
                 const $programCards:HTMLElement = document.querySelector(`.${this.names.programCards}`);
-                const cardsWidth:number = document.querySelector(`.${this.names.programCards}`).clientWidth;
 
                 if (!target.classList.contains(this.names.pageBtn)) return;
-
-                // pageBtns.forEach((pageBtn: HTMLElement, idx) => {
-                //     if (target === pageBtn) this.num = idx;
-                //     pageBtn.classList.toggle(`${this.names.pageBtn}--active`, pageBtn === target);
-                // })
                 this.checkActive(this.names.pageBtn);
 
-                $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
+                $programCards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
                 this.checkDisable()
+
+                console.log('clicked', -this.moveWidth * this.num)
             }
             function HandleMoveBtn(e:MouseEvent): void {
                 const $programCards:HTMLElement = document.querySelector(`.${this.names.programCards}`);
-                const cardsWidth:number = document.querySelector(`.${this.names.programCard}`).clientWidth;
 
                 const target = e.target as HTMLElement;
                 if (this.num && target.classList.contains(this.names.leftBtn)) {
@@ -305,7 +319,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 } 
                 else return;
 
-                $programCards.style.transform = `translate(${-(cardsWidth + 16) * this.num}px, 0)`;
+                $programCards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
                 this.checkActive(this.names.pageBtn);
                 this.checkActive(this.names.programCard);
                 this.checkDisable()
