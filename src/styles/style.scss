@@ -370,6 +370,7 @@ button {
                     border: 1px solid $border-gray-color;
                     border-radius: 10px;
                     // width: 1160px;
+                    box-sizing: border-box;
                 }         
                 .programs__link {
                     display: block;

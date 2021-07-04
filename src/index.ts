@@ -73,7 +73,6 @@ window.addEventListener('DOMContentLoaded', () => {
             this.moveWidth = this.setMoveWidth(this.windowWidth);
             this.dataLength = this.setDataLength(this.windowWidth);
             this.reRenderPageBtn();
-            console.log(this.nowWidth, this.moveWidth)
         }
         private renderCard(): void {
             function makeLinkElement(parent:HTMLElement, data: DataFormat): void {
@@ -216,10 +215,10 @@ window.addEventListener('DOMContentLoaded', () => {
             /**
              * mobile-and-tablet에서만 조정수치가 달라짐.
              */
-            if (1200 < windowWidth) {
+            if (991 < windowWidth) {
                 return 1160;
             }
-            else if (991 <= windowWidth && windowWidth <= 1200) {
+            else if (991 < windowWidth && windowWidth <= 1200) {
                 return (windowWidth - 56);
             }
             else if (767 <= windowWidth && windowWidth <= 991) {
@@ -238,14 +237,12 @@ window.addEventListener('DOMContentLoaded', () => {
              * mobile-and-tablet에서만 조정수치가 달라짐.
              */
             if (991 <windowWidth) {
-                return (this.nowWidth + 18);
+                return (this.nowWidth + 16);
             }
             else if (574 < windowWidth && windowWidth < 767) {
-                console.log((this.nowWidth * 2 + 32))
-                return (this.nowWidth * 2 + 68);
+                return (this.nowWidth * 2 + 64);
             } else {
-                console.log((windowWidth + 16))
-                return (this.nowWidth + 34);
+                return (this.nowWidth + 32);
             }
         }
 
@@ -303,14 +300,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 pageBtns.forEach((btn, idx) => {
                     btn.classList.toggle(`${this.names.pageBtn}--active`, btn === target)
                     if (btn === target) this.num = idx;
-                    console.log(this.num);
                 })
                 // this.checkActive(this.names.pageBtn);
 
                 $programCards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
                 this.checkDisable()
-
-                console.log('clicked', -this.moveWidth * this.num)
             }
             function HandleMoveBtn(e:MouseEvent): void {
                 const $programCards:HTMLElement = document.querySelector(`.${this.names.programCards}`);

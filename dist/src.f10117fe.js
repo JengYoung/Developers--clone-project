@@ -301,7 +301,6 @@ window.addEventListener('DOMContentLoaded', function () {
         this.moveWidth = this.setMoveWidth(this.windowWidth);
         this.dataLength = this.setDataLength(this.windowWidth);
         this.reRenderPageBtn();
-        console.log(this.nowWidth, this.moveWidth);
       }
     }, {
       key: "renderCard",
@@ -433,9 +432,9 @@ window.addEventListener('DOMContentLoaded', function () {
     }, {
       key: "setWidth",
       value: function setWidth(windowWidth) {
-        if (1200 < windowWidth) {
+        if (991 < windowWidth) {
           return 1160;
-        } else if (991 <= windowWidth && windowWidth <= 1200) {
+        } else if (991 < windowWidth && windowWidth <= 1200) {
           return windowWidth - 56;
         } else if (767 <= windowWidth && windowWidth <= 991) {
           return windowWidth - 124;
@@ -449,13 +448,11 @@ window.addEventListener('DOMContentLoaded', function () {
       key: "setMoveWidth",
       value: function setMoveWidth(windowWidth) {
         if (991 < windowWidth) {
-          return this.nowWidth + 18;
+          return this.nowWidth + 16;
         } else if (574 < windowWidth && windowWidth < 767) {
-          console.log(this.nowWidth * 2 + 32);
-          return this.nowWidth * 2 + 68;
+          return this.nowWidth * 2 + 64;
         } else {
-          console.log(windowWidth + 16);
-          return this.nowWidth + 34;
+          return this.nowWidth + 32;
         }
       }
     }, {
@@ -519,11 +516,9 @@ window.addEventListener('DOMContentLoaded', function () {
           pageBtns.forEach(function (btn, idx) {
             btn.classList.toggle("".concat(_this6.names.pageBtn, "--active"), btn === target);
             if (btn === target) _this6.num = idx;
-            console.log(_this6.num);
           });
           $programCards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
           this.checkDisable();
-          console.log('clicked', -this.moveWidth * this.num);
         }
 
         function HandleMoveBtn(e) {
