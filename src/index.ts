@@ -219,7 +219,10 @@ window.addEventListener('DOMContentLoaded', () => {
             if (1200 < windowWidth) {
                 return 1160;
             }
-            if (767 <= windowWidth && windowWidth <= 991) {
+            else if (991 <= windowWidth && windowWidth <= 1200) {
+                return (windowWidth - 56);
+            }
+            else if (767 <= windowWidth && windowWidth <= 991) {
                 return (windowWidth - 124);
             }
             else if (574 < windowWidth && windowWidth < 767) {
@@ -234,12 +237,9 @@ window.addEventListener('DOMContentLoaded', () => {
             /**
              * mobile-and-tablet에서만 조정수치가 달라짐.
              */
-            if (1200 < windowWidth) {
+            if (991 <windowWidth) {
                 return (this.nowWidth + 18);
             }
-            // if (767 <= windowWidth && windowWidth <= 991) {
-            //     return (this.nowWidth + );
-            // }
             else if (574 < windowWidth && windowWidth < 767) {
                 console.log((this.nowWidth * 2 + 32))
                 return (this.nowWidth * 2 + 68);
@@ -287,7 +287,6 @@ window.addEventListener('DOMContentLoaded', () => {
             const $cardItems: NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.cardItems}`);
             $cardItems.forEach((cardItem: HTMLElement) => {
                 cardItem.style.width = `${this.nowWidth}px`;
-                console.log(this.nowWidth);
             })
             const $programCards:HTMLElement = document.querySelector(`.${this.names.programCards}`);
             $programCards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
@@ -297,11 +296,16 @@ window.addEventListener('DOMContentLoaded', () => {
             function HandlePageBtn(e:MouseEvent): void {
 
                 const target = e.target as HTMLElement;
-                // const pageBtns:NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.pageBtn}`);
+                const pageBtns:NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.pageBtn}`);
                 const $programCards:HTMLElement = document.querySelector(`.${this.names.programCards}`);
 
                 if (!target.classList.contains(this.names.pageBtn)) return;
-                this.checkActive(this.names.pageBtn);
+                pageBtns.forEach((btn, idx) => {
+                    btn.classList.toggle(`${this.names.pageBtn}--active`, btn === target)
+                    if (btn === target) this.num = idx;
+                    console.log(this.num);
+                })
+                // this.checkActive(this.names.pageBtn);
 
                 $programCards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
                 this.checkDisable()

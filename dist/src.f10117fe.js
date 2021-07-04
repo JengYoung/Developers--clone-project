@@ -435,9 +435,9 @@ window.addEventListener('DOMContentLoaded', function () {
       value: function setWidth(windowWidth) {
         if (1200 < windowWidth) {
           return 1160;
-        }
-
-        if (767 <= windowWidth && windowWidth <= 991) {
+        } else if (991 <= windowWidth && windowWidth <= 1200) {
+          return windowWidth - 56;
+        } else if (767 <= windowWidth && windowWidth <= 991) {
           return windowWidth - 124;
         } else if (574 < windowWidth && windowWidth < 767) {
           return windowWidth / 2 - 48;
@@ -448,7 +448,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }, {
       key: "setMoveWidth",
       value: function setMoveWidth(windowWidth) {
-        if (1200 < windowWidth) {
+        if (991 < windowWidth) {
           return this.nowWidth + 18;
         } else if (574 < windowWidth && windowWidth < 767) {
           console.log(this.nowWidth * 2 + 32);
@@ -502,7 +502,6 @@ window.addEventListener('DOMContentLoaded', function () {
         var $cardItems = document.querySelectorAll(".".concat(this.names.cardItems));
         $cardItems.forEach(function (cardItem) {
           cardItem.style.width = "".concat(_this5.nowWidth, "px");
-          console.log(_this5.nowWidth);
         });
         var $programCards = document.querySelector(".".concat(this.names.programCards));
         $programCards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
@@ -511,10 +510,17 @@ window.addEventListener('DOMContentLoaded', function () {
       key: "HandleEvents",
       value: function HandleEvents() {
         function HandlePageBtn(e) {
+          var _this6 = this;
+
           var target = e.target;
+          var pageBtns = document.querySelectorAll(".".concat(this.names.pageBtn));
           var $programCards = document.querySelector(".".concat(this.names.programCards));
           if (!target.classList.contains(this.names.pageBtn)) return;
-          this.checkActive(this.names.pageBtn);
+          pageBtns.forEach(function (btn, idx) {
+            btn.classList.toggle("".concat(_this6.names.pageBtn, "--active"), btn === target);
+            if (btn === target) _this6.num = idx;
+            console.log(_this6.num);
+          });
           $programCards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
           this.checkDisable();
           console.log('clicked', -this.moveWidth * this.num);
