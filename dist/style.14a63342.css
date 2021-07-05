@@ -551,9 +551,9 @@ button:hover {
   flex-wrap: wrap;
   padding-bottom: 2.5rem;
 }
-.job__skill {
+.job__skills .job__skill {
   background: #eeebff;
-  padding: 0 1rem;
+  padding: 0.125rem 1rem;
   margin: 0.25rem 0.5rem 0.25rem 0;
   color: #0078FF;
   font-weight: 500;
@@ -568,10 +568,9 @@ button:hover {
 }
 .job__card {
   display: flex;
-  justify-content: space-between;
   width: calc(50% - 0.5rem);
   padding: 1rem;
-  border: 1px solid #98a8b9;
+  border: 1px solid #d5dbe2;
   border-radius: 5px;
   margin-bottom: 1rem;
   box-sizing: border-box;
@@ -582,6 +581,7 @@ button:hover {
   overflow: hidden;
 }
 .job__card .job__logo-box .job__card-logo {
+  width: 100%;
   max-width: 5rem;
   max-height: 5rem;
   vertical-align: middle;
@@ -602,22 +602,20 @@ button:hover {
   font-size: 14px;
 }
 .job__card .job__card-info .job__requirements {
+  position: relative;
+  max-height: 2rem;
   padding-bottom: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
-  max-height: 2rem;
-  position: relative;
 }
 .job__card .job__card-info .job__requirements .job__requirement {
   display: inline-block;
-  word-break: keep-all;
-  margin-right: 0.25rem;
-  font-size: 12px;
+  margin: 0 0.25rem 1rem 0;
   padding: 0.1875rem 0.5rem;
-  margin-bottom: 1rem;
-  background: #e4e8ed;
-  line-height: 1.5;
   border-radius: 0.25rem;
+  background: #e4e8ed;
+  font-size: 12px;
+  line-height: 1.5;
 }
 .job__card .job__card-info .job__requirements::after {
   position: absolute;

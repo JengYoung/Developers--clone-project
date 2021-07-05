@@ -1,0 +1,58 @@
+[
+    {
+        "name": "모토브",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/2928/resize.jpeg",
+        "url": "https://programmers.co.kr/job_positions/6106",
+        "jobName":"Frontend Engineer (신입가능/전문연구요원)",
+        "requirements": ["프론트엔드", "웹 풀스택", "TypeScript", "React Native", "Firebase", "AWS", "DynamoDB", "Webpack", "AngularJS", "ES6", "CSS", "HTML", "JavaScript", "jQuery", "ReactJS", "Node.js"]
+    },
+    {
+        "name": "마켓컬리",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/762/PURPLE.png",
+        "url": "https://programmers.co.kr/job_positions/3495",
+        "jobName":"[마켓컬리] iOS 앱개발자",
+        "requirements": ["아이폰 앱", "Reactor", "Rx", "Swift", "MVVM(Model-View-ViewModel)", "MVP", "iOS"]
+    },
+    {
+        "name": "엑심베이",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/1858/Eximbay-CI.jpg",
+        "url": "https://programmers.co.kr/job_positions/4978",
+        "jobName":"프론트엔드 개발자",
+        "requirements": ["서버/백엔드", "프론트엔드", "웹 풀스택", "CSS3", "HTML5", "JavaScript", "JSP", "Spring", "MySQL", "Java"]
+    },
+    {
+        "name": "하우저",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/1845/%EB%A1%9C%EA%B3%A0_%EC%84%B8%EB%A1%9C%ED%98%95.jpg",
+        "url": "https://programmers.co.kr/job_positions/4766",
+        "jobName":"Front-end 개발자",
+        "requirements": ["프론트엔드", "웹 풀스택", "TypeScript", "React Native", "Firebase", "AWS", "DynamoDB", "Webpack", "AngularJS", "ES6", "CSS", "HTML", "JavaScript", "jQuery", "ReactJS", "Node.js"]
+    },
+    {
+        "name": "모두싸인",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/364/SYMBOL.jpg",
+        "url": "https://programmers.co.kr/job_positions/3294",
+        "jobName":"프론트엔드 엔지니어(리더급)",
+        "requirements": ["Redux.js", "CSS", "HTML", "JavaScript", "ReactJS", "TypeScript"]
+    },
+    {
+        "name": "딥바이오",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/2330/CI3.png",
+        "url": "https://programmers.co.kr/job_positions/4182",
+        "jobName":"프론트엔드 엔지니어",
+        "requirements": ["Redux-Saga", "Redux.js", "AWS EC2", "Electron", "TypeScript", "Docker", "Webpack", "ES6", "ReactJS", "Node.js", "CSS", "JavaScript", "HTML"]
+    },
+    {
+        "name": "올림플래닛",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/2102/LOGO_-_%EA%B6%8C%EC%9E%AC%ED%98%84.jpg",
+        "url": "https://programmers.co.kr/job_positions/5275",
+        "jobName":"프론트엔드 개발/vue.js react.js",
+        "requirements": ["Nuxt.js", "Next.js", "WebGL", "Tailwind", "CSS", "Bootstrap", "Vuetify.js", "REST API", "ReactJS", "Sass(SCSS)", "TypeScript", "CSS", "HTML"]
+    },
+    {
+        "name": "와디즈플랫폼",
+        "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/1263/%EB%A1%9C%EA%B3%A0.png",
+        "url": "https://programmers.co.kr/job_positions/892",
+        "jobName":"프론트엔드 개발자",
+        "requirements": ["ES6", "Webpack", "ReactJS", "Node.js", "CSS", "HTML", "JavaScript"]
+    }
+]
