@@ -21,3 +21,10 @@
         font-weight: 600;
     }
 }
+
+@mixin _setMarginAuto() {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
