@@ -607,3 +607,64 @@ button {
         }
     }
 }
+
+.position-banner {
+    @include _setMarginAuto();
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    background: lighten($job-gray-color, 30%);
+    .banner__icon {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        z-index: 1;
+        margin-left: 0.5rem;
+        border-radius: 0.5rem;
+        background: $blue-color;
+        .fa-file-alt {
+            position : relative;
+            color: rgb(238, 238, 238);
+            font-size: 1.75rem;
+            transform: rotate(-15deg);
+        }
+        &::before {
+            position: absolute;
+            border-radius: 0.5rem;
+            transform: rotate(-15deg);
+            z-index: 0;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: "";
+            background: lighten($blue-color, 10%);;
+        }
+    }
+    .banner__copies {
+        padding-left: 1.5rem;
+        .banner__sub-copy {
+            margin: 0.5rem;
+            color: $blue-color;
+            font-weight: 700;
+            font-size: $font-s;
+        }
+        .banner__main-copy {
+            margin: 0.5rem;
+            font: {
+                size: $font-l;
+                weight: 700;
+            }
+        }
+    }
+    .banner__more-btn {
+        @include _button(true);
+        font-size: 1rem;
+        margin-left: auto;
+        padding: 0.625rem 0.875rem;
+    }
+}

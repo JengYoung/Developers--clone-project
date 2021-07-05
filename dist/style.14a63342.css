@@ -656,4 +656,73 @@ button:hover {
   }
 }
 
+.position-banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+  background: #f3f5f7;
+}
+.position-banner .banner__icon {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  z-index: 1;
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+  background: #0078FF;
+}
+.position-banner .banner__icon .fa-file-alt {
+  position: relative;
+  color: #eeeeee;
+  font-size: 1.75rem;
+  transform: rotate(-15deg);
+}
+.position-banner .banner__icon::before {
+  position: absolute;
+  border-radius: 0.5rem;
+  transform: rotate(-15deg);
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  background: #3393ff;
+}
+.position-banner .banner__copies {
+  padding-left: 1.5rem;
+}
+.position-banner .banner__copies .banner__sub-copy {
+  margin: 0.5rem;
+  color: #0078FF;
+  font-weight: 700;
+  font-size: 14px;
+}
+.position-banner .banner__copies .banner__main-copy {
+  margin: 0.5rem;
+  font-size: 18px;
+  font-weight: 700;
+}
+.position-banner .banner__more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: #0078FF;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-left: auto;
+  padding: 0.625rem 0.875rem;
+}
+
 /*# sourceMappingURL=/style.14a63342.css.map */

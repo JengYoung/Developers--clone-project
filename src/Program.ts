@@ -214,7 +214,7 @@ export default class Program {
             return (windowWidth - 124);
         }
         else if (574 < windowWidth && windowWidth < 767) {
-            return (windowWidth) / 2 - 45
+            return (windowWidth) / 2 - 45;
         } else {
             return windowWidth - 64;
         }
