@@ -610,7 +610,7 @@ button:hover {
 .job__card .job__card-info .job__requirements {
   position: relative;
   max-height: 2rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -632,6 +632,28 @@ button:hover {
   bottom: 0;
   z-index: 11;
   content: "";
+}
+@media screen and (max-width: 991px) {
+  .job .job__card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 766px) {
+  .job .job__card .job__card-title {
+    font-size: 0.9375rem;
+  }
+  .job .job__card .job__card-brand {
+    font-size: 0.8125rem;
+  }
+}
+@media screen and (max-width: 574px) {
+  .job .job__card .job__logo-box {
+    display: none;
+  }
+  .job .job__card .job__card-info {
+    padding-left: 0;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */

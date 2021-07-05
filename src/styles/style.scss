@@ -554,7 +554,7 @@ button {
             .job__requirements {
                 position: relative;
                 max-height: 2rem;
-                padding-bottom: 0.5rem;
+                padding-top: 0.5rem;
                 overflow: hidden;
                 box-sizing: border-box;
                 .job__requirement {
@@ -577,6 +577,32 @@ button {
                     z-index: 11;
                     content: "";
                 }
+            }
+        }
+    }
+    @include customMedia("tablet") {
+        .job__card {
+            width: 100%;
+        }
+    }
+    @include customMedia("mobile-and-tablet") {
+        .job__card {
+            .job__card-title {
+                font-size: 0.9375rem;
+            }
+            .job__card-brand {
+                font-size: 0.8125rem;
+            }
+        }
+    }
+    @include customMedia("mobile") {
+        .job__card {
+            .job__logo-box {
+                display: none;
+            }
+            .job__card-info {
+                padding-left: 0;
+                width: 100%;
             }
         }
     }
