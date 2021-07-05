@@ -68,9 +68,10 @@ button:hover {
 }
 .nav__navbar .nav__links {
   display: flex;
-  flex-direction: row;
+  width: 100%;
   justify-content: flex-end;
   align-items: center;
+  justify-content: center;
 }
 .nav__navbar .nav__menu-links,
 .nav__navbar .nav__auth-links {
@@ -99,6 +100,9 @@ button:hover {
   color: #B2C0CC;
   font-weight: 700;
   padding: 0.25rem 0.5rem;
+}
+.nav__navbar .nav__menu-links {
+  margin: 0 auto;
 }
 .nav__navbar .nav__btn {
   display: none;
@@ -130,13 +134,12 @@ button:hover {
     height: 24px;
   }
   .nav__navbar .nav__links {
-    margin-top: 1rem;
     flex-direction: column;
     width: 100%;
   }
   .nav__navbar .nav__links .nav__menu-links,
 .nav__navbar .nav__links .nav__auth-links {
-    padding: 0;
+    padding: 1rem 0;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
@@ -153,7 +156,6 @@ button:hover {
     font-size: 14px;
   }
   .nav__navbar .nav__links .nav__auth-links {
-    margin-top: 2rem;
     border-top: 1px solid #44576C;
   }
   .nav__navbar .nav__btn {
@@ -280,9 +282,9 @@ button:hover {
 .programs .programs__container {
   position: relative;
   max-width: 1200px;
-  padding: 0 1rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
   box-sizing: border-box;
 }
 .programs .programs__container .programs__header {
@@ -512,6 +514,13 @@ button:hover {
   .programs .programs__container .programs__header .programs__move-btn {
     display: none;
   }
+}
+
+.job {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */

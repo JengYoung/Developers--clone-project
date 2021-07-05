@@ -48,10 +48,10 @@ button {
     }
     .nav__links {
         display: flex;
-        flex-direction: row;
+        width: 100%;
         justify-content: flex-end;
         align-items: center;
-        // justify-content: center;
+        justify-content: center;
     }
     .nav__menu-links,
     .nav__auth-links {
@@ -78,6 +78,9 @@ button {
             font-weight: $fw-bold;
             padding: 0.25rem 0.5rem;
         }
+    }
+    .nav__menu-links {
+        margin: 0 auto;
     }
     .nav__btn {
         display: none;
@@ -109,12 +112,11 @@ button {
             }
         }
         .nav__links {
-            margin-top: 1rem;
             flex-direction: column;
             width: 100%;
             .nav__menu-links,
             .nav__auth-links {
-                padding: 0;
+                padding: 1rem 0;
                 align-items: flex-start;
                 flex-direction: column;
                 width: 100%;
@@ -128,7 +130,6 @@ button {
                 }
             }
             .nav__auth-links {
-                margin-top: 2rem;
                 border-top: 1px solid $separator-color;
             }
         }
@@ -246,11 +247,7 @@ button {
     padding: 5rem 0 3.5rem 0; // 윤곽 패딩해주고!
     .programs__container {
         position: relative;
-        // width: 100%;
-        max-width: 1200px;
-        padding: 0 1rem;
-        margin-left: auto;
-        margin-right: auto; 
+        @include _setMarginAuto();
         box-sizing: border-box;
         .programs__header {
             display: flex;
