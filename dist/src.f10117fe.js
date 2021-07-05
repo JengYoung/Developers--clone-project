@@ -483,7 +483,7 @@ var Program = /*#__PURE__*/function () {
       } else if (767 <= windowWidth && windowWidth <= 991) {
         return windowWidth - 124;
       } else if (574 < windowWidth && windowWidth < 767) {
-        return windowWidth / 2 - 48;
+        return windowWidth / 2 - 45;
       } else {
         return windowWidth - 64;
       }
