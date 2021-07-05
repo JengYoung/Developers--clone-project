@@ -321,9 +321,6 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  background: #0078FF;
-  padding: 0.5rem 1rem;
   font-weight: 700;
   letter-spacing: -1px;
   border-radius: 5px;
@@ -520,6 +517,117 @@ button:hover {
   .programs .programs__container .programs__header .programs__move-btn {
     display: none;
   }
+}
+
+.job {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.job__header {
+  display: flex;
+  padding-bottom: 1rem;
+}
+.job__header .job__title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.job__header .job__more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: -1px;
+  border-radius: 5px;
+  color: #0078FF;
+  padding: 0.375rem 0.875rem;
+  margin-left: 1.5rem;
+  border: 1px solid #0078FF;
+  background: transparent;
+}
+.job__skills {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 2.5rem;
+}
+.job__skill {
+  background: #eeebff;
+  padding: 0 1rem;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  color: #0078FF;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 2;
+  border-radius: 0.25rem;
+}
+.job__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.job__card {
+  display: flex;
+  justify-content: space-between;
+  width: calc(50% - 0.5rem);
+  padding: 1rem;
+  border: 1px solid #98a8b9;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+.job__card .job__logo-box {
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+}
+.job__card .job__logo-box .job__card-logo {
+  max-width: 5rem;
+  max-height: 5rem;
+  vertical-align: middle;
+}
+.job__card .job__card-info {
+  width: calc(100% - 5rem);
+  padding-left: 0.5rem;
+  box-sizing: border-box;
+}
+.job__card .job__card-info .job__card-title {
+  margin: 0;
+}
+.job__card .job__card-info .job__card-brand {
+  margin: 0;
+  padding: 0.25rem 0;
+  color: #98a8b9;
+  font-weight: 400;
+  font-size: 14px;
+}
+.job__card .job__card-info .job__requirements {
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-height: 2rem;
+  position: relative;
+}
+.job__card .job__card-info .job__requirements .job__requirement {
+  display: inline-block;
+  word-break: keep-all;
+  margin-right: 0.25rem;
+  font-size: 12px;
+  padding: 0.1875rem 0.5rem;
+  margin-bottom: 1rem;
+  background: #e4e8ed;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+}
+.job__card .job__card-info .job__requirements::after {
+  position: absolute;
+  background: linear-gradient(0.25turn, rgba(255, 255, 255, 0), white 85%);
+  top: 0;
+  left: 80%;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  content: "";
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */
