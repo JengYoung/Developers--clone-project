@@ -659,10 +659,6 @@ button {
                 size: $font-l;
                 weight: 700;
             }
-            p {
-                margin: 0;
-                display: inline;
-            }
             strong {
                 box-shadow: inset 0 -0.625rem rgb(255, 230, 4);
             }
@@ -708,8 +704,8 @@ button {
         }
     }
     @include customMedia("mobile") {
-        .banner__copies .banner__main-copy p{
-            display: block;
+        .banner__copies .banner__main-copy {
+            word-break: keep-all;
         }
     }
 }

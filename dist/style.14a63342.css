@@ -710,10 +710,6 @@ button:hover {
   font-size: 18px;
   font-weight: 700;
 }
-.position-banner .banner__copies .banner__main-copy p {
-  margin: 0;
-  display: inline;
-}
 .position-banner .banner__copies .banner__main-copy strong {
   box-shadow: inset 0 -0.625rem #ffe604;
 }
@@ -766,8 +762,8 @@ button:hover {
   }
 }
 @media screen and (max-width: 574px) {
-  .position-banner .banner__copies .banner__main-copy p {
-    display: block;
+  .position-banner .banner__copies .banner__main-copy {
+    word-break: keep-all;
   }
 }
 
