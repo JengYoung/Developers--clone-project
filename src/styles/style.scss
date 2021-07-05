@@ -147,10 +147,12 @@ button {
 }
 
 .header {
-    display: flex;
     background: black;
-    // justify-content: center;
     padding: 3.5rem 1rem 2.5rem 1rem;
+    .header__container {
+        display: flex;
+        @include _setMarginAuto();
+    }
     .header__copies {
         width: 600px;
         color: white;
@@ -193,7 +195,9 @@ button {
     }
     // ~991px;
     @include customMedia("tablet") {
-        flex-direction: column;
+        .header__container {
+            flex-direction: column;
+        }
         .header__copies {
             display: flex;
             flex-direction: column;

@@ -171,9 +171,15 @@ button:hover {
 }
 
 .header {
-  display: flex;
   background: black;
   padding: 3.5rem 1rem 2.5rem 1rem;
+}
+.header .header__container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 .header .header__copies {
   width: 600px;
@@ -227,7 +233,7 @@ button:hover {
   font-weight: 600;
 }
 @media screen and (max-width: 991px) {
-  .header {
+  .header .header__container {
     flex-direction: column;
   }
   .header .header__copies {
