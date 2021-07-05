@@ -20,7 +20,6 @@ export default class Program {
     private nowWidth: number;
     private moveWidth: number;
     private windowWidth: number;
-    private cardWidth: number;
     // 받아들여온 데이터는 수정 불가하도록 readonly로 작성
     constructor(private readonly datas: Array<DataFormat>) {
         this.names = {

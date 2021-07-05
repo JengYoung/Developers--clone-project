@@ -1,5 +1,8 @@
 import programData from "./datas/program-data.json";
+import jobData from "./datas/job-data.json";
+import skillsData from "./datas/skills-data.json";
 import Program from './Program';
+import Job from './Job';
 
 window.addEventListener('DOMContentLoaded', () => {
     function openBar(e: Event): void {
@@ -14,4 +17,5 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.header__sign-up-btn').addEventListener('click',  openSignUpPage);
 
     new Program(programData);
+    new Job(jobData, skillsData);
 })

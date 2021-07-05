@@ -189,6 +189,60 @@ module.exports = [{
   "test": "21년 01월 23일 14:00 - 01월 30일 17:10",
   "language": ["JavaScript"]
 }];
+},{}],"src/datas/job-data.json":[function(require,module,exports) {
+module.exports = [{
+  "name": "모토브",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/2928/resize.jpeg",
+  "url": "https://programmers.co.kr/job_positions/6106",
+  "jobName": "Frontend Engineer (신입가능/전문연구요원)",
+  "requirements": ["프론트엔드", "웹 풀스택", "TypeScript", "React Native", "Firebase", "AWS", "DynamoDB", "Webpack", "AngularJS", "ES6", "CSS", "HTML", "JavaScript", "jQuery", "ReactJS", "Node.js"]
+}, {
+  "name": "마켓컬리",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/762/PURPLE.png",
+  "url": "https://programmers.co.kr/job_positions/3495",
+  "jobName": "[마켓컬리] iOS 앱개발자",
+  "requirements": ["아이폰 앱", "Reactor", "Rx", "Swift", "MVVM(Model-View-ViewModel)", "MVP", "iOS"]
+}, {
+  "name": "엑심베이",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/1858/Eximbay-CI.jpg",
+  "url": "https://programmers.co.kr/job_positions/4978",
+  "jobName": "프론트엔드 개발자",
+  "requirements": ["서버/백엔드", "프론트엔드", "웹 풀스택", "CSS3", "HTML5", "JavaScript", "JSP", "Spring", "MySQL", "Java"]
+}, {
+  "name": "하우저",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/1845/%EB%A1%9C%EA%B3%A0_%EC%84%B8%EB%A1%9C%ED%98%95.jpg",
+  "url": "https://programmers.co.kr/job_positions/4766",
+  "jobName": "Front-end 개발자",
+  "requirements": ["프론트엔드", "웹 풀스택", "TypeScript", "React Native", "Firebase", "AWS", "DynamoDB", "Webpack", "AngularJS", "ES6", "CSS", "HTML", "JavaScript", "jQuery", "ReactJS", "Node.js"]
+}, {
+  "name": "모두싸인",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/364/SYMBOL.jpg",
+  "url": "https://programmers.co.kr/job_positions/3294",
+  "jobName": "프론트엔드 엔지니어(리더급)",
+  "requirements": ["Redux.js", "CSS", "HTML", "JavaScript", "ReactJS", "TypeScript"]
+}, {
+  "name": "딥바이오",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/2330/CI3.png",
+  "url": "https://programmers.co.kr/job_positions/4182",
+  "jobName": "프론트엔드 엔지니어",
+  "requirements": ["Redux-Saga", "Redux.js", "AWS EC2", "Electron", "TypeScript", "Docker", "Webpack", "ES6", "ReactJS", "Node.js", "CSS", "JavaScript", "HTML"]
+}, {
+  "name": "올림플래닛",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/2102/LOGO_-_%EA%B6%8C%EC%9E%AC%ED%98%84.jpg",
+  "url": "https://programmers.co.kr/job_positions/5275",
+  "jobName": "프론트엔드 개발/vue.js react.js",
+  "requirements": ["Nuxt.js", "Next.js", "WebGL", "Tailwind", "CSS", "Bootstrap", "Vuetify.js", "REST API", "ReactJS", "Sass(SCSS)", "TypeScript", "CSS", "HTML"]
+}, {
+  "name": "와디즈플랫폼",
+  "image": "https://grepp-programmers.s3.amazonaws.com/production/company/logo/1263/%EB%A1%9C%EA%B3%A0.png",
+  "url": "https://programmers.co.kr/job_positions/892",
+  "jobName": "프론트엔드 개발자",
+  "requirements": ["ES6", "Webpack", "ReactJS", "Node.js", "CSS", "HTML", "JavaScript"]
+}];
+},{}],"src/datas/skills-data.json":[function(require,module,exports) {
+module.exports = [{
+  "skills": ["Java", "Spring", "Node.js", "Django", "ReactJS", "Vue.js", "JavaScript", "Python", "Kotlin", "C++", "Android", "IOS", "서버/백엔드", "프론트엔드", "웹 풀스택", "안드로이드 앱", "아이폰 앱"]
+}];
 },{}],"src/Throttle.ts":[function(require,module,exports) {
 "use strict";
 
@@ -543,12 +597,144 @@ var Program = /*#__PURE__*/function () {
 }();
 
 exports.default = Program;
-},{"./Throttle.ts":"src/Throttle.ts"}],"src/index.ts":[function(require,module,exports) {
+},{"./Throttle.ts":"src/Throttle.ts"}],"src/Job.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+;
+
+var Job = /*#__PURE__*/function () {
+  function Job(jobDatas, SkillDatas) {
+    _classCallCheck(this, Job);
+
+    this.jobDatas = jobDatas;
+    this.SkillDatas = SkillDatas;
+    this.names = {
+      jobHeader: 'job__header',
+      jobTitle: 'job__title',
+      jobMoreBtn: 'job__more-btn',
+      jobSkills: 'job__skills',
+      jobSkill: 'job__skill',
+      jobCards: 'job__cards',
+      jobCard: 'job__card',
+      jobLogoBox: 'job__logo-box',
+      jobCardLogo: 'job__card-logo',
+      jobCardInfo: 'job__card-info',
+      jobCardTitle: 'job__card-title',
+      jobCardBrand: 'job__card-brand',
+      jobRequirements: 'job__requirements',
+      jobRequirement: 'job__requirement'
+    };
+    this.render();
+  }
+
+  _createClass(Job, [{
+    key: "customCreateElement",
+    value: function customCreateElement(tag, name) {
+      var elem = document.createElement(tag);
+      elem.className = name;
+      return elem;
+    }
+  }, {
+    key: "customAppendChild",
+    value: function customAppendChild(parent) {
+      for (var _len = arguments.length, elems = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        elems[_key - 1] = arguments[_key];
+      }
+
+      [].concat(elems).map(function (elem) {
+        return parent.appendChild(elem);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var renderSkillsComponent = function () {
+        var $jobSkills = _this.customCreateElement('ul', _this.names.jobSkills);
+
+        var datas = _this.SkillDatas[0].skills;
+        datas.map(function (data) {
+          var $jobSkill = _this.customCreateElement('li', _this.names.jobSkill);
+
+          $jobSkill.textContent = data;
+          $jobSkills.appendChild($jobSkill);
+        });
+        document.querySelector('.job').appendChild($jobSkills);
+      }();
+
+      var renderCardsComponent = function () {
+        var $jobCards = _this.customCreateElement('ul', _this.names.jobCards);
+
+        _this.jobDatas.map(function (jobData) {
+          var $jobCard = _this.customCreateElement('li', _this.names.jobCard);
+
+          var $jobLogoBox = _this.customCreateElement('div', _this.names.jobLogoBox);
+
+          var $jobCardLogo = _this.customCreateElement('img', _this.names.jobCardLogo);
+
+          $jobCardLogo.setAttribute('src', jobData.image);
+          $jobCardLogo.setAttribute('alt', "채용회사 로고 이미지");
+          $jobLogoBox.appendChild($jobCardLogo);
+
+          var $jobCardInfo = _this.customCreateElement('section', _this.names.jobCardInfo);
+
+          var $jobCardTitle = _this.customCreateElement('h4', _this.names.jobCardTitle);
+
+          $jobCardTitle.textContent = jobData.jobName;
+
+          var $jobCardBrand = _this.customCreateElement('h4', _this.names.jobCardBrand);
+
+          $jobCardBrand.textContent = jobData.name;
+
+          var $jobRequirements = _this.customCreateElement('ul', _this.names.jobRequirements);
+
+          jobData.requirements.map(function (requirement) {
+            var $jobRequirement = _this.customCreateElement('li', _this.names.jobRequirement);
+
+            $jobRequirement.textContent = requirement;
+            $jobRequirements.appendChild($jobRequirement);
+          });
+
+          _this.customAppendChild($jobCardInfo, $jobCardTitle, $jobCardBrand, $jobRequirements);
+
+          _this.customAppendChild($jobCard, $jobLogoBox, $jobCardInfo);
+
+          $jobCards.appendChild($jobCard);
+        });
+
+        document.querySelector('.job').appendChild($jobCards);
+      }();
+    }
+  }]);
+
+  return Job;
+}();
+
+exports.default = Job;
+},{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 var _programData = _interopRequireDefault(require("./datas/program-data.json"));
 
+var _jobData = _interopRequireDefault(require("./datas/job-data.json"));
+
+var _skillsData = _interopRequireDefault(require("./datas/skills-data.json"));
+
 var _Program = _interopRequireDefault(require("./Program"));
+
+var _Job = _interopRequireDefault(require("./Job"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -565,8 +751,9 @@ window.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.nav__btn').addEventListener('click', openBar);
   document.querySelector('.header__sign-up-btn').addEventListener('click', openSignUpPage);
   new _Program.default(_programData.default);
+  new _Job.default(_jobData.default, _skillsData.default);
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./Program":"src/Program.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

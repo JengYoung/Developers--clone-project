@@ -576,6 +576,9 @@ button:hover {
   box-sizing: border-box;
 }
 .job__card .job__logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 5rem;
   height: 5rem;
   overflow: hidden;
@@ -588,11 +591,14 @@ button:hover {
 }
 .job__card .job__card-info {
   width: calc(100% - 5rem);
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
   box-sizing: border-box;
 }
 .job__card .job__card-info .job__card-title {
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .job__card .job__card-info .job__card-brand {
   margin: 0;
