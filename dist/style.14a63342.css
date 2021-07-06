@@ -87,6 +87,9 @@ button:hover {
   background-color: #44576C;
   margin: 0.5rem 0.5rem;
 }
+.nav__navbar .nav__close-btn {
+  display: none;
+}
 .nav__navbar .menu-links__item,
 .nav__navbar .auth-links__item {
   display: flex;
