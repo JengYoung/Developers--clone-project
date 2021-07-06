@@ -43,3 +43,15 @@
     border: 1px solid $blue-color;
     background: transparent;
 }
+
+@mixin _setLineItem($num, $width, $color) {
+    &__item:nth-child(#{$num}) {
+        width: $width;
+        height: 0.25rem;
+        background-color: $color;
+        margin-right: 0.5rem;
+    }
+    &__item:last-child {
+        margin-right: 0;
+    }
+}
