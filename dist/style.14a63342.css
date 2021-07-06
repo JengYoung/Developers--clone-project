@@ -488,7 +488,7 @@ button:hover {
   background: #D7E2EB;
   transition: all 0.3s;
 }
-.programs .programs__page-btns li.programs__page-btn--active {
+.programs .programs__page-btns .programs__page-btn--active {
   background: #0078FF;
   width: 3rem;
 }
@@ -867,24 +867,44 @@ button:hover {
   font-weight: 400;
   color: #4b6471;
 }
+.about__btns {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  display: none;
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+.about__btns li {
+  margin: 0 0.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: #D7E2EB;
+  transition: all 0.3s;
+}
+.about__btns .about__btn--active {
+  background: #0078FF;
+  width: 3rem;
+}
 .about__features {
   display: flex;
 }
-.about .about__cards,
-.about .about__card-images {
+.about__cards, .about__card-images {
   padding: 0 1rem;
   margin: 0;
   width: 50%;
   box-sizing: border-box;
 }
-.about .about__cards .about__card {
+.about__cards .about__card {
   padding: 1.5rem 1.5rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   box-sizing: border-box;
   transition: all 0.3s;
 }
-.about .about__cards .about__card-title {
+.about__cards .about__card-title {
   margin: 0;
   padding-bottom: 1rem;
   display: flex;
@@ -892,7 +912,7 @@ button:hover {
   font-size: 20px;
   color: #222e34;
 }
-.about .about__cards .about__card-number {
+.about__cards .about__card-number {
   display: flex;
   position: relative;
   top: 0.0625rem;
@@ -904,48 +924,109 @@ button:hover {
   border-radius: 0.25rem;
   margin-right: 0.5rem;
 }
-.about .about__cards .about__card-number::after {
+.about__cards .about__card-number::after {
   position: relative;
   content: attr(data-card-number);
   bottom: 0.0625rem;
   font-size: 0.875rem;
   color: white;
 }
-.about .about__cards .about__card-description {
+.about__cards .about__card-description {
   margin: 0;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.75;
   word-break: keep-all;
 }
-.about .about__cards .about__card:hover {
+.about__cards .about__card:hover {
+  cursor: pointer;
   background: #f5f8f9;
 }
-.about .about__cards .about__card--active {
+.about__cards .about__card--active {
   background: #f0f7ff;
 }
-.about .about__cards .about__card--active .about__card-title {
+.about__cards .about__card--active .about__card-title {
   color: #0078FF;
 }
-.about .about__cards .about__card--active .about__card-number {
+.about__cards .about__card--active .about__card-number {
   background: #0078FF;
 }
-.about .about__cards .about__card--active:hover {
+.about__cards .about__card--active:hover {
   background: #f0f7ff;
 }
-.about .about__card-images {
+.about__card-images {
   overflow: hidden;
   box-sizing: border-box;
 }
-.about .about__card-images .about__image-box {
+.about__card-images .about__image-box {
   display: none;
   width: 100%;
 }
-.about .about__card-images .about__image-box--active {
+.about__card-images .about__image-box--active {
   display: block;
 }
-.about .about__card-images .about__image-box .about__image {
+.about__card-images .about__image-box .about__image {
   width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .about__btns {
+    display: flex;
+    padding-bottom: 1rem;
+  }
+  .about__btns .about__btn {
+    margin: 0 0.375rem;
+  }
+  .about__features {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about__features .about__cards,
+.about__features .about__card-images {
+    width: auto;
+    max-width: 40rem;
+  }
+  .about__features .about__cards .about__card {
+    display: none;
+    background: transparent;
+  }
+  .about__features .about__cards .about__card-title {
+    display: flex;
+    justify-content: center;
+  }
+  .about__features .about__cards .about__card-description {
+    text-align: center;
+  }
+  .about__features .about__cards .about__card--active {
+    display: block;
+    background: transparent;
+  }
+  .about__features .about__cards .about__card:hover {
+    background: transparent;
+    cursor: auto;
+  }
+}
+@media screen and (max-width: 766px) {
+  .about__header {
+    padding-bottom: 2rem;
+  }
+  .about__header .about__main-copy {
+    font-size: 1.75rem;
+  }
+  .about__header .about__sub-copy {
+    font-size: 18px;
+  }
+  .about__cards {
+    padding: 0;
+  }
+  .about__cards .about__card-description {
+    font-size: 0.9375rem;
+  }
+}
+@media screen and (max-width: 574px) {
+  .about__cards .about__card {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */

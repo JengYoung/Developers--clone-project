@@ -55,3 +55,22 @@
         margin-right: 0;
     }
 }
+
+@mixin _setPageBtn($name) {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    li {
+        margin: 0 0.25rem;
+        width: 0.625rem;
+        height: 0.625rem;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        background: $border-gray-color;
+        transition: all 0.3s;
+    }
+    .#{$name}--active {
+        background: $blue-color;
+        width: 3rem;
+    }
+}

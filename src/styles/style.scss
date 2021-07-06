@@ -422,22 +422,23 @@ button {
         }
     }
     .programs__page-btns {
-        display: flex;
-        justify-content: center;
-        padding-top: 2rem;
-        li {
-            margin: 0 0.25rem;
-            width: 0.625rem;
-            height: 0.625rem;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            background: $border-gray-color;
-            transition: all 0.3s;
-            &.programs__page-btn--active {
-                background: $blue-color;
-                width: 3rem;
-            }
-        }
+        // display: flex;
+        // justify-content: center;
+        // padding-top: 2rem;
+        // li {
+        //     margin: 0 0.25rem;
+        //     width: 0.625rem;
+        //     height: 0.625rem;
+        //     border-radius: 0.75rem;
+        //     cursor: pointer;
+        //     background: $border-gray-color;
+        //     transition: all 0.3s;
+        //     &.programs__page-btn--active {
+        //         background: $blue-color;
+        //         width: 3rem;
+        //     }
+        // }
+        @include _setPageBtn('programs__page-btn');
     }
 
     @include customMedia("tablet") {
@@ -757,17 +758,25 @@ button {
             color: darken($program-gray-color, 10%);
         }
     }
+    &__btns {
+        @include _setPageBtn('about__btn');
+        display: none;
+        padding: {
+            top: 0;
+            bottom: 3rem;
+        }
+    }
     &__features {
         display: flex;
     }
-    .about__cards,
-    .about__card-images {
+    &__cards,
+    &__card-images {
         padding: 0 1rem;
         margin: 0;
         width: 50%;
         box-sizing: border-box;
     }
-    .about__cards {
+    &__cards {
         .about__card {
             padding: 1.5rem 1.5rem;
             margin-bottom: 1rem;
@@ -811,6 +820,7 @@ button {
                 word-break: keep-all;
             }
             &:hover {
+                cursor: pointer;
                 background: lighten($program-gray-color, 50%);
             }
             &--active {
@@ -823,12 +833,11 @@ button {
                 }
                 &:hover {
                     background: lighten($blue-color, 47%);
-
                 }
             }
         }
     }
-    .about__card-images {
+    &__card-images {
         overflow: hidden;
         box-sizing: border-box;
         .about__image-box {
@@ -839,6 +848,74 @@ button {
             }
             .about__image {
                 width: 100%;
+            }
+        }
+    }
+    @include customMedia("tablet") {
+        &__btns {
+            display: flex;
+            padding-bottom: 1rem;
+            .about__btn {
+                margin: 0 0.375rem;
+            }
+        }
+        &__features {
+            flex-direction: column;
+            align-items: center;
+            .about__cards,
+            .about__card-images {
+                width: auto;
+                max-width: 40rem;
+            }
+            .about__cards {
+                .about__card {
+                    display: none;
+                    background: transparent;
+                    &-title {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    &-description {
+                        text-align: center;
+                    }
+                    &--active {
+                        display: block;
+                        background: transparent;
+                    }
+                    &:hover {
+                        background: transparent;
+                        cursor: auto;
+                    }
+                }
+            }
+        }
+    }
+    @include customMedia("mobile-and-tablet") {
+        &__header {
+            padding-bottom: 2rem;
+            .about__main-copy {
+                font-size: 1.75rem;
+            }
+            .about__sub-copy {
+                font-size: $font-l;
+            }
+        }
+        &__cards {
+            padding: 0;
+            .about__card {
+                &-description {
+                    font-size: 0.9375rem;
+                }
+            }
+        }
+    }
+    @include customMedia("mobile") {
+        &__cards {
+            .about__card {
+                padding: {
+                    left: 0;
+                    right: 0;
+                }
             }
         }
     }
