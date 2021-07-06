@@ -612,12 +612,14 @@ button {
 }
 
 .position-banner {
-    @include _setMarginAuto();
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-    margin-top: 4rem;
     background: lighten($job-gray-color, 30%);
+    .banner__container {
+        @include _setMarginAuto();
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        margin-top: 4rem;   
+    }
     .banner__icon {
         display: flex;
         position: relative;
@@ -675,7 +677,9 @@ button {
     }
 
     @include customMedia("tablet") {
-        flex-direction: column;
+        .banner__container {
+            flex-direction: column;
+        }
         padding-bottom: 2rem;
         .banner__icon {
             display: none;
@@ -689,7 +693,6 @@ button {
         }
     }
     @include customMedia("mobile-and-tablet") {
-        flex-direction: column;
         padding-bottom: 2rem;
         .banner__icon {
             display: none;

@@ -660,6 +660,9 @@ button:hover {
 }
 
 .position-banner {
+  background: #f3f5f7;
+}
+.position-banner .banner__container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
@@ -667,7 +670,6 @@ button:hover {
   display: flex;
   align-items: center;
   margin-top: 4rem;
-  background: #f3f5f7;
 }
 .position-banner .banner__icon {
   display: flex;
@@ -732,8 +734,10 @@ button:hover {
 }
 @media screen and (max-width: 991px) {
   .position-banner {
-    flex-direction: column;
     padding-bottom: 2rem;
+  }
+  .position-banner .banner__container {
+    flex-direction: column;
   }
   .position-banner .banner__icon {
     display: none;
@@ -748,7 +752,6 @@ button:hover {
 }
 @media screen and (max-width: 766px) {
   .position-banner {
-    flex-direction: column;
     padding-bottom: 2rem;
   }
   .position-banner .banner__icon {
