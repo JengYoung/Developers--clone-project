@@ -723,6 +723,63 @@ var Job = /*#__PURE__*/function () {
 }();
 
 exports.default = Job;
+},{}],"src/About.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var About = /*#__PURE__*/function () {
+  function About() {
+    _classCallCheck(this, About);
+
+    this.names = {
+      aboutBtns: "about__btns",
+      aboutBtn: "about__btn",
+      aboutCard: "about__card",
+      aboutImageBox: "about__image-box"
+    };
+    this.handleBtnClick();
+  }
+
+  _createClass(About, [{
+    key: "handleBtnClick",
+    value: function handleBtnClick() {
+      var _this = this;
+
+      var $aboutBtns = document.querySelector(".".concat(this.names.aboutBtns));
+      $aboutBtns.addEventListener('click', function (e) {
+        var target = e.target;
+        if (!target.classList.contains(_this.names.aboutBtn)) return;
+        var idx = target.dataset.btnNumber;
+        var $btnElems = document.querySelectorAll(".".concat(_this.names.aboutBtn));
+        $btnElems.forEach(function (elem) {
+          elem.classList.toggle("".concat(_this.names.aboutBtn, "--active"), e.target === elem);
+        });
+        var $cardElems = document.querySelectorAll(".".concat(_this.names.aboutCard));
+        $cardElems.forEach(function (elem) {
+          elem.classList.toggle("".concat(_this.names.aboutCard, "--active"), idx === elem.dataset.cardNumber);
+        });
+        var $imgBoxElems = document.querySelectorAll(".".concat(_this.names.aboutImageBox));
+        $imgBoxElems.forEach(function (elem) {
+          elem.classList.toggle("".concat(_this.names.aboutImageBox, "--active"), idx === elem.dataset.imgNumber);
+        });
+      });
+    }
+  }]);
+
+  return About;
+}();
+
+exports.default = About;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -735,6 +792,8 @@ var _skillsData = _interopRequireDefault(require("./datas/skills-data.json"));
 var _Program = _interopRequireDefault(require("./Program"));
 
 var _Job = _interopRequireDefault(require("./Job"));
+
+var _About = _interopRequireDefault(require("./About"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -752,8 +811,9 @@ window.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.header__sign-up-btn').addEventListener('click', openSignUpPage);
   new _Program.default(_programData.default);
   new _Job.default(_jobData.default, _skillsData.default);
+  new _About.default();
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

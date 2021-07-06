@@ -3,6 +3,7 @@ import jobData from "./datas/job-data.json";
 import skillsData from "./datas/skills-data.json";
 import Program from './Program';
 import Job from './Job';
+import About from './About';
 
 window.addEventListener('DOMContentLoaded', () => {
     function openBar(e: Event): void {
@@ -18,4 +19,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     new Program(programData);
     new Job(jobData, skillsData);
+    new About();
 })

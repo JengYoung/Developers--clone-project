@@ -926,7 +926,7 @@ button:hover {
 }
 .about__cards .about__card-number::after {
   position: relative;
-  content: attr(data-card-number);
+  content: attr(data-title-number);
   bottom: 0.0625rem;
   font-size: 0.875rem;
   color: white;
