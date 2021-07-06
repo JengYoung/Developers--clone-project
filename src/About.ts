@@ -7,10 +7,12 @@ export default class About {
         this.names = {
             aboutBtns: `about__btns`,
             aboutBtn: `about__btn`,
+            aboutCards: `about__cards`,
             aboutCard: `about__card`,
             aboutImageBox: `about__image-box`,
         }
         this.handleBtnClick();
+        this.handleCardClick();
     }
     handleBtnClick():void {
         const $aboutBtns = document.querySelector(`.${this.names.aboutBtns}`);
@@ -30,6 +32,18 @@ export default class About {
             $imgBoxElems.forEach((elem:HTMLElement) => {
                 elem.classList.toggle(`${this.names.aboutImageBox}--active`, idx === elem.dataset.imgNumber)
             })
+        })
+    }
+    handleCardClick() {
+        if (window.innerWidth < 991) return;
+        const aboutCardArr: NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.aboutCard}`);
+        const that = this;
+        aboutCardArr.forEach((aboutCard:HTMLElement) => {
+            aboutCard.addEventListener('click', function (e) {
+                aboutCardArr.forEach((elem) => {
+                    elem.classList.toggle(`${that.names.aboutCard}--active`, elem === this);
+                })
+            });
         })
     }
 }

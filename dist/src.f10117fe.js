@@ -744,10 +744,12 @@ var About = /*#__PURE__*/function () {
     this.names = {
       aboutBtns: "about__btns",
       aboutBtn: "about__btn",
+      aboutCards: "about__cards",
       aboutCard: "about__card",
       aboutImageBox: "about__image-box"
     };
     this.handleBtnClick();
+    this.handleCardClick();
   }
 
   _createClass(About, [{
@@ -771,6 +773,22 @@ var About = /*#__PURE__*/function () {
         var $imgBoxElems = document.querySelectorAll(".".concat(_this.names.aboutImageBox));
         $imgBoxElems.forEach(function (elem) {
           elem.classList.toggle("".concat(_this.names.aboutImageBox, "--active"), idx === elem.dataset.imgNumber);
+        });
+      });
+    }
+  }, {
+    key: "handleCardClick",
+    value: function handleCardClick() {
+      if (window.innerWidth < 991) return;
+      var aboutCardArr = document.querySelectorAll(".".concat(this.names.aboutCard));
+      var that = this;
+      aboutCardArr.forEach(function (aboutCard) {
+        aboutCard.addEventListener('click', function (e) {
+          var _this2 = this;
+
+          aboutCardArr.forEach(function (elem) {
+            elem.classList.toggle("".concat(that.names.aboutCard, "--active"), elem === _this2);
+          });
         });
       });
     }
@@ -841,7 +859,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64695" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54695" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
