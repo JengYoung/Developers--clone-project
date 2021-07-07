@@ -920,3 +920,29 @@ button {
         }
     }
 }
+
+.partners {
+    @include _setMarginAuto();
+    max-width: 60.5rem;
+    margin: 0 auto;
+    .partners__container {
+        display: flex;
+        max-width: 60.5rem;
+        border: {
+            left: 1px solid $job-gray-color;
+            top: 1px solid $job-gray-color;
+        }
+        flex-wrap: wrap;
+    }
+    &__partner {
+        width: 20%;
+        border: {
+            right: 1px solid $job-gray-color;
+            bottom: 1px solid $job-gray-color;
+        }
+        box-sizing: border-box;
+    }
+    &__logo {
+        width: 100%;
+    }
+}

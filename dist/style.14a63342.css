@@ -1029,4 +1029,29 @@ button:hover {
   }
 }
 
+.partners {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  max-width: 60.5rem;
+  margin: 0 auto;
+}
+.partners .partners__container {
+  display: flex;
+  max-width: 60.5rem;
+  border-left: 1px solid #98a8b9;
+  border-top: 1px solid #98a8b9;
+  flex-wrap: wrap;
+}
+.partners__partner {
+  width: 20%;
+  border-right: 1px solid #98a8b9;
+  border-bottom: 1px solid #98a8b9;
+  box-sizing: border-box;
+}
+.partners__logo {
+  width: 100%;
+}
+
 /*# sourceMappingURL=/style.14a63342.css.map */
