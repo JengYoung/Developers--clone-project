@@ -243,6 +243,8 @@ module.exports = [{
 module.exports = [{
   "skills": ["Java", "Spring", "Node.js", "Django", "ReactJS", "Vue.js", "JavaScript", "Python", "Kotlin", "C++", "Android", "IOS", "서버/백엔드", "프론트엔드", "웹 풀스택", "안드로이드 앱", "아이폰 앱"]
 }];
+},{}],"src/datas/partners-data.json":[function(require,module,exports) {
+module.exports = ["https://programmers.co.kr/packs/media/root_companies/img-logo-kakao-29655f01.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-line-7869c9a9.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-naver-8755e949.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-lguplus-76f23b23.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-11st-da268e71.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-deliveryhero-0b5c6ff3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-kakaocommerce-9f373b17.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-kakaoenterprise-58a8002b.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-woowahan-80f85ab6.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-netmarble-7651c92d.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-carrotmarket-1724127b.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-watcha-a5c69a81.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-socar-9fbafa25.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-vcnc-b6b3a360.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-estsoft-19f03130.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-krafton-f69264c3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dramacompany-f5547e4f.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-zigbang-d81361c3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-myrealtrip-8c2360f3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dreamus-36ccab9f.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-ea-676b2128.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dailyhotel-51cc330e.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-platfarm-5d6c435d.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-qara-55c57a86.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-smartstudy-6bb5ae9f.png"];
 },{}],"src/Throttle.ts":[function(require,module,exports) {
 "use strict";
 
@@ -798,6 +800,49 @@ var About = /*#__PURE__*/function () {
 }();
 
 exports.default = About;
+},{}],"src/Partners.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Partners = /*#__PURE__*/function () {
+  function Partners(datas) {
+    _classCallCheck(this, Partners);
+
+    this.datas = datas;
+    this.renderPartnerComponent();
+  }
+
+  _createClass(Partners, [{
+    key: "renderPartnerComponent",
+    value: function renderPartnerComponent() {
+      var $partnersContainer = document.querySelector('.partners__container');
+      this.datas.map(function (data) {
+        var $partner = document.createElement('li');
+        $partner.className = 'partners__partner';
+        var $partnerlogo = document.createElement('img');
+        $partnerlogo.className = 'partners__logo';
+        $partnerlogo.setAttribute('src', data);
+        $partnerlogo.setAttribute('alt', "채용 프로그램 이미지");
+        $partner.appendChild($partnerlogo);
+        $partnersContainer.appendChild($partner);
+      });
+    }
+  }]);
+
+  return Partners;
+}();
+
+exports.default = Partners;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -807,11 +852,15 @@ var _jobData = _interopRequireDefault(require("./datas/job-data.json"));
 
 var _skillsData = _interopRequireDefault(require("./datas/skills-data.json"));
 
+var _partnersData = _interopRequireDefault(require("./datas/partners-data.json"));
+
 var _Program = _interopRequireDefault(require("./Program"));
 
 var _Job = _interopRequireDefault(require("./Job"));
 
 var _About = _interopRequireDefault(require("./About"));
+
+var _Partners = _interopRequireDefault(require("./Partners"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -830,8 +879,9 @@ window.addEventListener('DOMContentLoaded', function () {
   new _Program.default(_programData.default);
   new _Job.default(_jobData.default, _skillsData.default);
   new _About.default();
+  new _Partners.default(_partnersData.default);
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
