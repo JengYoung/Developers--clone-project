@@ -1202,4 +1202,119 @@ button:hover {
   }
 }
 
+.footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: #f9fbfc;
+}
+.footer .footer__containter {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+.footer .footer__category span {
+  display: block;
+}
+.footer__categories {
+  display: flex;
+}
+.footer__categories .footer__category {
+  margin-right: 2rem;
+}
+.footer__categories .footer__category h5 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+.footer__categories .footer__category a, .footer__categories .footer__category span {
+  font-size: 14px;
+  margin-bottom: 0.25rem;
+}
+.footer__categories .footer__category a {
+  text-decoration: none;
+  color: #415662;
+  font-weight: 400;
+  display: block;
+}
+.footer__categories .footer__category a span {
+  display: inline;
+}
+.footer__categories .footer__category a:hover {
+  color: #0078FF;
+}
+.footer__categories .footer__category .footer__operation-time {
+  padding-top: 0.5rem;
+  color: #98a8b9;
+}
+.footer__categories .footer__category .footer__operation-time span {
+  font-size: 12px;
+  margin-bottom: 0rem;
+}
+.footer__dropdown {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.footer__dropdown-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid #D7E2EB;
+  border-radius: 0.25rem;
+}
+.footer__dropdown-btn span {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.footer__dropdown-btn-arrow {
+  margin-left: 0.25rem;
+  border-bottom: 3.5px solid black;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  transform: rotate(180deg);
+}
+.footer__dropdown-btn--active {
+  background: #D7E2EB;
+}
+.footer__dropdown .footer__family-sites {
+  position: relative;
+  top: 0;
+  width: 110%;
+  padding: 0.375rem;
+  border: 1px solid #D7E2EB;
+  border-radius: 5px;
+  font-size: 12px;
+  box-shadow: 0 0 1rem #D7E2EB;
+}
+.footer__dropdown .footer__family-sites li {
+  border: none;
+  padding: 0.125rem 0.5rem;
+}
+.footer__dropdown .footer__family-sites li:hover {
+  cursor: pointer;
+  color: #0078FF;
+}
+.footer .footer__developers {
+  margin-top: 2rem;
+}
+.footer .footer__developers h5 {
+  margin: 0;
+  font-size: 16px;
+}
+.footer .footer__developers p, .footer .footer__developers a {
+  font-size: 0.8125rem;
+}
+.footer .footer__developers a {
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+  display: block;
+  color: #415662;
+}
+.footer .footer__developers a:hover {
+  color: #0078FF;
+}
+
 /*# sourceMappingURL=/style.14a63342.css.map */
