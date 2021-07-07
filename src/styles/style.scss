@@ -980,13 +980,15 @@ button {
         max-width: 10rem;
         max-height: 2.5rem;
     }
+
+    // 배너 생성
     &__banner {
         background: black;
         .banner__container {
             display: flex;
             align-items: center;
             padding: 2rem 1rem;
-            .banner__copy {
+            .banner__copies {
                 display: flex;
                 flex-direction: column;
                 margin: 0;
@@ -1021,6 +1023,23 @@ button {
             }
             box-sizing: border-box;
         }
+        &__banner {
+            .banner__container {
+                flex-direction: column;
+                align-items:center;
+            }
+            .banner__copies {
+                padding-bottom: 1.5rem;
+                text-align: center;
+                letter-spacing: -1px;
+                strong {
+                    letter-spacing: 0px;
+                }
+            }
+            .banner__more-btn {
+                margin-left: 0;
+            }
+        }
     }
 
     @include customMedia("tablet"){
@@ -1053,6 +1072,16 @@ button {
             }
             box-sizing: border-box;
         }       
+        &__banner {
+            .banner__copies {
+                font-size: 0.9375rem;
+                letter-spacing: 0;
+            }
+            .banner__more-btn {
+                font-size: 0.875rem;
+                padding: 0.4325rem 1rem;
+            }
+        }
     }
     @include customMedia("mobile"){
         &__header {

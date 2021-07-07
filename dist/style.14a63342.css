@@ -1094,7 +1094,7 @@ button:hover {
   align-items: center;
   padding: 2rem 1rem;
 }
-.partners__banner .banner__container .banner__copy {
+.partners__banner .banner__container .banner__copies {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -1103,7 +1103,7 @@ button:hover {
   font-weight: 400;
   color: white;
 }
-.partners__banner .banner__container .banner__copy strong {
+.partners__banner .banner__container .banner__copies strong {
   color: #0078FF;
 }
 .partners__banner .banner__more-btn {
@@ -1131,6 +1131,21 @@ button:hover {
     border-bottom: 1px solid #D7E2EB;
     box-sizing: border-box;
   }
+  .partners__banner .banner__container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .partners__banner .banner__copies {
+    padding-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: -1px;
+  }
+  .partners__banner .banner__copies strong {
+    letter-spacing: 0px;
+  }
+  .partners__banner .banner__more-btn {
+    margin-left: 0;
+  }
 }
 @media screen and (max-width: 991px) {
   .partners__partner {
@@ -1157,6 +1172,14 @@ button:hover {
     border-right: 1px solid #D7E2EB;
     border-bottom: 1px solid #D7E2EB;
     box-sizing: border-box;
+  }
+  .partners__banner .banner__copies {
+    font-size: 0.9375rem;
+    letter-spacing: 0;
+  }
+  .partners__banner .banner__more-btn {
+    font-size: 0.875rem;
+    padding: 0.4325rem 1rem;
   }
 }
 @media screen and (max-width: 574px) {
