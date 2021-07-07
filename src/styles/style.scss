@@ -924,6 +924,7 @@ button {
 .partners {
     @include _setMarginAuto();
     padding-top: 0;
+    padding-bottom: 8rem;
     max-width: 60.5rem;
     margin: 0 auto;
     &__header {
@@ -955,7 +956,7 @@ button {
             display: block;
             position: absolute;
             top: 80%;
-            left: 0;
+            left: -2px;
             right: 0;
             bottom: 0;
             content: "";
@@ -978,6 +979,32 @@ button {
         width: 100%;
         max-width: 10rem;
         max-height: 2.5rem;
+    }
+    &__banner {
+        background: black;
+        .banner__container {
+            display: flex;
+            align-items: center;
+            padding: 2rem 1rem;
+            .banner__copy {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                word-break: keep-all;
+                line-height: 2;
+                font-weight: 400;
+                strong {
+                    color: $blue-color;
+                }
+                color: white;
+            }
+        }
+        .banner__more-btn {
+            @include _button(true);
+            font-size: 1rem;
+            margin-left: auto;
+            padding: 0.625rem 0.875rem;
+        }
     }
     @include customMedia("tablet"){
         &__container {
