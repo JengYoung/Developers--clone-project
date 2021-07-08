@@ -1,5 +1,4 @@
 let timer: number;
-let baewi: string = '베위~';
 const throttle:Function = function (cb: any) {
     return function () {
         if (!timer) {

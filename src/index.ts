@@ -6,6 +6,7 @@ import Program from './Program';
 import Job from './Job';
 import About from './About';
 import Partners from './Partners';
+import Footer from './Footer';
 
 window.addEventListener('DOMContentLoaded', () => {
     function openBar(e: Event): void {
@@ -23,4 +24,5 @@ window.addEventListener('DOMContentLoaded', () => {
     new Job(jobData, skillsData);
     new About();
     new Partners(partnersData);
+    new Footer();
 })

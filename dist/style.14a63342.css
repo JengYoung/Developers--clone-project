@@ -694,7 +694,6 @@ button:hover {
   position: absolute;
   border-radius: 0.5rem;
   transform: rotate(-15deg);
-  z-index: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -1203,6 +1202,7 @@ button:hover {
 }
 
 .footer {
+  position: relative;
   padding-top: 3rem;
   padding-bottom: 3rem;
   background: #f9fbfc;
@@ -1231,6 +1231,7 @@ button:hover {
 .footer__categories .footer__category a, .footer__categories .footer__category span {
   font-size: 14px;
   margin-bottom: 0.25rem;
+  word-break: keep-all;
 }
 .footer__categories .footer__category a {
   text-decoration: none;
@@ -1252,10 +1253,16 @@ button:hover {
   font-size: 12px;
   margin-bottom: 0rem;
 }
+.footer__categories .footer__category .fa-external-link-alt {
+  margin-left: 0.25rem;
+  font-size: 0.5rem;
+}
 .footer__dropdown {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  width: 7rem;
+  background: white;
 }
 .footer__dropdown-btn {
   display: flex;
@@ -1280,20 +1287,31 @@ button:hover {
   background: #D7E2EB;
 }
 .footer__dropdown .footer__family-sites {
-  position: relative;
-  top: 0;
-  width: 110%;
-  padding: 0.375rem;
+  display: none;
+  background: white;
+  position: absolute;
+  z-index: 30;
+  width: 100%;
+  padding: 0.5rem 0;
   border: 1px solid #D7E2EB;
   border-radius: 5px;
   font-size: 12px;
   box-shadow: 0 0 1rem #D7E2EB;
 }
-.footer__dropdown .footer__family-sites li {
-  border: none;
-  padding: 0.125rem 0.5rem;
+.footer__dropdown .footer__family-sites.show-top {
+  bottom: 1.75rem;
 }
-.footer__dropdown .footer__family-sites li:hover {
+.footer__dropdown .footer__family-sites--active {
+  display: block;
+}
+.footer__dropdown .footer__family-sites .footer__family-site {
+  display: block;
+  border: none;
+  padding: 0.125rem 1rem;
+  color: black;
+  font-weight: 700;
+}
+.footer__dropdown .footer__family-sites .footer__family-site:hover {
   cursor: pointer;
   color: #0078FF;
 }
@@ -1315,6 +1333,36 @@ button:hover {
 }
 .footer .footer__developers a:hover {
   color: #0078FF;
+}
+@media screen and (max-width: 991px) {
+  .footer .footer__dropdown {
+    right: 0;
+    position: relative;
+  }
+  .footer .footer__dropdown .footer__family-sites {
+    position: absolute;
+  }
+}
+@media screen and (max-width: 766px) {
+  .footer__categories {
+    flex-direction: column;
+  }
+  .footer__categories .footer__category {
+    padding-bottom: 1.5rem;
+  }
+  .footer__categories .footer__category .footer__category-name {
+    font-size: 14px;
+    margin-bottom: 0.625rem;
+  }
+  .footer__categories .footer__category a, .footer__categories .footer__category span {
+    font-size: 0.8125rem;
+  }
+  .footer .footer__developers .footer__developers-header {
+    font-size: 0.875rem;
+  }
+  .footer .footer__developers .footer__me-info {
+    font-size: 0.875rem;
+  }
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */

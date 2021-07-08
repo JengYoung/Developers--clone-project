@@ -643,7 +643,6 @@ button {
             position: absolute;
             border-radius: 0.5rem;
             transform: rotate(-15deg);
-            z-index: 0;
             top:0;
             left: 0;
             right: 0;
@@ -1109,6 +1108,7 @@ button {
 }
 
 .footer {
+    position: relative;
     padding: {
         top: 3rem;
         bottom: 3rem;
@@ -1135,6 +1135,7 @@ button {
             a, span {
                 font-size: $font-s;
                 margin-bottom: 0.25rem;
+                word-break: keep-all;
             }
             a {
                 text-decoration: none;
@@ -1156,12 +1157,18 @@ button {
                 }
                 color: $job-gray-color;
             }
+            .fa-external-link-alt {
+                margin-left: 0.25rem;
+                font-size: 0.5rem;
+            }
         }
     }
     &__dropdown {
         position: absolute;
         top: 1rem;
         right: 1rem;
+        width: 7rem;
+        background: white;
         &-btn {
             display: flex;
             align-items: center;
@@ -1187,17 +1194,28 @@ button {
             }
         }
         .footer__family-sites {
-            position: relative;
-            top: 0;
-            width: 110%;
-            padding: 0.375rem;
+            display: none;
+            background: white;
+            position: absolute;
+            z-index: 30;
+            &.show-top {
+                bottom: 1.75rem;
+            }
+            &--active {
+                display: block;
+            }
+            width: 100%;
+            padding: 0.5rem 0;
             border: 1px solid $border-gray-color;
             border-radius: 5px;
             font-size: $font-ms;
             box-shadow: 0 0 1rem $border-gray-color;
-            li {
+            .footer__family-site {
+                display: block;
                 border: none;
-                padding: 0.125rem 0.5rem;
+                padding: 0.125rem 1rem;
+                color: black;
+                font-weight: 700;
                 &:hover {
                     cursor: pointer;
                     color: $blue-color;
@@ -1221,6 +1239,38 @@ button {
             color: darken($program-gray-color,15%);
             &:hover {
                 color: $blue-color;
+            }
+        }
+    }
+    @include customMedia("tablet") {
+        .footer__dropdown {
+            right: 0;
+            position: relative;
+            .footer__family-sites {
+                position: absolute;
+            }
+        }
+    }
+    @include customMedia("mobile-and-tablet") {
+        &__categories {
+            flex-direction: column;
+            .footer__category {
+                padding-bottom: 1.5rem;
+                .footer__category-name {
+                    font-size: $font-s;
+                    margin-bottom: 0.625rem;
+                }
+                a, span {
+                    font-size: 0.8125rem;
+                }
+            }
+        }
+        .footer__developers {
+            .footer__developers-header {
+                font-size: 0.875rem;
+            }
+            .footer__me-info {
+                font-size: 0.875rem;
             }
         }
     }

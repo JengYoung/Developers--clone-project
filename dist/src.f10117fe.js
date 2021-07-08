@@ -266,7 +266,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var timer;
-var baewi = '베위~';
 
 var throttle = function throttle(cb) {
   return function () {
@@ -843,6 +842,64 @@ var Partners = /*#__PURE__*/function () {
 }();
 
 exports.default = Partners;
+},{}],"src/Footer.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Footer = /*#__PURE__*/function () {
+  function Footer() {
+    _classCallCheck(this, Footer);
+
+    this.names = {
+      dropdownBtn: 'footer__dropdown-btn',
+      familySites: 'footer__family-sites'
+    };
+    this.HandleEvent();
+  }
+
+  _createClass(Footer, [{
+    key: "HandleEvent",
+    value: function HandleEvent() {
+      var _this = this;
+
+      var $dropdownBtn = document.querySelector(".".concat(this.names.dropdownBtn));
+      var $familySites = document.querySelector(".".concat(this.names.familySites));
+      var options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 1
+      };
+
+      var callback = function callback(entries, observer) {
+        entries.forEach(function (entry) {
+          $familySites.classList.toggle('show-top', !entry.isIntersecting);
+        });
+      };
+
+      var observer = new IntersectionObserver(callback, options);
+      var target = $dropdownBtn;
+      observer.observe(target);
+      $dropdownBtn.addEventListener('click', function (e) {
+        $dropdownBtn.classList.toggle("".concat(_this.names.dropdownBtn, "--active"));
+        $familySites.classList.toggle("".concat(_this.names.familySites, "--active"));
+      });
+    }
+  }]);
+
+  return Footer;
+}();
+
+exports.default = Footer;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -862,6 +919,8 @@ var _About = _interopRequireDefault(require("./About"));
 
 var _Partners = _interopRequireDefault(require("./Partners"));
 
+var _Footer = _interopRequireDefault(require("./Footer"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -880,8 +939,9 @@ window.addEventListener('DOMContentLoaded', function () {
   new _Job.default(_jobData.default, _skillsData.default);
   new _About.default();
   new _Partners.default(_partnersData.default);
+  new _Footer.default();
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts","./Footer":"src/Footer.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -909,7 +969,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57500" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62371" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
