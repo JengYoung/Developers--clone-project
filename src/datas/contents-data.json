@@ -1,0 +1,18 @@
+[
+    {
+        "title": "무료 5개월 취업 연계 교육",
+        "head": "[모집중] 프로그래머스 데브코스 클라우드 기반 백엔드 엔지니어링",
+        "copy": null,
+        "url": "https://programmers.co.kr/learn/courses/12177",
+        "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/learn/course_kdt_be_ver01/main_banner_back.png",
+        "receipt": "2021-07-09",
+        "schedule": "2021-07-31 ~ 2021-12-23"
+    },
+    {
+        "title": "프로그래머스 이벤트",
+        "head": "프로그래머스를 통해 입사한 개발자를 찾습니다",
+        "copy": "티셔츠, 마우스 패드 등 머쓱이의 선물박스를 받아가세요",
+        "url": "https://programmers.co.kr/events/brand-kit?utm_source=programmers&utm_medium=banner&utm_campaign=shiningbox_root&utm_content=shiningbox_img01",
+        "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/banner/133927/6b0e0ff0-f0d5-4fa9-ab82-88af7456e49f.png"
+    }
+]

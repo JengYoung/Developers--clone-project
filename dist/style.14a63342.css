@@ -1365,4 +1365,75 @@ button:hover {
   }
 }
 
+.contents {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.contents__container .contents__card-box {
+  position: relative;
+  overflow: hidden;
+}
+.contents__container .contents__card-box .contents__move-left,
+.contents__container .contents__card-box .contents__move-right {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 1.125rem);
+  background: black;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  padding: 0;
+  color: white;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.contents__container .contents__card-box .contents__move-left {
+  left: 1rem;
+}
+.contents__container .contents__card-box .contents__move-right {
+  right: 1rem;
+}
+.contents__container .contents__card-box .contents__cards {
+  display: inline-flex;
+}
+.contents__container .contents__card-box .contents__cards .contents__card .contents__card-item {
+  display: flex;
+  justify-content: space-between;
+  width: 1160px;
+  padding: 1.75rem 4rem;
+  box-sizing: border-box;
+  background: #051060;
+  border-radius: 0.75rem;
+}
+.contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info {
+  color: white;
+}
+.contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info .contents__title {
+  margin: 0;
+  padding-bottom: 1rem;
+  font-size: 12px;
+  font-weight: 400;
+}
+.contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info .contents__head {
+  margin: 0;
+  padding-bottom: 4rem;
+  max-width: 20rem;
+  word-break: keep-all;
+  font-size: 20px;
+}
+.contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info .contents__times {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #98a8b9;
+}
+.contents__container .contents__card-box .contents__cards .contents__link .contents__image {
+  max-height: 10rem;
+}
+
 /*# sourceMappingURL=/style.14a63342.css.map */

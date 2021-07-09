@@ -1275,3 +1275,81 @@ button {
         }
     }
 }
+
+.contents {
+    @include _setMarginAuto();
+    &__container {
+        .contents__card-box {
+            position: relative;
+            overflow: hidden;
+            .contents__move-left,
+            .contents__move-right {
+                display: flex;
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                top: calc(50% - 1.125rem);
+                background: black;
+                border-radius: 1.25rem;
+                font-size: 1rem;
+                padding: 0;
+                color: white;
+                width: 2.25rem;
+                height: 2.25rem;
+            }
+            .contents__move-left {
+                left: 1rem;
+            }
+            .contents__move-right {
+                right: 1rem;
+            }
+            .contents__cards {
+                display: inline-flex;
+                .contents__card {
+                    .contents__card-item {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 1160px;
+                        padding: 1.75rem 4rem;
+                        box-sizing: border-box;
+                        background: $contents-education-bgColor;
+                        border-radius: 0.75rem;
+                        .contents__info {
+                            color: white;
+                            .contents__title {
+                                margin: 0;
+                                padding-bottom: 1rem;
+                                font: {
+                                    size: $font-ms;
+                                    weight: 400;
+                                }
+                            }
+                            .contents__head {
+                                margin: 0;
+                                padding-bottom: 4rem;
+                                max-width: 20rem;
+                                word-break: keep-all;
+                                font-size: $font-xl;
+                            }
+                            .contents__times {
+                                margin: 0;
+                                display: flex;
+                                flex-direction: column;
+                                font: {
+                                    size: 0.9375rem;
+                                    weight: 400;
+                                }
+                                color: $job-gray-color;
+                            }
+                        }
+                    }
+                }
+                .contents__link {
+                    .contents__image {
+                        max-height: 10rem;
+                    }
+                }
+            }
+        }
+    }
+}

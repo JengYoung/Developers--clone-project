@@ -245,6 +245,22 @@ module.exports = [{
 }];
 },{}],"src/datas/partners-data.json":[function(require,module,exports) {
 module.exports = ["https://programmers.co.kr/packs/media/root_companies/img-logo-kakao-29655f01.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-line-7869c9a9.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-naver-8755e949.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-lguplus-76f23b23.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-11st-da268e71.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-deliveryhero-0b5c6ff3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-kakaocommerce-9f373b17.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-kakaoenterprise-58a8002b.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-woowahan-80f85ab6.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-netmarble-7651c92d.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-carrotmarket-1724127b.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-watcha-a5c69a81.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-socar-9fbafa25.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-vcnc-b6b3a360.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-estsoft-19f03130.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-krafton-f69264c3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dramacompany-f5547e4f.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-zigbang-d81361c3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-myrealtrip-8c2360f3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dreamus-36ccab9f.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-ea-676b2128.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dailyhotel-51cc330e.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-platfarm-5d6c435d.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-qara-55c57a86.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-smartstudy-6bb5ae9f.png"];
+},{}],"src/datas/contents-data.json":[function(require,module,exports) {
+module.exports = [{
+  "title": "무료 5개월 취업 연계 교육",
+  "head": "[모집중] 프로그래머스 데브코스 클라우드 기반 백엔드 엔지니어링",
+  "copy": null,
+  "url": "https://programmers.co.kr/learn/courses/12177",
+  "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/learn/course_kdt_be_ver01/main_banner_back.png",
+  "receipt": "2021-07-09",
+  "schedule": "2021-07-31 ~ 2021-12-23"
+}, {
+  "title": "프로그래머스 이벤트",
+  "head": "프로그래머스를 통해 입사한 개발자를 찾습니다",
+  "copy": "티셔츠, 마우스 패드 등 머쓱이의 선물박스를 받아가세요",
+  "url": "https://programmers.co.kr/events/brand-kit?utm_source=programmers&utm_medium=banner&utm_campaign=shiningbox_root&utm_content=shiningbox_img01",
+  "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/banner/133927/6b0e0ff0-f0d5-4fa9-ab82-88af7456e49f.png"
+}];
 },{}],"src/Throttle.ts":[function(require,module,exports) {
 "use strict";
 
@@ -900,6 +916,306 @@ var Footer = /*#__PURE__*/function () {
 }();
 
 exports.default = Footer;
+},{}],"src/contents.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Carousel = /*#__PURE__*/function () {
+  function Carousel(datas, blockName) {
+    _classCallCheck(this, Carousel);
+
+    this.datas = datas;
+    this.blockName = blockName;
+    this.num = 0;
+    this.windowWidth;
+    this.nowWidth;
+    this.moveWidth;
+    this.dataLength;
+  }
+
+  _createClass(Carousel, [{
+    key: "customCreateElement",
+    value: function customCreateElement(tag, name) {
+      var elem = document.createElement(tag);
+      elem.className = name;
+      return elem;
+    }
+  }, {
+    key: "customAppendChild",
+    value: function customAppendChild(parent) {
+      for (var _len = arguments.length, elems = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        elems[_key - 1] = arguments[_key];
+      }
+
+      [].concat(elems).map(function (elem) {
+        return parent.appendChild(elem);
+      });
+    }
+  }, {
+    key: "setWidth",
+    value: function setWidth(windowWidth) {
+      if (991 < windowWidth) {
+        return 1160;
+      } else if (991 < windowWidth && windowWidth <= 1200) {
+        return windowWidth - 56;
+      } else if (767 <= windowWidth && windowWidth <= 991) {
+        return windowWidth - 124;
+      } else if (574 < windowWidth && windowWidth < 767) {
+        return windowWidth / 2 - 45;
+      } else {
+        return windowWidth - 64;
+      }
+    }
+  }, {
+    key: "setMoveWidth",
+    value: function setMoveWidth(windowWidth) {
+      if (991 < windowWidth) {
+        return this.nowWidth + 16;
+      } else if (574 < windowWidth && windowWidth < 767) {
+        return this.nowWidth * 2 + 64;
+      } else {
+        return this.nowWidth + 32;
+      }
+    }
+  }, {
+    key: "setDataLength",
+    value: function setDataLength(windowWidth) {
+      if (windowWidth < 767) return Math.ceil(this.datas.length / 2);else return this.datas.length;
+    }
+  }, {
+    key: "setNum",
+    value: function setNum(windowWidth) {
+      var _this = this;
+
+      var res = 0;
+      document.querySelectorAll(".".concat(this.names.card)).forEach(function (card, idx) {
+        if (card.classList.contains("".concat(_this.names.card, "--active"))) {
+          res = idx;
+        }
+      });
+      if (windowWidth < 767) return Math.floor(res / 2);else return res;
+    }
+  }, {
+    key: "reRenderPageBtn",
+    value: function reRenderPageBtn() {
+      var $pageBtns = document.querySelector(".".concat(this.names.pageBtns));
+      var differenceCount = $pageBtns.children.length - this.dataLength;
+      if (!differenceCount) return;else if (differenceCount < 0) {
+        this.renderPageBtn(-differenceCount);
+      } else {
+        for (var i = 0; i < differenceCount; i++) {
+          var $pageBtn = document.querySelector(".".concat(this.names.pageBtn));
+          $pageBtns.removeChild($pageBtn);
+        }
+      }
+      this.checkActive(this.names.pageBtn);
+    }
+  }, {
+    key: "renderPageBtn",
+    value: function renderPageBtn(count) {
+      var $pageBtns = document.querySelector(".".concat(this.names.pageBtns));
+
+      for (var i = 0; i < count; i++) {
+        var $pageBtn = document.createElement('li');
+        $pageBtn.className = this.names.pageBtn;
+        $pageBtns.appendChild($pageBtn);
+      }
+
+      ;
+      this.checkActive(this.names.pageBtn);
+    }
+  }, {
+    key: "checkActive",
+    value: function checkActive(name) {
+      var _this2 = this;
+
+      var nodeList = document.querySelectorAll(".".concat(name));
+
+      if (this.nowWidth < 767 && name !== this.names.pageBtn) {
+        nodeList.forEach(function (node) {
+          node.classList.toggle("".concat(name, "--active"), node === nodeList[_this2.num * 2]);
+        });
+      } else {
+        nodeList.forEach(function (node) {
+          node.classList.toggle("".concat(name, "--active"), node === nodeList[_this2.num]);
+        });
+      }
+    }
+  }]);
+
+  return Carousel;
+}();
+
+var Content = /*#__PURE__*/function (_Carousel) {
+  _inherits(Content, _Carousel);
+
+  var _super = _createSuper(Content);
+
+  function Content(datas, blockName) {
+    var _this3;
+
+    _classCallCheck(this, Content);
+
+    _this3 = _super.call(this, datas, blockName);
+    _this3.datas = datas;
+    _this3.blockName = blockName;
+    _this3.names = {
+      link: "".concat(_this3.blockName, "__link"),
+      image: "".concat(_this3.blockName, "__image"),
+      info: "".concat(_this3.blockName, "__info"),
+      title: "".concat(_this3.blockName, "__title"),
+      head: "".concat(_this3.blockName, "__head"),
+      times: "".concat(_this3.blockName, "__times"),
+      periodReceipt: "".concat(_this3.blockName, "__period-receipt"),
+      periodTest: "".concat(_this3.blockName, "__period-test"),
+      pageBtn: "".concat(_this3.blockName, "__page-btn"),
+      pageBtns: "".concat(_this3.blockName, "__page-btns"),
+      card: "".concat(_this3.blockName, "__card"),
+      cards: "".concat(_this3.blockName, "__cards"),
+      moveBtn: "".concat(_this3.blockName, "__move-btn"),
+      leftBtn: "".concat(_this3.blockName, "__move-left"),
+      rightBtn: "".concat(_this3.blockName, "__move-right"),
+      cardItem: "".concat(_this3.blockName, "__card-item"),
+      schedule: "".concat(_this3.blockName, "__schedule")
+    };
+
+    _this3.initialize();
+
+    return _this3;
+  }
+
+  _createClass(Content, [{
+    key: "initialize",
+    value: function initialize() {
+      var _this4 = this;
+
+      this.windowWidth = window.innerWidth;
+      this.num = this.setNum(this.windowWidth);
+      this.nowWidth = this.setWidth(this.windowWidth);
+      this.moveWidth = this.setMoveWidth(this.windowWidth);
+      this.dataLength = this.setDataLength(this.windowWidth);
+      this.reRenderPageBtn();
+      this.datas.forEach(function (data) {
+        _this4.renderCard(data);
+      });
+    }
+  }, {
+    key: "HandleEvent",
+    value: function HandleEvent() {
+      function HandleMoveBtn(e) {
+        var $cards = document.querySelector(".".concat(this.names.cards));
+        var target = e.target;
+
+        if (this.num && target.classList.contains(this.names.leftBtn)) {
+          this.num--;
+        } else if (this.num !== this.dataLength - 1 && target.classList.contains(this.names.rightBtn)) {
+          this.num++;
+        } else return;
+
+        $cards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
+        this.checkActive(this.names.pageBtn);
+        this.checkActive(this.names.card);
+        this.checkDisable();
+      }
+
+      var pageBtn = document.querySelector(".".concat(this.names.pageBtn));
+      pageBtn.addEventListener('click', HandleMoveBtn.bind(this));
+    }
+  }, {
+    key: "renderCard",
+    value: function renderCard(data) {
+      function getSchedule(data) {
+        var arr = [];
+        var schedules = data.replace(" ", "").split('~');
+        var dayArr = ['일', '월', '화', '수', '목', '금', '토'];
+        schedules.forEach(function (schedule) {
+          var _schedule$split = schedule.split('-'),
+              _schedule$split2 = _slicedToArray(_schedule$split, 3),
+              year = _schedule$split2[0],
+              month = _schedule$split2[1],
+              day = _schedule$split2[2];
+
+          var date = new Date(schedule);
+          arr.push("".concat(month, ".").concat(day, ".(").concat(dayArr[date.getDay()], ")"));
+        });
+        if (arr.length === 1) return arr[0];
+        return arr.join(' ~ ');
+      }
+
+      var $cards = document.querySelector(".".concat(this.names.cards));
+      var $card = this.customCreateElement('li', this.names.card);
+      var $cardItem = this.customCreateElement('div', this.names.cardItem);
+      var $link = this.customCreateElement('a', this.names.link);
+      $link.setAttribute('href', data.url);
+      var $image = this.customCreateElement('img', this.names.image);
+      $image.setAttribute('src', data.image);
+      $image.setAttribute('alt', '프로그래머스 행사');
+      var $info = this.customCreateElement('div', this.names.info);
+      var $title = this.customCreateElement('h6', this.names.title);
+      $title.textContent = data.title;
+      console.log(data);
+      var $head = this.customCreateElement('h3', this.names.head);
+      $head.textContent = data.head;
+      var $times = this.customCreateElement('h4', this.names.times);
+      var $copy = data.copy ? this.customCreateElement('h6', "".concat(this.blockName, "__copy")) : null;
+      if ($copy) $copy.textContent = data.copy;
+      var $periodReceipt = data.receipt ? this.customCreateElement('span', this.names.periodReceipt) : null;
+      if ($periodReceipt) $periodReceipt.textContent = "\uC811\uC218 \uB9C8\uAC10: ".concat(getSchedule(data.receipt));
+      var $schedule = data.schedule ? this.customCreateElement('span', this.names.schedule) : null;
+      if ($schedule) $schedule.textContent = "\uC77C\uC815: ".concat(getSchedule(data.schedule));
+      if ($periodReceipt) this.customAppendChild($times, $periodReceipt);
+      if ($schedule) this.customAppendChild($times, $schedule);
+      this.customAppendChild($info, $title, $head, $times);
+      if ($copy) this.customAppendChild($info, $copy);
+      this.customAppendChild($link, $image);
+      this.customAppendChild($cardItem, $info, $link);
+      this.customAppendChild($card, $cardItem);
+      this.customAppendChild($cards, $card);
+    }
+  }]);
+
+  return Content;
+}(Carousel);
+
+exports.default = Content;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -911,6 +1227,8 @@ var _skillsData = _interopRequireDefault(require("./datas/skills-data.json"));
 
 var _partnersData = _interopRequireDefault(require("./datas/partners-data.json"));
 
+var _contentsData = _interopRequireDefault(require("./datas/contents-data.json"));
+
 var _Program = _interopRequireDefault(require("./Program"));
 
 var _Job = _interopRequireDefault(require("./Job"));
@@ -920,6 +1238,8 @@ var _About = _interopRequireDefault(require("./About"));
 var _Partners = _interopRequireDefault(require("./Partners"));
 
 var _Footer = _interopRequireDefault(require("./Footer"));
+
+var _contents = _interopRequireDefault(require("./contents"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -937,11 +1257,12 @@ window.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.header__sign-up-btn').addEventListener('click', openSignUpPage);
   new _Program.default(_programData.default);
   new _Job.default(_jobData.default, _skillsData.default);
+  new _contents.default(_contentsData.default, "contents");
   new _About.default();
   new _Partners.default(_partnersData.default);
   new _Footer.default();
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts","./Footer":"src/Footer.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./datas/contents-data.json":"src/datas/contents-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts","./Footer":"src/Footer.ts","./contents":"src/contents.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -969,7 +1290,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62371" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49467" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
