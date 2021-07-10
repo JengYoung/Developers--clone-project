@@ -247,6 +247,7 @@ module.exports = [{
 module.exports = ["https://programmers.co.kr/packs/media/root_companies/img-logo-kakao-29655f01.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-line-7869c9a9.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-naver-8755e949.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-lguplus-76f23b23.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-11st-da268e71.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-deliveryhero-0b5c6ff3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-kakaocommerce-9f373b17.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-kakaoenterprise-58a8002b.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-woowahan-80f85ab6.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-netmarble-7651c92d.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-carrotmarket-1724127b.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-watcha-a5c69a81.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-socar-9fbafa25.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-vcnc-b6b3a360.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-estsoft-19f03130.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-krafton-f69264c3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dramacompany-f5547e4f.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-zigbang-d81361c3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-myrealtrip-8c2360f3.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dreamus-36ccab9f.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-ea-676b2128.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-dailyhotel-51cc330e.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-platfarm-5d6c435d.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-qara-55c57a86.png", "https://programmers.co.kr/packs/media/root_companies/img-logo-smartstudy-6bb5ae9f.png"];
 },{}],"src/datas/contents-data.json":[function(require,module,exports) {
 module.exports = [{
+  "theme": "education",
   "title": "무료 5개월 취업 연계 교육",
   "head": "<p>[모집중] 프로그래머스 데브코스</p><p>클라우드 기반 백엔드 엔지니어링</p>",
   "copy": null,
@@ -255,6 +256,7 @@ module.exports = [{
   "receipt": "2021-07-09",
   "schedule": "2021-07-31 ~ 2021-12-23"
 }, {
+  "theme": "event",
   "title": "프로그래머스 이벤트",
   "head": "<p>프로그래머스를 통해</p><p>입사한 개발자를 찾습니다</p>",
   "copy": "<p>티셔츠, 마우스 패드 등</p><p>머쓱이의 선물박스를 받아가세요</p>",
@@ -1212,6 +1214,20 @@ var Content = /*#__PURE__*/function (_Carousel) {
       var $cards = document.querySelector(".".concat(this.names.cards));
       var $card = this.customCreateElement('li', this.names.card);
       var $cardItem = this.customCreateElement('div', this.names.cardItem);
+
+      switch (data.theme) {
+        case "education":
+          $cardItem.classList.add('education');
+          break;
+
+        case "event":
+          $cardItem.classList.add('event');
+          break;
+
+        default:
+          break;
+      }
+
       var $link = this.customCreateElement('a', this.names.link);
       $link.setAttribute('href', data.url);
       var $image = this.customCreateElement('img', this.names.image);
@@ -1230,9 +1246,10 @@ var Content = /*#__PURE__*/function (_Carousel) {
       if ($periodReceipt) $periodReceipt.textContent = "\uC811\uC218 \uB9C8\uAC10: ".concat(getSchedule(data.receipt));
       var $schedule = data.schedule ? this.customCreateElement('span', this.names.schedule) : null;
       if ($schedule) $schedule.textContent = "\uC77C\uC815: ".concat(getSchedule(data.schedule));
+      this.customAppendChild($info, $title, $head);
       if ($periodReceipt) this.customAppendChild($times, $periodReceipt);
       if ($schedule) this.customAppendChild($times, $schedule);
-      this.customAppendChild($info, $title, $head, $times);
+      if ($times.childNodes.length > 0) this.customAppendChild($info, $times);
       if ($copy) this.customAppendChild($info, $copy);
       this.customAppendChild($link, $image);
       this.customAppendChild($cardItem, $info, $link);

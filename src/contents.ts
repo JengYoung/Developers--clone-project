@@ -8,6 +8,7 @@ interface CarouselFormat {
 }
 
 interface DataFormat {
+    theme: string;
     title?: string;
     head: string;
     url: string;
@@ -245,7 +246,18 @@ export default class Content extends Carousel {
         }
         const $cards: HTMLElement = document.querySelector(`.${this.names.cards}`);
         const $card: HTMLElement = this.customCreateElement('li', this.names.card);
+
         const $cardItem = this.customCreateElement('div', this.names.cardItem);
+        switch(data.theme) {
+            case "education":
+                $cardItem.classList.add('education');
+                break;
+            case "event":
+                $cardItem.classList.add('event');
+                break;
+            default: 
+                break;
+        }
 
         const $link = this.customCreateElement('a', this.names.link);
         $link.setAttribute('href', data.url);
@@ -268,10 +280,12 @@ export default class Content extends Carousel {
         const $schedule = data.schedule ?  this.customCreateElement('span', this.names.schedule) : null;
         if ($schedule) $schedule.textContent = `일정: ${getSchedule(data.schedule)}`;
 
+        this.customAppendChild($info, $title, $head);
         if ($periodReceipt) this.customAppendChild($times, $periodReceipt);
         if ($schedule) this.customAppendChild($times, $schedule);
-        this.customAppendChild($info, $title, $head, $times);
+        if ($times.childNodes.length > 0) this.customAppendChild($info, $times);
         if ($copy) this.customAppendChild($info, $copy)
+
         this.customAppendChild($link, $image);
         this.customAppendChild($cardItem, $info, $link);
         this.customAppendChild($card, $cardItem);

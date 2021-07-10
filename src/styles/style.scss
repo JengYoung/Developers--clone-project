@@ -1316,13 +1316,19 @@ button {
                 transition: transform 0.3s;
                 .contents__card {
                     .contents__card-item {
+                        &.education {
+                            background: $contents-education-bgColor;
+                        }
+                        &.event {
+                            background: $contents-event-bgColor;
+                        }
                         display: flex;
                         justify-content: space-between;
                         // width: 1160px;
                         padding: 1.75rem 4rem;
                         box-sizing: border-box;
-                        background: $contents-education-bgColor;
                         border-radius: 0.75rem;
+                        height: 100%;
                         .contents__info {
                             color: white;
                             .contents__title {
@@ -1356,7 +1362,9 @@ button {
                     }
                 }
                 .contents__link {
+                    // width: 100%;
                     .contents__image {
+                        max-width: 100%;
                         max-height: 10rem;
                     }
                 }
@@ -1382,5 +1390,37 @@ button {
         position: absolute;
         bottom: 2rem;
         z-index: 99;
+    }
+    @include customMedia("mobile-and-tablet") {
+        &__container {
+            .contents__card-box {
+                .contents__cards {
+                    .contents__card {
+                        .contents__card-item {
+                            flex-direction: column;
+                            padding: 1.75rem 2rem;
+                            .contents__info {
+                                .contents__head {
+                                    padding-bottom: 2rem;
+                                    p {
+                                        font-size: 1.125rem;
+                                    }
+                                }
+                            }
+                            .contents__link {
+                                display: flex;
+                                justify-content: center;
+                            }
+                            .contents__times {
+                                padding-bottom: 2rem;
+                            }
+                            .contents__copy {
+                                padding-bottom: 2rem;
+                            }
+                        }                
+                    }
+                }
+            }
+        }
     }
 }
