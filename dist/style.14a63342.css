@@ -1374,11 +1374,13 @@ button:hover {
 .contents__container .contents__card-box {
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .contents__container .contents__card-box .contents__move-left,
 .contents__container .contents__card-box .contents__move-right {
   display: flex;
   position: absolute;
+  z-index: 99;
   justify-content: center;
   align-items: center;
   top: calc(50% - 1.125rem);
@@ -1393,16 +1395,22 @@ button:hover {
 .contents__container .contents__card-box .contents__move-left {
   left: 1rem;
 }
+.contents__container .contents__card-box .contents__move-left--disable {
+  display: none;
+}
 .contents__container .contents__card-box .contents__move-right {
   right: 1rem;
 }
+.contents__container .contents__card-box .contents__move-right--disable {
+  display: none;
+}
 .contents__container .contents__card-box .contents__cards {
   display: inline-flex;
+  transition: transform 0.3s;
 }
 .contents__container .contents__card-box .contents__cards .contents__card .contents__card-item {
   display: flex;
   justify-content: space-between;
-  width: 1160px;
   padding: 1.75rem 4rem;
   box-sizing: border-box;
   background: #051060;
@@ -1420,9 +1428,11 @@ button:hover {
 .contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info .contents__head {
   margin: 0;
   padding-bottom: 4rem;
-  max-width: 20rem;
   word-break: keep-all;
   font-size: 20px;
+}
+.contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info .contents__head p {
+  margin: 0;
 }
 .contents__container .contents__card-box .contents__cards .contents__card .contents__card-item .contents__info .contents__times {
   margin: 0;
@@ -1434,6 +1444,39 @@ button:hover {
 }
 .contents__container .contents__card-box .contents__cards .contents__link .contents__image {
   max-height: 10rem;
+}
+.contents__container .contents__card-box .contents__cards .contents__copy {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  max-width: 16rem;
+  word-break: keep-all;
+}
+.contents__container .contents__card-box .contents__cards .contents__copy p {
+  margin: 0;
+}
+.contents__page-btns {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 2rem;
+  z-index: 99;
+}
+.contents__page-btns li {
+  margin: 0 0.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: #D7E2EB;
+  transition: all 0.3s;
+}
+.contents__page-btns .contents__page-btn--active {
+  background: #0078FF;
+  width: 3rem;
 }
 
 /*# sourceMappingURL=/style.14a63342.css.map */

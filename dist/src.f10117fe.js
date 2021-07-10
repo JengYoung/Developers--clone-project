@@ -248,7 +248,7 @@ module.exports = ["https://programmers.co.kr/packs/media/root_companies/img-logo
 },{}],"src/datas/contents-data.json":[function(require,module,exports) {
 module.exports = [{
   "title": "무료 5개월 취업 연계 교육",
-  "head": "[모집중] 프로그래머스 데브코스 클라우드 기반 백엔드 엔지니어링",
+  "head": "<p>[모집중] 프로그래머스 데브코스</p><p>클라우드 기반 백엔드 엔지니어링</p>",
   "copy": null,
   "url": "https://programmers.co.kr/learn/courses/12177",
   "image": "https://grepp-cloudfront.s3.ap-northeast-2.amazonaws.com/programmers_imgs/learn/course_kdt_be_ver01/main_banner_back.png",
@@ -256,8 +256,8 @@ module.exports = [{
   "schedule": "2021-07-31 ~ 2021-12-23"
 }, {
   "title": "프로그래머스 이벤트",
-  "head": "프로그래머스를 통해 입사한 개발자를 찾습니다",
-  "copy": "티셔츠, 마우스 패드 등 머쓱이의 선물박스를 받아가세요",
+  "head": "<p>프로그래머스를 통해</p><p>입사한 개발자를 찾습니다</p>",
+  "copy": "<p>티셔츠, 마우스 패드 등</p><p>머쓱이의 선물박스를 받아가세요</p>",
   "url": "https://programmers.co.kr/events/brand-kit?utm_source=programmers&utm_medium=banner&utm_campaign=shiningbox_root&utm_content=shiningbox_img01",
   "image": "https://grepp-programmers.s3.amazonaws.com/image/origin/production/banner/133927/6b0e0ff0-f0d5-4fa9-ab82-88af7456e49f.png"
 }];
@@ -493,7 +493,7 @@ var Program = /*#__PURE__*/function () {
   }, {
     key: "setWidth",
     value: function setWidth(windowWidth) {
-      if (991 < windowWidth) {
+      if (1200 < windowWidth) {
         return 1160;
       } else if (991 < windowWidth && windowWidth <= 1200) {
         return windowWidth - 56;
@@ -992,33 +992,16 @@ var Carousel = /*#__PURE__*/function () {
   }, {
     key: "setWidth",
     value: function setWidth(windowWidth) {
-      if (991 < windowWidth) {
+      if (1200 < windowWidth) {
         return 1160;
-      } else if (991 < windowWidth && windowWidth <= 1200) {
-        return windowWidth - 56;
-      } else if (767 <= windowWidth && windowWidth <= 991) {
-        return windowWidth - 124;
-      } else if (574 < windowWidth && windowWidth < 767) {
-        return windowWidth / 2 - 45;
       } else {
-        return windowWidth - 64;
+        return windowWidth - 48;
       }
     }
   }, {
     key: "setMoveWidth",
     value: function setMoveWidth(windowWidth) {
-      if (991 < windowWidth) {
-        return this.nowWidth + 16;
-      } else if (574 < windowWidth && windowWidth < 767) {
-        return this.nowWidth * 2 + 64;
-      } else {
-        return this.nowWidth + 32;
-      }
-    }
-  }, {
-    key: "setDataLength",
-    value: function setDataLength(windowWidth) {
-      if (windowWidth < 767) return Math.ceil(this.datas.length / 2);else return this.datas.length;
+      return this.nowWidth;
     }
   }, {
     key: "setNum",
@@ -1119,6 +1102,10 @@ var Content = /*#__PURE__*/function (_Carousel) {
 
     _this3.initialize();
 
+    _this3.handleResize();
+
+    _this3.handleEvent();
+
     return _this3;
   }
 
@@ -1131,18 +1118,55 @@ var Content = /*#__PURE__*/function (_Carousel) {
       this.num = this.setNum(this.windowWidth);
       this.nowWidth = this.setWidth(this.windowWidth);
       this.moveWidth = this.setMoveWidth(this.windowWidth);
-      this.dataLength = this.setDataLength(this.windowWidth);
+      this.dataLength = this.datas.length;
       this.reRenderPageBtn();
       this.datas.forEach(function (data) {
         _this4.renderCard(data);
       });
+      this.checkDisable();
     }
   }, {
-    key: "HandleEvent",
-    value: function HandleEvent() {
+    key: "handleResize",
+    value: function handleResize() {
+      var _this5 = this;
+
+      console.log("무야호!");
+      this.initialize();
+      var $cardItem = document.querySelectorAll(".".concat(this.names.cardItem));
+      $cardItem.forEach(function (item) {
+        item.style.width = "".concat(_this5.nowWidth, "px");
+      });
+      var $cards = document.querySelector(".".concat(this.names.cards));
+      $cards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
+      console.log(this.nowWidth);
+    }
+  }, {
+    key: "checkDisable",
+    value: function checkDisable() {
+      document.querySelector(".".concat(this.names.leftBtn)).classList.toggle("".concat(this.names.leftBtn, "--disable"), !this.num);
+      document.querySelector(".".concat(this.names.rightBtn)).classList.toggle("".concat(this.names.rightBtn, "--disable"), this.num === this.dataLength - 1);
+    }
+  }, {
+    key: "handleEvent",
+    value: function handleEvent() {
+      function HandlePageBtn(e) {
+        var _this6 = this;
+
+        var target = e.target;
+        var pageBtns = document.querySelectorAll(".".concat(this.names.pageBtn));
+        var $cards = document.querySelector(".".concat(this.names.cards));
+        if (!target.classList.contains(this.names.pageBtn)) return;
+        pageBtns.forEach(function (btn, idx) {
+          btn.classList.toggle("".concat(_this6.names.pageBtn, "--active"), btn === target);
+          if (btn === target) _this6.num = idx;
+        });
+        $cards.style.transform = "translate(".concat(-this.moveWidth * this.num, "px, 0)");
+        this.checkDisable();
+      }
+
       function HandleMoveBtn(e) {
         var $cards = document.querySelector(".".concat(this.names.cards));
-        var target = e.target;
+        var target = e.currentTarget;
 
         if (this.num && target.classList.contains(this.names.leftBtn)) {
           this.num--;
@@ -1156,8 +1180,13 @@ var Content = /*#__PURE__*/function (_Carousel) {
         this.checkDisable();
       }
 
-      var pageBtn = document.querySelector(".".concat(this.names.pageBtn));
-      pageBtn.addEventListener('click', HandleMoveBtn.bind(this));
+      var $leftBtn = document.querySelector(".".concat(this.names.leftBtn));
+      var $rightBtn = document.querySelector(".".concat(this.names.rightBtn));
+      var $pageBtns = document.querySelector(".".concat(this.names.pageBtns));
+      $pageBtns.addEventListener('click', HandlePageBtn.bind(this));
+      $leftBtn.addEventListener('click', HandleMoveBtn.bind(this));
+      $rightBtn.addEventListener('click', HandleMoveBtn.bind(this));
+      window.addEventListener('resize', this.handleResize.bind(this));
     }
   }, {
     key: "renderCard",
@@ -1193,10 +1222,10 @@ var Content = /*#__PURE__*/function (_Carousel) {
       $title.textContent = data.title;
       console.log(data);
       var $head = this.customCreateElement('h3', this.names.head);
-      $head.textContent = data.head;
+      $head.innerHTML = data.head;
       var $times = this.customCreateElement('h4', this.names.times);
       var $copy = data.copy ? this.customCreateElement('h6', "".concat(this.blockName, "__copy")) : null;
-      if ($copy) $copy.textContent = data.copy;
+      if ($copy) $copy.innerHTML = data.copy;
       var $periodReceipt = data.receipt ? this.customCreateElement('span', this.names.periodReceipt) : null;
       if ($periodReceipt) $periodReceipt.textContent = "\uC811\uC218 \uB9C8\uAC10: ".concat(getSchedule(data.receipt));
       var $schedule = data.schedule ? this.customCreateElement('span', this.names.schedule) : null;
@@ -1290,7 +1319,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49467" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55071" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

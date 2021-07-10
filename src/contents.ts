@@ -1,7 +1,7 @@
 interface CarouselFormat {
     names: object;
     initialize(): void;
-    HandleEvent(): void;
+    handleEvent(): void;
     renderCard(data: DataFormat): void;
     customCreateElement(tag: string, name: string): HTMLElement;
     customAppendChild(parent: HTMLElement, ...elems: Array<HTMLElement>): void;
@@ -38,7 +38,7 @@ abstract class Carousel implements CarouselFormat {
     }
     abstract names: Names;
     abstract initialize(): void;
-    abstract HandleEvent(): void;
+    abstract handleEvent(): void;
     abstract renderCard(data: DataFormat): void;
     customCreateElement(tag: string, name: string): HTMLElement {
         const elem = document.createElement(tag);
@@ -53,19 +53,11 @@ abstract class Carousel implements CarouselFormat {
         /**
          * mobile-and-tablet에서만 조정수치가 달라짐.
          */
-        if (991 < windowWidth) {
+        if (1200 < windowWidth) {
             return 1160;
         }
-        else if (991 < windowWidth && windowWidth <= 1200) {
-            return (windowWidth - 56);
-        }
-        else if (767 <= windowWidth && windowWidth <= 991) {
-            return (windowWidth - 124);
-        }
-        else if (574 < windowWidth && windowWidth < 767) {
-            return (windowWidth) / 2 - 45;
-        } else {
-            return windowWidth - 64;
+        else {
+            return (windowWidth - 48);
         }
     }
 
@@ -74,21 +66,15 @@ abstract class Carousel implements CarouselFormat {
         /**
          * mobile-and-tablet에서만 조정수치가 달라짐.
          */
-        if (991 <windowWidth) {
-            return (this.nowWidth + 16);
-        }
-        else if (574 < windowWidth && windowWidth < 767) {
-            return (this.nowWidth * 2 + 64);
-        } else {
-            return (this.nowWidth + 32);
-        }
-    }
-
-    // 버튼 개수를 정한다.
-    protected setDataLength(windowWidth: number): number {
-        // mobile-and-tablet부터는 버튼이 1/2개로 줄어듦. (만약 9개라면, 올림을 해서 5개로 계산)
-        if (windowWidth < 767) return Math.ceil(this.datas.length / 2);
-        else return this.datas.length;
+         return (this.nowWidth);
+        // if (991 <windowWidth) {
+        //     return (this.nowWidth + 16);
+        // }
+        // else if (574 < windowWidth && windowWidth < 767) {
+        //     return (this.nowWidth * 2 + 64);
+        // } else {
+        //     return (this.nowWidth + 32);
+        // }
     }
 
     // num 숫자를 정한다. (버튼 active를 위해)
@@ -171,24 +157,58 @@ export default class Content extends Carousel {
             schedule: `${this.blockName}__schedule`
         }
         this.initialize();
+        this.handleResize();
+        this.handleEvent();
     }
     initialize() {
         this.windowWidth = window.innerWidth;
         this.num = this.setNum(this.windowWidth);
         this.nowWidth = this.setWidth(this.windowWidth);
         this.moveWidth = this.setMoveWidth(this.windowWidth);
-        this.dataLength = this.setDataLength(this.windowWidth);
+        this.dataLength = this.datas.length;
         this.reRenderPageBtn();
         this.datas.forEach((data: DataFormat) => {
             this.renderCard(data)
         })
+        this.checkDisable()
     }
-    
-    HandleEvent() {
+    handleResize() {
+        console.log("무야호!")
+        this.initialize();
+        const $cardItem: NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.cardItem}`);
+        $cardItem.forEach((item: HTMLElement) => {
+            item.style.width = `${this.nowWidth}px`;
+        })
+        const $cards:HTMLElement = document.querySelector(`.${this.names.cards}`);
+        $cards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
+        console.log(this.nowWidth);
+    }
+
+    checkDisable() {
+        document.querySelector(`.${this.names.leftBtn}`).classList.toggle(`${this.names.leftBtn}--disable`, !this.num);
+        document.querySelector(`.${this.names.rightBtn}`).classList.toggle(`${this.names.rightBtn}--disable`, this.num === this.dataLength - 1);
+    }
+    handleEvent() {
+        function HandlePageBtn(e:MouseEvent): void {
+
+            const target = e.target as HTMLElement;
+            const pageBtns:NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.pageBtn}`);
+            const $cards:HTMLElement = document.querySelector(`.${this.names.cards}`);
+
+            if (!target.classList.contains(this.names.pageBtn)) return;
+            pageBtns.forEach((btn, idx) => {
+                btn.classList.toggle(`${this.names.pageBtn}--active`, btn === target)
+                if (btn === target) this.num = idx;
+            })
+            // this.checkActive(this.names.pageBtn);
+
+            $cards.style.transform = `translate(${-this.moveWidth * this.num}px, 0)`;
+            this.checkDisable()
+        }
         function HandleMoveBtn(e:MouseEvent): void {
             const $cards:HTMLElement = document.querySelector(`.${this.names.cards}`);
 
-            const target = e.target as HTMLElement;
+            const target = e.currentTarget as HTMLElement;
             if (this.num && target.classList.contains(this.names.leftBtn)) {
                 this.num--;
             }  else if (this.num !==  this.dataLength - 1 && target.classList.contains(this.names.rightBtn)) {
@@ -201,8 +221,13 @@ export default class Content extends Carousel {
             this.checkActive(this.names.card);
             this.checkDisable()
         }
-        const pageBtn = document.querySelector(`.${this.names.pageBtn}`);
-        pageBtn.addEventListener('click', HandleMoveBtn.bind(this));
+        const $leftBtn = document.querySelector(`.${this.names.leftBtn}`);
+        const $rightBtn = document.querySelector(`.${this.names.rightBtn}`);
+        const $pageBtns = document.querySelector(`.${this.names.pageBtns}`);
+        $pageBtns.addEventListener('click', HandlePageBtn.bind(this));
+        $leftBtn.addEventListener('click', HandleMoveBtn.bind(this));
+        $rightBtn.addEventListener('click', HandleMoveBtn.bind(this));
+        window.addEventListener('resize', this.handleResize.bind(this));
     }
     renderCard(data: DataFormat) {
         // 접수 일정을 구함
@@ -233,10 +258,10 @@ export default class Content extends Carousel {
         $title.textContent = data.title;
         console.log(data)
         const $head = this.customCreateElement('h3', this.names.head);
-        $head.textContent = data.head;
+        $head.innerHTML = data.head;
         const $times = this.customCreateElement('h4', this.names.times);
         const $copy: HTMLElement = data.copy ? this.customCreateElement('h6', `${this.blockName}__copy`) : null;
-        if($copy) $copy.textContent = data.copy;
+        if($copy) $copy.innerHTML = data.copy;
 
         const $periodReceipt = data.receipt ? this.customCreateElement('span', this.names.periodReceipt) : null;
         if ($periodReceipt) $periodReceipt.textContent = `접수 마감: ${getSchedule(data.receipt)}`;

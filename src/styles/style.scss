@@ -1282,10 +1282,12 @@ button {
         .contents__card-box {
             position: relative;
             overflow: hidden;
+            box-sizing: border-box;
             .contents__move-left,
             .contents__move-right {
                 display: flex;
                 position: absolute;
+                z-index: 99;
                 justify-content: center;
                 align-items: center;
                 top: calc(50% - 1.125rem);
@@ -1299,17 +1301,24 @@ button {
             }
             .contents__move-left {
                 left: 1rem;
+                &--disable {
+                    display: none;
+                }
             }
             .contents__move-right {
                 right: 1rem;
+                &--disable {
+                    display: none;
+                }
             }
             .contents__cards {
                 display: inline-flex;
+                transition: transform 0.3s;
                 .contents__card {
                     .contents__card-item {
                         display: flex;
                         justify-content: space-between;
-                        width: 1160px;
+                        // width: 1160px;
                         padding: 1.75rem 4rem;
                         box-sizing: border-box;
                         background: $contents-education-bgColor;
@@ -1327,9 +1336,11 @@ button {
                             .contents__head {
                                 margin: 0;
                                 padding-bottom: 4rem;
-                                max-width: 20rem;
                                 word-break: keep-all;
                                 font-size: $font-xl;
+                                p {
+                                    margin: 0;
+                                }
                             }
                             .contents__times {
                                 margin: 0;
@@ -1349,7 +1360,27 @@ button {
                         max-height: 10rem;
                     }
                 }
+                .contents__copy {
+                    margin: 0;
+                    font: {
+                        size: 0.9375rem;
+                        weight: 400;
+                    }
+                    max-width: 16rem;
+                    word-break: keep-all;
+                    p {
+                        margin: 0;
+                    }
+                }
             }
         }
+    }
+    &__page-btns {
+        @include _setPageBtn('contents__page-btn');
+        padding: 0;
+        width: 100%;
+        position: absolute;
+        bottom: 2rem;
+        z-index: 99;
     }
 }

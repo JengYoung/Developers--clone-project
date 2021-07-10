@@ -204,7 +204,7 @@ export default class Program {
         /**
          * mobile-and-tablet에서만 조정수치가 달라짐.
          */
-        if (991 < windowWidth) {
+        if (1200 < windowWidth) {
             return 1160;
         }
         else if (991 < windowWidth && windowWidth <= 1200) {
