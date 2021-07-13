@@ -40,9 +40,16 @@ export default class About {
         const that = this;
         aboutCardArr.forEach((aboutCard:HTMLElement) => {
             aboutCard.addEventListener('click', function (e) {
+                const target = e.currentTarget as HTMLElement;
+                const idx = target.dataset.cardNumber;
                 aboutCardArr.forEach((elem) => {
                     elem.classList.toggle(`${that.names.aboutCard}--active`, elem === this);
                 })
+                const $imgBoxElems: NodeListOf<HTMLElement>= document.querySelectorAll(`.${that.names.aboutImageBox}`);
+                $imgBoxElems.forEach((elem:HTMLElement) => {
+                    elem.classList.toggle(`${that.names.aboutImageBox}--active`, idx === elem.dataset.imgNumber)
+                })
+                
             });
         })
     }
