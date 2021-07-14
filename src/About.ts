@@ -28,29 +28,30 @@ export default class About {
             $cardElems.forEach((elem:HTMLElement) => {
                 elem.classList.toggle(`${this.names.aboutCard}--active`, idx === elem.dataset.cardNumber)
             })
-            const $imgBoxElems: NodeListOf<HTMLElement>= document.querySelectorAll(`.${this.names.aboutImageBox}`);
-            $imgBoxElems.forEach((elem:HTMLElement) => {
-                elem.classList.toggle(`${this.names.aboutImageBox}--active`, idx === elem.dataset.imgNumber)
-            })
+            this.toggleImg(idx);
         })
     }
-    handleCardClick() {
-        if (window.innerWidth < 991) return;
+    handleCardClick():void {
+        // Event Delegation을 시도했으나, e.target이 button이 아닌 하위 요소들이 찍힘.
         const aboutCardArr: NodeListOf<HTMLElement> = document.querySelectorAll(`.${this.names.aboutCard}`);
+        
         const that = this;
         aboutCardArr.forEach((aboutCard:HTMLElement) => {
             aboutCard.addEventListener('click', function (e) {
+                if(window.matchMedia("(max-width: 990px)").matches) return;
                 const target = e.currentTarget as HTMLElement;
                 const idx = target.dataset.cardNumber;
                 aboutCardArr.forEach((elem) => {
                     elem.classList.toggle(`${that.names.aboutCard}--active`, elem === this);
                 })
-                const $imgBoxElems: NodeListOf<HTMLElement>= document.querySelectorAll(`.${that.names.aboutImageBox}`);
-                $imgBoxElems.forEach((elem:HTMLElement) => {
-                    elem.classList.toggle(`${that.names.aboutImageBox}--active`, idx === elem.dataset.imgNumber)
-                })
-                
+                that.toggleImg(idx);
             });
+        })
+    }
+    toggleImg(idx: string):void { 
+        const $imgBoxElems: NodeListOf<HTMLElement>= document.querySelectorAll(`.${this.names.aboutImageBox}`);
+        $imgBoxElems.forEach((elem:HTMLElement) => {
+            elem.classList.toggle(`${this.names.aboutImageBox}--active`, idx === elem.dataset.imgNumber)
         })
     }
 }

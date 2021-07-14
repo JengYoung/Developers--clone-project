@@ -277,7 +277,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -789,32 +789,37 @@ var About = /*#__PURE__*/function () {
         $cardElems.forEach(function (elem) {
           elem.classList.toggle("".concat(_this.names.aboutCard, "--active"), idx === elem.dataset.cardNumber);
         });
-        var $imgBoxElems = document.querySelectorAll(".".concat(_this.names.aboutImageBox));
-        $imgBoxElems.forEach(function (elem) {
-          elem.classList.toggle("".concat(_this.names.aboutImageBox, "--active"), idx === elem.dataset.imgNumber);
-        });
+
+        _this.toggleImg(idx);
       });
     }
   }, {
     key: "handleCardClick",
     value: function handleCardClick() {
-      if (window.innerWidth < 991) return;
       var aboutCardArr = document.querySelectorAll(".".concat(this.names.aboutCard));
       var that = this;
       aboutCardArr.forEach(function (aboutCard) {
         aboutCard.addEventListener('click', function (e) {
           var _this2 = this;
 
+          if (window.matchMedia("(max-width: 990px)").matches) return;
           var target = e.currentTarget;
           var idx = target.dataset.cardNumber;
           aboutCardArr.forEach(function (elem) {
             elem.classList.toggle("".concat(that.names.aboutCard, "--active"), elem === _this2);
           });
-          var $imgBoxElems = document.querySelectorAll(".".concat(that.names.aboutImageBox));
-          $imgBoxElems.forEach(function (elem) {
-            elem.classList.toggle("".concat(that.names.aboutImageBox, "--active"), idx === elem.dataset.imgNumber);
-          });
+          that.toggleImg(idx);
         });
+      });
+    }
+  }, {
+    key: "toggleImg",
+    value: function toggleImg(idx) {
+      var _this3 = this;
+
+      var $imgBoxElems = document.querySelectorAll(".".concat(this.names.aboutImageBox));
+      $imgBoxElems.forEach(function (elem) {
+        elem.classList.toggle("".concat(_this3.names.aboutImageBox, "--active"), idx === elem.dataset.imgNumber);
       });
     }
   }]);
@@ -942,7 +947,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -1314,7 +1319,7 @@ window.addEventListener('DOMContentLoaded', function () {
   new _Partners.default(_partnersData.default);
   new _Footer.default();
 });
-},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./datas/contents-data.json":"src/datas/contents-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts","./Footer":"src/Footer.ts","./contents":"src/contents.ts"}],"C:/Users/황재영/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./datas/program-data.json":"src/datas/program-data.json","./datas/job-data.json":"src/datas/job-data.json","./datas/skills-data.json":"src/datas/skills-data.json","./datas/partners-data.json":"src/datas/partners-data.json","./datas/contents-data.json":"src/datas/contents-data.json","./Program":"src/Program.ts","./Job":"src/Job.ts","./About":"src/About.ts","./Partners":"src/Partners.ts","./Footer":"src/Footer.ts","./contents":"src/contents.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1342,7 +1347,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56940" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51131" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1518,5 +1523,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/황재영/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
 //# sourceMappingURL=/src.f10117fe.js.map
